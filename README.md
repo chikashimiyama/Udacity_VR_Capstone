@@ -1,64 +1,62 @@
-Udacity_VR_Capstone
-===================
+Domain F
+========
 
-Udacity VR high immersion Capstone Project
-
- 
-
-Audio Visual Instrument
------------------------
+Play with audiovisual instrument
 
  
 
-In this VR experience, the user has a freedom to play with five different
-audiovisual instruments. All audio visual experience in this VR experience is
-GENERATIVE, meaning both visuals and sounds are created by the generative
-algorithms in realtime, There are no imported 3D models, textures, or audio
-samples. What you are seeing is what the intelligence of the algorithm instantly
-creates.
+by Chikashi Miyama Ph.D
+
+Udacity VR High Immersion Capstone Project
+
+ 
+
+What is this?
+-------------
+
+Domain F is a VR synthesizer. Based on the input from the user, the application
+not only generates synthetic sound but also visualizes it in realtime.
 
  
 
 Key Features
 ------------
 
-1.  Compute Shader based generative graphics
+1.  100% Generative Audio
 
-2.  Generative Audio (using [libPd64 ](https://github.com/djkoloski/libpd64))
+2.  100% Generative Video
 
-3.  The visuals are influenced by the Audio  ()
+3.  Intimate Audiovisual correlation
 
  
 
 Achievement
 -----------
 
- 
-
 ### Fundamentals
 
-2. Animation Achievement (100 pts)
+1.  Animation Achievement (100 pts)
 
-3. Lighting Achievement (100 pts)
+2.  Lighting Achievement (100 pts)
 
-5. Physics achievement (100 pts)
+3.  Physics achievement (100 pts)
 
-6. Video Player achievement (100 pts)
+4.  Video Player achievement (100 pts)
 
-7. Empathy Achievement (100 pts)
+5.  Empathy Achievement (100 pts)
 
  
 
 ### Completeness
 
-2. Diegetic UI achievement (250 pts)
+1.  Diegetic UI achievement (250 pts)
 
-3. Alternative Storyline achievement(250 pts)
+2.  Alternative Storyline achievement(250 pts)
 
-4. AI Achievement (250 pts)
+3.  AI Achievement (250 pts)
 
  
 
 ### Challenges
 
-3. Compute Shader achievement (500 pts)
+1.  Compute Shader achievement (500 pts)
