@@ -1,4 +1,4 @@
-Domain F
+Sound Sphere
 ========
 
 Play with audiovisual instrument
