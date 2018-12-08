@@ -411,6 +411,12 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/chikashi/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/Scene/NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/Plugins/NSubstitute.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

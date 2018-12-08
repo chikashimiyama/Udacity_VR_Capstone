@@ -2,12 +2,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+#pragma warning disable CS0649
+
 namespace DomainF
 {
 	public interface ITutorialBehaviour
 	{
 		void SetText(string text);
-		
+		void Open();
+		void Close();
 	}
 
 	public class TutorialBehaviour : MonoBehaviour, ITutorialBehaviour
@@ -31,6 +34,7 @@ namespace DomainF
 		{
 			tutorialPanel.SetActive(false);	
 		}
+		
 		public void OnNextButtonClicked()
 		{
 			
@@ -41,6 +45,8 @@ namespace DomainF
 			
 		}
 	}
+
+#pragma warning restore CS0649
 
  }
 
