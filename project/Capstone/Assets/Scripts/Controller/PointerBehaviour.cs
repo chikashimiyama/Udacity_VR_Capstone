@@ -4,8 +4,10 @@ namespace DomainF
 {
     public class PointerBehaviour : MonoBehaviour
     {
-        private LineRenderer laserPointer_;
+        [SerializeField] private GameObject targetSphere;
 
+        private LineRenderer laserPointer_;
+         
         private void Start()
         {
             laserPointer_ = GetComponentInChildren<LineRenderer>();
@@ -14,12 +16,9 @@ namespace DomainF
         private void Update()
         {
             laserPointer_.SetPosition(0, transform.position);
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 50))
-            {
-                Debug.Log("hit");
-                laserPointer_.SetPosition(1, hit.point);
-            }
+            var endPoint =  transform.forward * 30;
+            targetSphere.transform.position = endPoint;
+            laserPointer_.SetPosition(1, endPoint);
         }
     }
 

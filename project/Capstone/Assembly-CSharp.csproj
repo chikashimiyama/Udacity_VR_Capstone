@@ -55,6 +55,129 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DSP\PureDataPatch.cs" />
+    <Compile Include="Assets\Magicolo\!Examples\PureData\Scripts\PureDataContainerExample.cs" />
+    <Compile Include="Assets\Magicolo\!Examples\PureData\Scripts\PureDataSequenceExample.cs" />
+    <Compile Include="Assets\Magicolo\!Examples\PureData\Scripts\PureDataSoundExample.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\LibPD\LibPDNativeMessaging.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\LibPD\LibPDNativeMethods.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\LibPD\LibPDNativeMidi.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\LibPD\LibPdNativeUnity.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureData.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataBangReceiver.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataBridge.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataBus.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataBusManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataClip.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataClipManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataCommandParser.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataCommunicator.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataContainer.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataContainerItem.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataContainerItemInternal.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataContainerManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataDelegates.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataEditorHelper.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataEnums.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataFilterRead.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataFloatReceiver.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataGeneralSettings.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataHierarchyManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataIdManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataInfo.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataInfoManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataItem.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataItemManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataListener.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataListReceiver.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataMessageReceiver.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataOption.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataOptionValue.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataPatchManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataPlay.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataPluginManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataReceiver.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataReferences.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataScriptableIdManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequence.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequenceItem.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequenceManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequencePattern.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequenceSpatializer.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequenceStep.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequenceTrack.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSequenceTrackStep.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSetup.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSource.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSourceItem.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSourceManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSourceOrContainerItem.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSourceSpatializer.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSpatializer.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSpatializerBase.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSpatializerDoppler.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSpatializerManager.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSubContainer.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSwitcher.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSwitchSettings.cs" />
+    <Compile Include="Assets\Magicolo\AudioTools\PureData\PureDataSymbolReceiver.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\ButtonAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\ClampAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\CustomAttributeBase.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\DisableAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\MaxAttrinbute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\MinAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\MinMaxSliderAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\PopupAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\PropertyFieldAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\SeparatorAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\ShowPropertiesAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\CustomAttributes\SingleLineVectorAttribute.cs" />
+    <Compile Include="Assets\Magicolo\EditorTools\EditorHelper.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\CustomEnums.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\AnimationCurveExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\ArrayExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\AudioClipExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\AudioSourceExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\CameraExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\ColorExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\DelegateExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\DoubleExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\EnumExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\FloatExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\GameObjectExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\GUITextExtentions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\INamableExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\IntExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\LayerMaskExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\ListExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\MaterialExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\MonoBehaviourExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\ObjectExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\QuaternionExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\RectExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\RendererExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\Rigidbody2DExtension.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\RigidbodyExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\ScriptableObjectExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\SerializedPropertyExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\SpriteRendererExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\StringExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\TransformExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\TypeExtensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\Vector2Extensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\Vector3Extensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Extensions\Vector4Extensions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\HelperFunctions.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Interfaces\IIdentifiable.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Interfaces\INamable.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Interfaces\IShowable.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Interfaces\ISyncable.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Logger\Logger.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Logger\ScreenLogger.cs" />
+    <Compile Include="Assets\Magicolo\GeneralTools\Logger\ScreenLoggerLine.cs" />
     <Compile Include="Assets\Scripts\Behaviour\TutorialBehaviour.cs" />
     <Compile Include="Assets\Scripts\Controller\PointerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Controller\Tutorial.cs" />
@@ -234,6 +357,7 @@
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\Silhouette.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_ColorOut.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\SeeThru.shader" />
+    <None Include="Assets\Magicolo\README.txt" />
     <None Include="Assets\SteamVR\InteractionSystem\Readme_InteractionSystem.txt" />
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
@@ -400,6 +524,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/Plugins/NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
       <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -411,12 +538,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/chikashi/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute">
-      <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/Scene/NSubstitute.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute">
-      <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/Plugins/NSubstitute.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

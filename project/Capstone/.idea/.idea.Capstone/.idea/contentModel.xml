@@ -6,10 +6,187 @@
     <e p="C:\Users\chikashi\Development\UdacityVR\Udacity_VR_Capstone\project\Capstone" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets\DSP" t="Include">
+        <e p="PureDataPatch.cs" t="Include" />
+      </e>
       <e p="Assets\Editor" t="Include">
         <e p="UnitTest" t="Include">
           <e p="UnitTest_Tutorial.cs" t="Include" />
         </e>
+      </e>
+      <e p="Assets\Magicolo" t="Include">
+        <e p="!Examples" t="Include">
+          <e p="PureData" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="PureDataContainerExample.cs" t="Include" />
+              <e p="PureDataSequenceExample.cs" t="Include" />
+              <e p="PureDataSoundExample.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="AudioTools" t="Include">
+          <e p="PureData" t="Include">
+            <e p="Editor" t="Include">
+              <e p="PureDataCustomMenu.cs" t="Include" />
+              <e p="PureDataEditor.cs" t="Include" />
+              <e p="PureDataSetupEditor.cs" t="Include" />
+            </e>
+            <e p="LibPD" t="Include">
+              <e p="LibPDNativeMessaging.cs" t="Include" />
+              <e p="LibPDNativeMethods.cs" t="Include" />
+              <e p="LibPDNativeMidi.cs" t="Include" />
+              <e p="LibPdNativeUnity.cs" t="Include" />
+            </e>
+            <e p="PureData.cs" t="Include" />
+            <e p="PureDataBangReceiver.cs" t="Include" />
+            <e p="PureDataBridge.cs" t="Include" />
+            <e p="PureDataBus.cs" t="Include" />
+            <e p="PureDataBusManager.cs" t="Include" />
+            <e p="PureDataClip.cs" t="Include" />
+            <e p="PureDataClipManager.cs" t="Include" />
+            <e p="PureDataCommandParser.cs" t="Include" />
+            <e p="PureDataCommunicator.cs" t="Include" />
+            <e p="PureDataContainer.cs" t="Include" />
+            <e p="PureDataContainerItem.cs" t="Include" />
+            <e p="PureDataContainerItemInternal.cs" t="Include" />
+            <e p="PureDataContainerManager.cs" t="Include" />
+            <e p="PureDataDelegates.cs" t="Include" />
+            <e p="PureDataEditorHelper.cs" t="Include" />
+            <e p="PureDataEnums.cs" t="Include" />
+            <e p="PureDataFilterRead.cs" t="Include" />
+            <e p="PureDataFloatReceiver.cs" t="Include" />
+            <e p="PureDataGeneralSettings.cs" t="Include" />
+            <e p="PureDataHierarchyManager.cs" t="Include" />
+            <e p="PureDataIdManager.cs" t="Include" />
+            <e p="PureDataInfo.cs" t="Include" />
+            <e p="PureDataInfoManager.cs" t="Include" />
+            <e p="PureDataItem.cs" t="Include" />
+            <e p="PureDataItemManager.cs" t="Include" />
+            <e p="PureDataListener.cs" t="Include" />
+            <e p="PureDataListReceiver.cs" t="Include" />
+            <e p="PureDataMessageReceiver.cs" t="Include" />
+            <e p="PureDataOption.cs" t="Include" />
+            <e p="PureDataOptionValue.cs" t="Include" />
+            <e p="PureDataPatchManager.cs" t="Include" />
+            <e p="PureDataPlay.cs" t="Include" />
+            <e p="PureDataPluginManager.cs" t="Include" />
+            <e p="PureDataReceiver.cs" t="Include" />
+            <e p="PureDataReferences.cs" t="Include" />
+            <e p="PureDataScriptableIdManager.cs" t="Include" />
+            <e p="PureDataSequence.cs" t="Include" />
+            <e p="PureDataSequenceItem.cs" t="Include" />
+            <e p="PureDataSequenceManager.cs" t="Include" />
+            <e p="PureDataSequencePattern.cs" t="Include" />
+            <e p="PureDataSequenceSpatializer.cs" t="Include" />
+            <e p="PureDataSequenceStep.cs" t="Include" />
+            <e p="PureDataSequenceTrack.cs" t="Include" />
+            <e p="PureDataSequenceTrackStep.cs" t="Include" />
+            <e p="PureDataSetup.cs" t="Include" />
+            <e p="PureDataSource.cs" t="Include" />
+            <e p="PureDataSourceItem.cs" t="Include" />
+            <e p="PureDataSourceManager.cs" t="Include" />
+            <e p="PureDataSourceOrContainerItem.cs" t="Include" />
+            <e p="PureDataSourceSpatializer.cs" t="Include" />
+            <e p="PureDataSpatializer.cs" t="Include" />
+            <e p="PureDataSpatializerBase.cs" t="Include" />
+            <e p="PureDataSpatializerDoppler.cs" t="Include" />
+            <e p="PureDataSpatializerManager.cs" t="Include" />
+            <e p="PureDataSubContainer.cs" t="Include" />
+            <e p="PureDataSwitcher.cs" t="Include" />
+            <e p="PureDataSwitchSettings.cs" t="Include" />
+            <e p="PureDataSymbolReceiver.cs" t="Include" />
+          </e>
+        </e>
+        <e p="EditorTools" t="Include">
+          <e p="CustomAttributes" t="Include">
+            <e p="ButtonAttribute.cs" t="Include" />
+            <e p="ClampAttribute.cs" t="Include" />
+            <e p="CustomAttributeBase.cs" t="Include" />
+            <e p="DisableAttribute.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="AttributeUtility.cs" t="Include" />
+              <e p="ButtonDrawer.cs" t="Include" />
+              <e p="ClampDrawer.cs" t="Include" />
+              <e p="CustomAttributePropertyDrawerBase.cs" t="Include" />
+              <e p="DisableDrawer.cs" t="Include" />
+              <e p="MaxDrawer.cs" t="Include" />
+              <e p="MinDrawer.cs" t="Include" />
+              <e p="MinMaxSliderDrawer.cs" t="Include" />
+              <e p="PopupDrawer.cs" t="Include" />
+              <e p="PropertyFieldDrawer.cs" t="Include" />
+              <e p="SeparatorDrawer.cs" t="Include" />
+              <e p="ShowPropertiesDrawer.cs" t="Include" />
+              <e p="SingleLineVectorDrawer.cs" t="Include" />
+            </e>
+            <e p="MaxAttrinbute.cs" t="Include" />
+            <e p="MinAttribute.cs" t="Include" />
+            <e p="MinMaxSliderAttribute.cs" t="Include" />
+            <e p="PopupAttribute.cs" t="Include" />
+            <e p="PropertyFieldAttribute.cs" t="Include" />
+            <e p="SeparatorAttribute.cs" t="Include" />
+            <e p="ShowPropertiesAttribute.cs" t="Include" />
+            <e p="SingleLineVectorAttribute.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="CustomEditorBase.cs" t="Include" />
+            <e p="CustomPropertyDrawerBase.cs" t="Include" />
+            <e p="CustomWindowBase.cs" t="Include" />
+          </e>
+          <e p="EditorHelper.cs" t="Include" />
+        </e>
+        <e p="GeneralTools" t="Include">
+          <e p="CustomEnums.cs" t="Include" />
+          <e p="Extensions" t="Include">
+            <e p="AnimationCurveExtensions.cs" t="Include" />
+            <e p="ArrayExtensions.cs" t="Include" />
+            <e p="AudioClipExtensions.cs" t="Include" />
+            <e p="AudioSourceExtensions.cs" t="Include" />
+            <e p="CameraExtensions.cs" t="Include" />
+            <e p="ColorExtensions.cs" t="Include" />
+            <e p="ComponentExtensions.cs" t="Include" />
+            <e p="DelegateExtensions.cs" t="Include" />
+            <e p="DictionaryExtensions.cs" t="Include" />
+            <e p="DoubleExtensions.cs" t="Include" />
+            <e p="EnumExtensions.cs" t="Include" />
+            <e p="FloatExtensions.cs" t="Include" />
+            <e p="GameObjectExtensions.cs" t="Include" />
+            <e p="GUITextExtentions.cs" t="Include" />
+            <e p="INamableExtensions.cs" t="Include" />
+            <e p="IntExtensions.cs" t="Include" />
+            <e p="LayerMaskExtensions.cs" t="Include" />
+            <e p="ListExtensions.cs" t="Include" />
+            <e p="MaterialExtensions.cs" t="Include" />
+            <e p="MonoBehaviourExtensions.cs" t="Include" />
+            <e p="ObjectExtensions.cs" t="Include" />
+            <e p="QuaternionExtensions.cs" t="Include" />
+            <e p="RectExtensions.cs" t="Include" />
+            <e p="RendererExtensions.cs" t="Include" />
+            <e p="Rigidbody2DExtension.cs" t="Include" />
+            <e p="RigidbodyExtensions.cs" t="Include" />
+            <e p="ScriptableObjectExtensions.cs" t="Include" />
+            <e p="SerializedPropertyExtensions.cs" t="Include" />
+            <e p="SpriteRendererExtensions.cs" t="Include" />
+            <e p="StringExtensions.cs" t="Include" />
+            <e p="TransformExtensions.cs" t="Include" />
+            <e p="TypeExtensions.cs" t="Include" />
+            <e p="Vector2Extensions.cs" t="Include" />
+            <e p="Vector3Extensions.cs" t="Include" />
+            <e p="Vector4Extensions.cs" t="Include" />
+          </e>
+          <e p="HelperFunctions.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="IIdentifiable.cs" t="Include" />
+            <e p="INamable.cs" t="Include" />
+            <e p="IShowable.cs" t="Include" />
+            <e p="ISyncable.cs" t="Include" />
+          </e>
+          <e p="Logger" t="Include">
+            <e p="Logger.cs" t="Include" />
+            <e p="ScreenLogger.cs" t="Include" />
+            <e p="ScreenLoggerLine.cs" t="Include" />
+          </e>
+        </e>
+        <e p="readme.txt" t="Include" />
       </e>
       <e p="Assets\Scripts" t="Include">
         <e p="Behaviour" t="Include">
