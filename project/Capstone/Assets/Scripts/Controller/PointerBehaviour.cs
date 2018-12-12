@@ -20,6 +20,11 @@ namespace DomainF
             targetSphere.transform.position = endPoint;
             laserPointer_.SetPosition(1, endPoint);
         }
+
+        public void OnButtonChanged()
+        {
+            
+        }
     }
 
 

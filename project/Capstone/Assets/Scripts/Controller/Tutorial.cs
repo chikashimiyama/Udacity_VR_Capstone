@@ -32,9 +32,7 @@ namespace DomainF
             if(index_ < instructions_.Length)
                 tutorialBehaviour_.SetText(instructions_[index_++]);
             else
-            {
                 tutorialBehaviour_.Close();
-            }
         }
         
         public void Terminate()

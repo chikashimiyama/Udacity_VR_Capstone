@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-#pragma warning disable CS0649
+#pragma warning disable 0649
 
 namespace DomainF
 {
@@ -46,7 +46,7 @@ namespace DomainF
 		}
 	}
 
-#pragma warning restore CS0649
+#pragma warning restore 0649
 
  }
 

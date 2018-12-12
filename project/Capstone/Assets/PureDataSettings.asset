@@ -29,7 +29,41 @@ MonoBehaviour:
   m_Name: Sequences
   m_EditorClassIdentifier: 
   containerPath: 
-  sequences: []
+  sequences:
+  - name: default
+    id: 1
+    volume: 1
+    output: Master
+    loop: 0
+    sleepTime: 1
+    steps:
+    - tempo: 0
+      beats: 0
+    - tempo: 0
+      beats: 0
+    - tempo: 0
+      beats: 0
+    - tempo: 0
+      beats: 0
+    tracks:
+    - id: 1
+      instrumentPatchPath: 
+      steps:
+      - patternIndex: -1
+      - patternIndex: -1
+      - patternIndex: -1
+      - patternIndex: -1
+      patterns: []
+      pureData: {fileID: 0}
+    spatializer:
+      name: 
+      showing: 0
+      pureData: {fileID: 0}
+      volumeRolloffMode: 0
+      minDistance: 1
+      maxDistance: 500
+      panLevel: 0.75
+    pureData: {fileID: 0}
   pureData: {fileID: 0}
 --- !u!114 &114502360978032942
 MonoBehaviour:
@@ -42,7 +76,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aaf2398f13fd57499b3108e7c0c638c, type: 3}
   m_Name: Containers
   m_EditorClassIdentifier: 
-  containers: []
+  containers:
+  - name: default
+    type: 0
+    switchSettings:
+      stateHolderObjectId: 0
+      stateHolderComponentId: 0
+      statePath: 
+      stateName: 
+      stateIndex: 0
+      pureData: {fileID: 0}
+    subContainers: []
+    idCounter: 0
+    childrenIds: 
+    pureData: {fileID: 0}
   pureData: {fileID: 0}
 --- !u!114 &114793177398133756
 MonoBehaviour:
