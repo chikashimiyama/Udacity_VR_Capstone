@@ -6,7 +6,8 @@ namespace UnitTests
 {
     [TestFixture]
     public class UnitTest_StateAssigner
-    {        
+    {
+        private IPureDataFacade pureDataFacadeMock_;
         private IControllerState carrierStateMock_, modulatorStateMock_;
         private IControllerStateFactory controllerStateFactoryMock_;
         
@@ -16,18 +17,19 @@ namespace UnitTests
         [SetUp]
         public void SetUp()
         {
+            pureDataFacadeMock_ = Substitute.For<IPureDataFacade>();
             controllerStateFactoryMock_ = Substitute.For<IControllerStateFactory>();
-            controllerStateFactoryMock_.CreateCarrierState().Returns(carrierStateMock_);
-            controllerStateFactoryMock_.CreateModulatorState().Returns(modulatorStateMock_);
+            controllerStateFactoryMock_.CreateCarrierState(pureDataFacadeMock_).Returns(carrierStateMock_);
+            controllerStateFactoryMock_.CreateModulatorState(pureDataFacadeMock_).Returns(modulatorStateMock_);
 
-            stateAssigner_ = new StateAssigner(controllerStateFactoryMock_);
+            stateAssigner_ = new StateAssigner(pureDataFacadeMock_, controllerStateFactoryMock_);
         }
 
         [Test]
         public void Construction()
         {
-            controllerStateFactoryMock_.Received(1).CreateCarrierState();
-            controllerStateFactoryMock_.Received(1).CreateModulatorState();
+            controllerStateFactoryMock_.Received(1).CreateCarrierState(pureDataFacadeMock_);
+            controllerStateFactoryMock_.Received(1).CreateModulatorState(pureDataFacadeMock_);
         }
 
         [Test]

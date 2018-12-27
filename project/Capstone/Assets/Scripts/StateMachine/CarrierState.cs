@@ -2,29 +2,33 @@ namespace DomainF
 {
     public class CarrierState : IControllerState
     {
+        private IPureDataFacade pureDataFacade_;
+
+        public CarrierState(IPureDataFacade pureDataFacade)
+        {
+            pureDataFacade_ = pureDataFacade;
+        }
+        
         public void OnStateSelected()
         {
-            throw new System.NotImplementedException();
         }
 
         public void OnStateDeselected()
         {
-            throw new System.NotImplementedException();
         }
 
         public void OnTriggerPressed()
         {
-            throw new System.NotImplementedException();
+            pureDataFacade_.SendMessage("note", 1.0f);
         }
 
         public void OnTriggerReleased()
         {
-            throw new System.NotImplementedException();
+            pureDataFacade_.SendMessage("note", 0.0f);
         }
 
         public void OnThumbStickUpdated()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -13,11 +13,11 @@ namespace DomainF
 
         private object carrierController_;
 
-        public StateAssigner(IControllerStateFactory controllerStateFactory = null)
+        public StateAssigner(IPureDataFacade pureDataFacade, IControllerStateFactory controllerStateFactory = null)
         {
             var stateFactory = controllerStateFactory ?? new ControllerStateFactory();
-            carrierState_ = stateFactory.CreateCarrierState();
-            modulatorState_ = stateFactory.CreateModulatorState();
+            carrierState_ = stateFactory.CreateCarrierState(pureDataFacade);
+            modulatorState_ = stateFactory.CreateModulatorState(pureDataFacade);
         }
 
         public IControllerState Assign(object controller)

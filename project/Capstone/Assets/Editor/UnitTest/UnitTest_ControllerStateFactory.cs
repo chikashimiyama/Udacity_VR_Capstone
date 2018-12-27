@@ -1,5 +1,5 @@
 using DomainF;
-using JetBrains.Annotations;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace UnitTests
@@ -18,7 +18,7 @@ namespace UnitTests
         [Test]
         public void CreateCarrierState()
         {
-            var carrierState = ControllerStateFactory_.CreateCarrierState();
+            var carrierState = ControllerStateFactory_.CreateCarrierState(Arg.Any<IPureDataFacade>());
             Assert.True(carrierState != null);
             Assert.DoesNotThrow(()=>
             {
@@ -29,7 +29,7 @@ namespace UnitTests
         [Test]
         public void CreateModulatorState()
         {
-            var modulatorState = ControllerStateFactory_.CreateModulatorState();
+            var modulatorState = ControllerStateFactory_.CreateModulatorState(Arg.Any<IPureDataFacade>());
             Assert.True(modulatorState != null);
             Assert.DoesNotThrow(()=>
             {
