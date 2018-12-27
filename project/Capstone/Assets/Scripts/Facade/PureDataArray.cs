@@ -2,18 +2,18 @@ using LibPDBinding;
 
 namespace DomainF
 {
-    public interface IPureDataArray
+    public interface IPureDataArrayFacade
     {
         void Update();
         float[] Get();
     }
 
-    public class PureDataArray : IPureDataArray
+    public class PureDataArrayFacade : IPureDataArrayFacade
     {
         private readonly string name_;
         private readonly float[] data_;
         
-        public PureDataArray(string name, int size)
+        public PureDataArrayFacade(string name, int size)
         {
             name_ = name;
             data_ = new float[size];

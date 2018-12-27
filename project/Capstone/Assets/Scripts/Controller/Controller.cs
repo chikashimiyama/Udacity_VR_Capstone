@@ -4,38 +4,32 @@ namespace DomainF
     public class Controller 
     {
         private IControllerState currentState_;
-        private IControllerBehaviour controllerBehaviour_;
         private readonly IStateAssigner stateAssigner_;
         
         public Controller(IStateAssigner stateAssigner, IControllerBehaviour controllerBehaviour)
         {
             stateAssigner_ = stateAssigner;
-            controllerBehaviour_ = controllerBehaviour;
+            controllerBehaviour.TriggerPressed += OnTriggerPressed;
+            controllerBehaviour.TriggerReleased += OnTriggerReleased;
         }
-
 
         private void OnTriggerPressed()
         {
-            
-        }
-
-        private void OnTriggerRelease()
-        {
-            
-        }
-                
-        private void Activate()
-        {
             var nextState = stateAssigner_.Assign(this);
-            currentState_.OnStateDeselected();
+
+            if (currentState_ == nextState) return;
+            
+            if(currentState_ != null)
+                currentState_.OnStateDeselected();
             currentState_ = nextState;
             currentState_.OnStateSelected();
         }
 
-        private void Deactivate()
+        private void OnTriggerReleased()
         {
             stateAssigner_.Unassign(this);
         }
+
 
     }
 }

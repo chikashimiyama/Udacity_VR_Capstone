@@ -11,6 +11,11 @@
       </e>
       <e p="Assets\Editor" t="Include">
         <e p="UnitTest" t="Include">
+          <e p="UnitTest_CarrierState.cs" t="Include" />
+          <e p="UnitTest_Controller.cs" t="Include" />
+          <e p="UnitTest_ControllerStateFactory.cs" t="Include" />
+          <e p="UnitTest_ModulatorState.cs" t="Include" />
+          <e p="UnitTest_StateAssigner.cs" t="Include" />
           <e p="UnitTest_Tutorial.cs" t="Include" />
         </e>
       </e>
@@ -192,18 +197,16 @@
         <e p="Behaviour" t="Include">
           <e p="ControllerBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
-          <e p="PointerBehaviour.cs" t="Include" />
-          <e p="PureDataArray.cs" t="Include" />
           <e p="TutorialBehaviour.cs" t="Include" />
-          <e p="Waterfall.cs" t="Include" />
         </e>
         <e p="Controller" t="Include">
           <e p="Controller.cs" t="Include" />
           <e p="StateAssigner.cs" t="Include" />
           <e p="Tutorial.cs" t="Include" />
+          <e p="Waterfall.cs" t="Include" />
         </e>
-        <e p="Enums" t="Include">
-          <e p="State.cs" t="Include" />
+        <e p="Facade" t="Include">
+          <e p="PureDataArray.cs" t="Include" />
         </e>
         <e p="StateMachine" t="Include">
           <e p="CarrierState.cs" t="Include" />
@@ -472,9 +475,6 @@
         </e>
         <e p="SteamVR_Input_Actions.cs" t="Include" />
         <e p="SteamVR_Input_ActionSets.cs" t="Include" />
-      </e>
-      <e p="Assets\UnitTests" t="Include">
-        <e p="UnitTest_Tutorial.cs" t="Include" />
       </e>
       <e p="Capstone.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

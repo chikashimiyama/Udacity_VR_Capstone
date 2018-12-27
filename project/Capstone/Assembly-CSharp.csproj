@@ -180,14 +180,12 @@
     <Compile Include="Assets\Magicolo\GeneralTools\Logger\ScreenLoggerLine.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ControllerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\MainBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Behaviour\PointerBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Behaviour\PureDataArray.cs" />
     <Compile Include="Assets\Scripts\Behaviour\TutorialBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Behaviour\Waterfall.cs" />
     <Compile Include="Assets\Scripts\Controller\Controller.cs" />
     <Compile Include="Assets\Scripts\Controller\StateAssigner.cs" />
     <Compile Include="Assets\Scripts\Controller\Tutorial.cs" />
-    <Compile Include="Assets\Scripts\Enums\State.cs" />
+    <Compile Include="Assets\Scripts\Controller\Waterfall.cs" />
+    <Compile Include="Assets\Scripts\Facade\PureDataArray.cs" />
     <Compile Include="Assets\Scripts\StateMachine\CarrierState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ControllerStateFactory.cs" />
     <Compile Include="Assets\Scripts\StateMachine\IControllerState.cs" />
@@ -355,7 +353,6 @@
     <Compile Include="Assets\SteamVR_Input\ActionObjects\SteamVR_Input_ActionSet_domainF_Out.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Actions.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
-    <Compile Include="Assets\UnitTests\UnitTest_Tutorial.cs" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />
