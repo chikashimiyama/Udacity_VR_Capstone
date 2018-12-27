@@ -22,13 +22,12 @@ namespace DomainF
 
         public IControllerState Assign(object controller)
         {
-            if (carrierController_ == null)
-            {
-                carrierController_ = controller;
-                return carrierState_;
-            }
+            if (carrierController_ != null) 
+                return modulatorState_;
+            
+            carrierController_ = controller;
+            return carrierState_;
 
-            return modulatorState_;
         }
 
         public void Unassign(object controller)
