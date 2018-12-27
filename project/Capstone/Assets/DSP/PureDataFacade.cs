@@ -10,7 +10,7 @@ namespace DomainF
 	{	
 		public PureDataFacade()
 		{
-			PureData.OpenPatch("main.pd");
+			PureData.OpenPatch("main");
 		}
 
 		public void SendMessage<T>(string receiveName, T value)

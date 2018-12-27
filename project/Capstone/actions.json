@@ -13,10 +13,6 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/GrabGrip",
-      "type": "boolean"
-    },
-    {
       "name": "/actions/default/in/Pose",
       "type": "pose"
     },

@@ -4,8 +4,8 @@ namespace DomainF
 {
     public class MainBehaviour : MonoBehaviour
     {
-        [SerializeField] private IControllerBehaviour leftControllerBehaviour;
-        [SerializeField] private IControllerBehaviour rightControllerBehaviour;
+        [SerializeField] private ControllerBehaviour leftControllerBehaviour;
+        [SerializeField] private ControllerBehaviour rightControllerBehaviour;
 
         private StateAssigner stateAssigner_;
         private Controller leftController_;
