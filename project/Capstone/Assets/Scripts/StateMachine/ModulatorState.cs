@@ -11,22 +11,11 @@ namespace DomainF
         
         public void OnStateSelected()
         {
-            throw new System.NotImplementedException();
         }
 
         public void OnStateDeselected()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnTriggerPressed()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnTriggerReleased()
-        {
-            throw new System.NotImplementedException();
+            
         }
 
         public void OnThumbStickUpdated()

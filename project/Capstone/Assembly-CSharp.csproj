@@ -189,6 +189,7 @@
     <Compile Include="Assets\Scripts\StateMachine\CarrierState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ControllerStateFactory.cs" />
     <Compile Include="Assets\Scripts\StateMachine\IControllerState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\IdleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ModulatorState.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_TestThrow.cs" />

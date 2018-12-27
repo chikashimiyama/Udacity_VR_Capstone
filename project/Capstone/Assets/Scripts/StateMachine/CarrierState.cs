@@ -11,18 +11,10 @@ namespace DomainF
         
         public void OnStateSelected()
         {
-        }
-
-        public void OnStateDeselected()
-        {
-        }
-
-        public void OnTriggerPressed()
-        {
             pureDataFacade_.SendMessage("note", 1.0f);
         }
 
-        public void OnTriggerReleased()
+        public void OnStateDeselected()
         {
             pureDataFacade_.SendMessage("note", 0.0f);
         }

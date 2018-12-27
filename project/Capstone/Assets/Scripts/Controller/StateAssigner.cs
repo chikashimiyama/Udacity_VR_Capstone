@@ -3,11 +3,12 @@ namespace DomainF
     public interface IStateAssigner
     {
         IControllerState Assign(object controller);
-        void Unassign(object controller);
+        IControllerState Unassign(object controller);
     }
     
     public class StateAssigner : IStateAssigner
     {
+        private readonly IControllerState idleState_;
         private readonly IControllerState carrierState_;
         private readonly IControllerState modulatorState_;
 
@@ -16,6 +17,7 @@ namespace DomainF
         public StateAssigner(IPureDataFacade pureDataFacade, IControllerStateFactory controllerStateFactory = null)
         {
             var stateFactory = controllerStateFactory ?? new ControllerStateFactory();
+            idleState_ = stateFactory.CreateIdleState();
             carrierState_ = stateFactory.CreateCarrierState(pureDataFacade);
             modulatorState_ = stateFactory.CreateModulatorState(pureDataFacade);
         }
@@ -30,10 +32,12 @@ namespace DomainF
 
         }
 
-        public void Unassign(object controller)
+        public IControllerState Unassign(object controller)
         {
             if (controller == carrierController_)
                 carrierController_ = null;
+
+            return idleState_;
         }
     }
 }

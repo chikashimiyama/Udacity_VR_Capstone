@@ -15,19 +15,21 @@ namespace DomainF
 
         private void OnTriggerPressed()
         {
-            var nextState = stateAssigner_.Assign(this);
-
-            if (currentState_ == nextState) return;
-            
-            if(currentState_ != null)
-                currentState_.OnStateDeselected();
-            currentState_ = nextState;
-            currentState_.OnStateSelected();
+            ChangeStateTo(stateAssigner_.Assign(this));
         }
 
         private void OnTriggerReleased()
         {
-            stateAssigner_.Unassign(this);
+            ChangeStateTo(stateAssigner_.Unassign(this));
+            
+        }
+
+        private void ChangeStateTo(IControllerState nextState)
+        {
+            if (currentState_ == nextState) return;
+            currentState_.OnStateDeselected();
+            currentState_ = nextState;
+            currentState_.OnStateSelected();
         }
 
 

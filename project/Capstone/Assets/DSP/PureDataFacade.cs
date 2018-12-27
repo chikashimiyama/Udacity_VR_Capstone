@@ -1,5 +1,4 @@
-﻿
-namespace DomainF
+﻿namespace DomainF
 {
 	public interface IPureDataFacade
 	{

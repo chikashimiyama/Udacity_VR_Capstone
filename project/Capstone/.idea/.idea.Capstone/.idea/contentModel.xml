@@ -212,6 +212,7 @@
           <e p="CarrierState.cs" t="Include" />
           <e p="ControllerStateFactory.cs" t="Include" />
           <e p="IControllerState.cs" t="Include" />
+          <e p="IdleState.cs" t="Include" />
           <e p="ModulatorState.cs" t="Include" />
         </e>
       </e>

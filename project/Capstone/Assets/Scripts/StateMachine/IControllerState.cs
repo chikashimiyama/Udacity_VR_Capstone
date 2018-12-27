@@ -4,8 +4,6 @@ namespace DomainF
     {
         void OnStateSelected();
         void OnStateDeselected();
-        void OnTriggerPressed();
-        void OnTriggerReleased();
         void OnThumbStickUpdated();
     }
 }

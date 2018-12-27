@@ -14,6 +14,17 @@ namespace UnitTests
         {
             ControllerStateFactory_  = new ControllerStateFactory();
         }
+
+        [Test]
+        public void CreateIdleState()
+        {
+            var idleState = ControllerStateFactory_.CreateIdleState();
+            Assert.True(idleState != null);
+            Assert.DoesNotThrow(() =>
+            {
+                var unused = (IdleState) idleState;
+            });
+        }
         
         [Test]
         public void CreateCarrierState()
