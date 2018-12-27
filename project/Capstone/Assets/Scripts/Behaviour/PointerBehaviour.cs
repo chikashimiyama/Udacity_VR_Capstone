@@ -21,10 +21,6 @@ namespace DomainF
             laserPointer_.SetPosition(1, endPoint);
         }
 
-        public void OnButtonChanged()
-        {
-            
-        }
     }
 
 

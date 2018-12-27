@@ -1,5 +1,5 @@
 Sound Sphere
-========
+============
 
 Play with audiovisual instrument
 
@@ -11,27 +11,53 @@ Udacity VR High Immersion Capstone Project
 
  
 
-What is this?
--------------
+ 
 
-Domain F is a VR synthesizer. Based on the input from the user, the application
-not only generates synthetic sound but also visualizes it in realtime.
+Introduction
+============
+
+Every musical instrument offers an interface for controlling sound, such as
+keyboards, strings, sliders etc. What if we can use the VR 3D space as an
+control surface of a FM-synthesizer?
 
  
 
-Key Features
-------------
+Emotion
+-------
 
-1.  100% Generative Audio
-
-2.  100% Generative Video
-
-3.  Intimate Audiovisual correlation
+Playing musical instrument is a JOYFUL experience for all of us. However, it
+requires sometime years of practice. However, this system allows users control
+sound directly with Oculus Touch.
 
  
 
-Achievement
------------
+Audio Technology
+----------------
+
+PureData (http://puredata.info) is an environment for developing interactive
+audio signal processing algorithms that can be integrated in another software,
+using libPd (https://github.com/libpd). Using libPd created LibPd4UnityTools (
+https://github.com/Magicolo/LibPd4UnityTools) in order to facilitate the
+connection between Pd and Unity.
+
+ 
+
+Target Platform
+---------------
+
+Oculus Rift.
+
+ 
+
+Video that explains all achievements
+------------------------------------
+
+ 
+
+ 
+
+List of Achievements
+--------------------
 
 ### Fundamentals
 
@@ -51,9 +77,7 @@ Achievement
 
 1.  Diegetic UI achievement (250 pts)
 
-2.  Alternative Storyline achievement(250 pts)
-
-3.  AI Achievement (250 pts)
+2.  3D Modeling achievement (250 pts)
 
  
 
