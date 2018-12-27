@@ -3,6 +3,8 @@ namespace DomainF
     public class CarrierState : IControllerState
     {
         private IPureDataFacade pureDataFacade_;
+        private readonly float[] onValue_ = {1.0f};
+        private readonly float[] offValue_ = {0.0f};
 
         public CarrierState(IPureDataFacade pureDataFacade)
         {
@@ -11,12 +13,12 @@ namespace DomainF
         
         public void OnStateSelected()
         {
-            pureDataFacade_.SendMessage("note", 1.0f);
+            pureDataFacade_.SendMessage("car_active", onValue_);
         }
 
         public void OnStateDeselected()
         {
-            pureDataFacade_.SendMessage("note", 0.0f);
+            pureDataFacade_.SendMessage("car_active", offValue_);
         }
 
         public void OnThumbStickUpdated()

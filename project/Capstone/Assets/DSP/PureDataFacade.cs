@@ -1,20 +1,20 @@
 ﻿namespace DomainF
 {
-	public interface IPureDataFacade
-	{
-		void SendMessage<T>(string receiveName, T value);
-	}
-	
-	public class PureDataFacade : IPureDataFacade
-	{	
-		public PureDataFacade()
-		{
-			PureData.OpenPatch("main");
-		}
+    public interface IPureDataFacade
+    {
+        void SendMessage<T>(string message, T[] values);
+    }
 
-		public void SendMessage<T>(string receiveName, T value)
-		{
-			PureData.Send(receiveName, value);
-		}
-	}
+    public class PureDataFacade : IPureDataFacade
+    {
+        public PureDataFacade()
+        {
+            PureData.OpenPatch("main");
+        }
+
+        public void SendMessage<T>(string message, T[] values)
+        {
+            PureData.SendMessage<T>("toPd", message, values);
+        }
+    }
 }

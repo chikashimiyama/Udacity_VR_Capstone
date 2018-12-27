@@ -11,6 +11,7 @@ namespace DomainF
             stateAssigner_ = stateAssigner;
             controllerBehaviour.TriggerPressed += OnTriggerPressed;
             controllerBehaviour.TriggerReleased += OnTriggerReleased;
+            currentState_ = stateAssigner_.Unassign(this);
         }
 
         private void OnTriggerPressed()
@@ -26,7 +27,6 @@ namespace DomainF
 
         private void ChangeStateTo(IControllerState nextState)
         {
-            if (currentState_ == nextState) return;
             currentState_.OnStateDeselected();
             currentState_ = nextState;
             currentState_.OnStateSelected();
