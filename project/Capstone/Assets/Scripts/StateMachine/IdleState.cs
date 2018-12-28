@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace DomainF
@@ -19,5 +20,8 @@ namespace DomainF
         public void OnTransformChanged(Transform transform)
         {
         }
+
+        public event Action<float> FreqChanged;
+        public event Action<float> AmpChanged;
     }
 }

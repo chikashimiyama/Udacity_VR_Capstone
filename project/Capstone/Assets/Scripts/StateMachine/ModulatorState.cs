@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace DomainF
@@ -23,13 +24,21 @@ namespace DomainF
 
         public void OnDistanceChanged(float distance)
         {
-            pureDataFacade_.SendMessage("mod_amp", MathUtility.DistanceToAmp(distance));
+            var amp = MathUtility.DistanceToAmp(distance);
+            pureDataFacade_.SendMessage("mod_amp", amp);
+            if(AmpChanged != null)
+                AmpChanged.Invoke(amp);
         }
 
         public void OnTransformChanged(Transform transform)
         {
             var freq = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
             pureDataFacade_.SendMessage("mod_freq", freq);
+            if(FreqChanged != null)
+                FreqChanged.Invoke(freq);
         }
+
+        public event Action<float> FreqChanged;
+        public event Action<float> AmpChanged;
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using Valve.VR;
 
 namespace DomainF
@@ -7,7 +8,7 @@ namespace DomainF
     public interface IControllerBehaviour
     {
         float LaserLength { set; }
-        
+        string IndicatorText { set; }
         event Action TriggerPressed;
         event Action TriggerReleased;
         event Action<Transform> TransformChanged;
@@ -17,7 +18,8 @@ namespace DomainF
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
     {
         [SerializeField] private GameObject targetSphere;
-
+        [SerializeField] private Text indicatorText;
+        
         private LineRenderer laserPointer_;
         private float laserLength_ = 20f;
         
@@ -66,6 +68,12 @@ namespace DomainF
         {
             set { laserLength_ = value; }
         }
+
+        public string IndicatorText
+        {
+            set { indicatorText.text = value;  }
+        }
+        
         public event Action TriggerPressed;
         public event Action TriggerReleased;
         public event Action<Transform> TransformChanged;

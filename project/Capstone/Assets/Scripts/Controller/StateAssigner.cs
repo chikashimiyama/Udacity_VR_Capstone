@@ -14,7 +14,7 @@ namespace DomainF
 
         private object carrierController_;
 
-        public StateAssigner(IPureDataFacade pureDataFacade, IControllerStateFactory controllerStateFactory = null)
+        public StateAssigner(IPureDataFacade pureDataFacade,  IControllerStateFactory controllerStateFactory = null)
         {
             var stateFactory = controllerStateFactory ?? new ControllerStateFactory();
             idleState_ = stateFactory.CreateIdleState();
@@ -24,9 +24,11 @@ namespace DomainF
 
         public IControllerState Assign(object controller)
         {
-            if (carrierController_ != null) 
+            if (carrierController_ != null)
+            {
                 return modulatorState_;
-            
+            }
+
             carrierController_ = controller;
             return carrierState_;
 

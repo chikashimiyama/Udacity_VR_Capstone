@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace DomainF
@@ -8,5 +9,8 @@ namespace DomainF
         void OnStateDeselected();
         void OnDistanceChanged(float distance);
         void OnTransformChanged(Transform transform);
+
+        event Action<float> FreqChanged;
+        event Action<float> AmpChanged;
     }
 }

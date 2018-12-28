@@ -13,6 +13,7 @@ namespace UnitTests
 
         private IStateAssigner stateAssignerMock_;
         private IControllerBehaviour controllerBehaviourMock_;
+        private IIndicatorBehaviour IndicatorBehaviourMock_;
         private Controller controller_;
 
         [SetUp]
@@ -22,8 +23,8 @@ namespace UnitTests
             modulatorControllerStateMock_ = Substitute.For<IControllerState>();
             stateAssignerMock_ = Substitute.For<IStateAssigner>();
             controllerBehaviourMock_ = Substitute.For<IControllerBehaviour>();
-
-            controller_ = new Controller(stateAssignerMock_, controllerBehaviourMock_);
+            
+            controller_ = new Controller(stateAssignerMock_, controllerBehaviourMock_, IndicatorBehaviourMock_);
         }
 
         [Test]

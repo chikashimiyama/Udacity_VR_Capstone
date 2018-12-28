@@ -4,7 +4,10 @@ namespace DomainF
 {
     public class MainBehaviour : MonoBehaviour
     {
+        [SerializeField] private IndicatorBehaviour leftIndicatorBehaviour;
         [SerializeField] private ControllerBehaviour leftControllerBehaviour;
+
+        [SerializeField] private IndicatorBehaviour rightIndicatorBehaviour;
         [SerializeField] private ControllerBehaviour rightControllerBehaviour;
 
         private StateAssigner stateAssigner_;
@@ -13,10 +16,11 @@ namespace DomainF
         
         void Start()
         {
+            
             stateAssigner_ = new StateAssigner(new PureDataFacade());
 
-            leftController_ = new Controller(stateAssigner_, leftControllerBehaviour);
-            rightController_ = new Controller(stateAssigner_, rightControllerBehaviour);
+            leftController_ = new Controller(stateAssigner_, leftControllerBehaviour, leftIndicatorBehaviour);
+            rightController_ = new Controller(stateAssigner_, rightControllerBehaviour, rightIndicatorBehaviour);
         }
     }
 }
