@@ -28,7 +28,8 @@ namespace DomainF
 
         public void OnTransformChanged(Transform transform)
         {
-            var freq = MathUtility.EulerAngleToFrequency(transform.eulerAngles.x);
+            var linear = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
+            var freq = MathUtility.MidiToFrequency(57f + linear * 24f); // 2 octaves
             pureDataFacade_.SendMessage("car_freq", freq);
         }
     }

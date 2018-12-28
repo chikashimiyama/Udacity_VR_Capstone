@@ -28,7 +28,7 @@ namespace DomainF
 
         public void OnTransformChanged(Transform transform)
         {
-            var freq = MathUtility.EulerAngleToFrequency(transform.eulerAngles.x);
+            var freq = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
             pureDataFacade_.SendMessage("mod_freq", freq);
         }
     }

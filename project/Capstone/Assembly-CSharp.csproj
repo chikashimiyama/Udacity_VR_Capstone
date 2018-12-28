@@ -179,6 +179,7 @@
     <Compile Include="Assets\Magicolo\GeneralTools\Logger\ScreenLogger.cs" />
     <Compile Include="Assets\Magicolo\GeneralTools\Logger\ScreenLoggerLine.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ControllerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\IgnoreRotationBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\MainBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\TutorialBehaviour.cs" />
     <Compile Include="Assets\Scripts\Controller\Controller.cs" />

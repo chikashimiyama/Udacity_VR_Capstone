@@ -197,6 +197,7 @@
       <e p="Assets\Scripts" t="Include">
         <e p="Behaviour" t="Include">
           <e p="ControllerBehaviour.cs" t="Include" />
+          <e p="IgnoreRotationBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
           <e p="TutorialBehaviour.cs" t="Include" />
         </e>

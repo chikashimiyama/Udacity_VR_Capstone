@@ -38,5 +38,19 @@ namespace UnitTests
         {
             Assert.AreEqual(output, MathUtility.LimitDistance(input));
         }
+
+        [TestCase(10f, 30f)]
+        public void EulerAngleToFrequency(float angle, float freq)
+        {
+            
+        }
+        
+        [TestCase(57f, 220f)]
+        [TestCase(69f, 440f)]
+        [TestCase(81f, 880f)]
+        public void MidiToFrequency(float midiNote, float frequency)
+        {
+            Assert.AreEqual(frequency, MathUtility.MidiToFrequency(midiNote));
+        }
     }
 }

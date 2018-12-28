@@ -25,12 +25,18 @@ namespace DomainF
             return distance;
         }
 
-        public static float EulerAngleToFrequency(float angle)
+        public static float EulerAngleToLinear(float angle)
         {
             if (angle > 180f)
                 angle = -(360f - angle);
             angle = 180 - (angle + 90);
-            return angle * 5 + 100;
+            return angle / 180.0f;
+        }
+
+        public static float MidiToFrequency(float midiNote)
+        {
+            var exp = (midiNote - 69f) / 12f;
+            return (float)Math.Pow(2.0, exp) * 440f;
         }
     }
 }
