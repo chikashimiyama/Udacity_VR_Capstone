@@ -20,12 +20,9 @@ namespace UnitTests
         [Test]
         public void OnStateSelected()
         {
-            modulatorState_.OnStateDeselected();
+            modulatorState_.OnStateSelected();
 
-            pureDataFacadeMock_.Received(1).SendMessage("mod_active", Arg.Do<float[]>(arg =>
-            {
-               Assert.AreEqual(arg[0], 1.0f);
-            }));
+            pureDataFacadeMock_.Received(1).SendMessage("mod_active", 1.0f);
         }
 
         [Test]
@@ -33,10 +30,7 @@ namespace UnitTests
         {
             modulatorState_.OnStateDeselected();
 
-            pureDataFacadeMock_.Received(1).SendMessage("mod_active", Arg.Do<float[]>(arg =>
-            {
-                Assert.AreEqual(arg[0], 0.0f);
-            }));
+            pureDataFacadeMock_.Received(1).SendMessage("mod_active", 0.0f);
         }
 
         [Test]
@@ -44,8 +38,7 @@ namespace UnitTests
         {
             modulatorState_.OnDistanceChanged(20f);
 
-            pureDataFacadeMock_.Received(1)
-                .SendMessage("mod_amp", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 0.5f);}));
+            pureDataFacadeMock_.Received(1).SendMessage("mod_amp", 0.5f);
         }
     }
 }

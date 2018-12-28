@@ -24,5 +24,13 @@ namespace DomainF
                 distance = MaxDist;
             return distance;
         }
+
+        public static float EulerAngleToFrequency(float angle)
+        {
+            if (angle > 180f)
+                angle = -(360f - angle);
+            angle = 180 - (angle + 90);
+            return angle * 5 + 100;
+        }
     }
 }

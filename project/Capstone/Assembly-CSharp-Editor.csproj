@@ -58,6 +58,7 @@
     <Compile Include="Assets\Editor\UnitTest\UnitTest_CarrierState.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_Controller.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ControllerStateFactory.cs" />
+    <Compile Include="Assets\Editor\UnitTest\UnitTest_MathUtility.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ModulatorState.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_StateAssigner.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_Tutorial.cs" />

@@ -1,6 +1,7 @@
 using DomainF;
 using NSubstitute;
 using NUnit.Framework;
+using UnityEngine;
 
 namespace UnitTests
 {
@@ -22,8 +23,7 @@ namespace UnitTests
         {
             carrierState_.OnStateSelected();
 
-            pureDataFacadeMock_.Received(1)
-                .SendMessage("car_active", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 1.0f); }));
+            pureDataFacadeMock_.Received(1).SendMessage("car_active", 1f);
         }
 
         [Test]
@@ -31,8 +31,7 @@ namespace UnitTests
         {
             carrierState_.OnStateDeselected();
 
-            pureDataFacadeMock_.Received(1)
-                .SendMessage("car_active", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 0.0f); }));
+            pureDataFacadeMock_.Received(1).SendMessage("car_active", 0f);
         }
 
         [Test]
@@ -40,8 +39,15 @@ namespace UnitTests
         {
             carrierState_.OnDistanceChanged(20f);
 
-            pureDataFacadeMock_.Received(1)
-                .SendMessage("car_amp", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 0.5f); }));
+            pureDataFacadeMock_.Received(1).SendMessage("car_amp",0.5f);
+        }
+        
+        [Test]
+        public void OnPoseUpdated()
+        {
+            var transform = new GameObject().transform;
+            transform.rotation = Quaternion.Euler(100f, 0f, 0f);
+            pureDataFacadeMock_.Received(1).SendMessage("car_freq",100f);
         }
     }
 }

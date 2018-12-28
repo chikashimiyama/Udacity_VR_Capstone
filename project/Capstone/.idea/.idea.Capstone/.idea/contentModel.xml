@@ -14,6 +14,7 @@
           <e p="UnitTest_CarrierState.cs" t="Include" />
           <e p="UnitTest_Controller.cs" t="Include" />
           <e p="UnitTest_ControllerStateFactory.cs" t="Include" />
+          <e p="UnitTest_MathUtility.cs" t="Include" />
           <e p="UnitTest_ModulatorState.cs" t="Include" />
           <e p="UnitTest_StateAssigner.cs" t="Include" />
           <e p="UnitTest_Tutorial.cs" t="Include" />
@@ -207,6 +208,9 @@
         </e>
         <e p="Facade" t="Include">
           <e p="PureDataArray.cs" t="Include" />
+        </e>
+        <e p="Math" t="Include">
+          <e p="MathUtility.cs" t="Include" />
         </e>
         <e p="StateMachine" t="Include">
           <e p="CarrierState.cs" t="Include" />

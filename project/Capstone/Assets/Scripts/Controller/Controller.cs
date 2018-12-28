@@ -13,12 +13,18 @@ namespace DomainF
         {
             stateAssigner_ = stateAssigner;
             controllerBehaviour_ = controllerBehaviour;
+            controllerBehaviour_.TransformChanged += OnTransformChanged;
             controllerBehaviour_.TriggerPressed += OnTriggerPressed;
             controllerBehaviour_.TriggerReleased += OnTriggerReleased;
             controllerBehaviour_.ThumbstickPositionChanged += OnThumbStickPositionChanged;
             currentState_ = stateAssigner_.Unassign(this);
         }
 
+        private void OnTransformChanged(Transform transform)
+        {
+            currentState_.OnTransformChanged(transform);
+        }
+        
         private void OnTriggerPressed()
         {
             ChangeStateTo(stateAssigner_.Assign(this));
@@ -44,7 +50,5 @@ namespace DomainF
             currentState_ = nextState;
             currentState_.OnStateSelected();
         }
-        
-
     }
 }

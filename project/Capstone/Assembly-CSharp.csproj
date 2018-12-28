@@ -186,6 +186,7 @@
     <Compile Include="Assets\Scripts\Controller\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Controller\Waterfall.cs" />
     <Compile Include="Assets\Scripts\Facade\PureDataArray.cs" />
+    <Compile Include="Assets\Scripts\Math\MathUtility.cs" />
     <Compile Include="Assets\Scripts\StateMachine\CarrierState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ControllerStateFactory.cs" />
     <Compile Include="Assets\Scripts\StateMachine\IControllerState.cs" />

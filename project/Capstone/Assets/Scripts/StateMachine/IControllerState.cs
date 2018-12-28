@@ -7,6 +7,6 @@ namespace DomainF
         void OnStateSelected();
         void OnStateDeselected();
         void OnDistanceChanged(float distance);
-        void OnPoseUpdated(Transform transform);
+        void OnTransformChanged(Transform transform);
     }
 }

@@ -16,7 +16,7 @@ namespace DomainF
         {
         }
 
-        public void OnPoseUpdated(Transform transform)
+        public void OnTransformChanged(Transform transform)
         {
         }
     }

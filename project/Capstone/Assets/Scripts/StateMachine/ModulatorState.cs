@@ -5,35 +5,31 @@ namespace DomainF
     public class ModulatorState : IControllerState
     {
         private IPureDataFacade pureDataFacade_;
-        
-        private readonly float[] onValue_ = {1.0f};
-        private readonly float[] offValue_ = {0.0f};
-        private float[] amp_ = {0.0f};
-        
+
         public ModulatorState(IPureDataFacade pureDataFacade)
         {
             pureDataFacade_ = pureDataFacade;
         }
-        
+
         public void OnStateSelected()
         {
-            pureDataFacade_.SendMessage("mod_active", onValue_);
+            pureDataFacade_.SendMessage("mod_active", 1f);
         }
 
         public void OnStateDeselected()
         {
-            pureDataFacade_.SendMessage("mod_active", offValue_);
+            pureDataFacade_.SendMessage("mod_active", 0f);
         }
 
         public void OnDistanceChanged(float distance)
         {
-            amp_[0] = MathUtility.DistanceToAmp(distance);
-            pureDataFacade_.SendMessage("mod_amp", amp_);
+            pureDataFacade_.SendMessage("mod_amp", MathUtility.DistanceToAmp(distance));
         }
 
-        public void OnPoseUpdated(Transform transform)
+        public void OnTransformChanged(Transform transform)
         {
-            var rotation = transform.rotation;
+            var freq = MathUtility.EulerAngleToFrequency(transform.eulerAngles.x);
+            pureDataFacade_.SendMessage("mod_freq", freq);
         }
     }
 }

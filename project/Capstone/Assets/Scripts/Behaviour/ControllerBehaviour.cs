@@ -10,7 +10,7 @@ namespace DomainF
         
         event Action TriggerPressed;
         event Action TriggerReleased;
-        event Action<Transform> TransformUpdated;
+        event Action<Transform> TransformChanged;
         event Action<Vector2> ThumbstickPositionChanged;
     }
     
@@ -34,10 +34,12 @@ namespace DomainF
             laserPointer_.SetPosition(1, endPoint);
         }
 
-        public void UnityEvent_OnTransformUpdate()
+        public void UnityEvent_OnTransformChanged()
         {
-            if (TransformUpdated != null)
-                TransformUpdated.Invoke(transform);
+            if (TransformChanged == null)
+                return;
+
+            TransformChanged.Invoke(transform);
         }
 
         public void UnityEvent_OnThumbstickPositionChanged(SteamVR_Action_Vector2 position)
@@ -66,7 +68,7 @@ namespace DomainF
         }
         public event Action TriggerPressed;
         public event Action TriggerReleased;
-        public event Action<Transform> TransformUpdated;
+        public event Action<Transform> TransformChanged;
         public event Action<Vector2> ThumbstickPositionChanged;
     }
 }
