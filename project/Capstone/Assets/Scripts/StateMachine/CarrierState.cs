@@ -4,10 +4,11 @@ namespace DomainF
 {
     public class CarrierState : IControllerState
     {
+        
         private IPureDataFacade pureDataFacade_;
         private readonly float[] onValue_ = {1.0f};
         private readonly float[] offValue_ = {0.0f};
-        private float[] volume_ = {0.0f};
+        private float[] amp_ = {0.0f};
 
         public CarrierState(IPureDataFacade pureDataFacade)
         {
@@ -26,13 +27,12 @@ namespace DomainF
 
         public void OnDistanceChanged(float distance)
         {
-            volume_[0] = distance;
-            pureDataFacade_.SendMessage("car_volume", volume_);
+            amp_[0] = MathUtility.DistanceToAmp(distance);
+            pureDataFacade_.SendMessage("car_amp", amp_);
         }
 
         public void OnPoseUpdated(Transform transform)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

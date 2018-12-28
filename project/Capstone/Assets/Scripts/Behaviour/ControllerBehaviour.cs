@@ -1,13 +1,17 @@
 using System;
 using UnityEngine;
+using Valve.VR;
 
 namespace DomainF
 {
     public interface IControllerBehaviour
     {
+        float LaserLength { set; }
+        
         event Action TriggerPressed;
         event Action TriggerReleased;
         event Action<Transform> TransformUpdated;
+        event Action<Vector2> ThumbstickPositionChanged;
     }
     
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
@@ -15,7 +19,8 @@ namespace DomainF
         [SerializeField] private GameObject targetSphere;
 
         private LineRenderer laserPointer_;
-
+        private float laserLength_ = 20f;
+        
         private void Start()
         {
             laserPointer_ = GetComponentInChildren<LineRenderer>();
@@ -24,7 +29,7 @@ namespace DomainF
         private void Update()
         {
             laserPointer_.SetPosition(0, transform.position);
-            var endPoint =  transform.forward * 30;
+            var endPoint =  transform.forward * laserLength_;
             targetSphere.transform.position = endPoint;
             laserPointer_.SetPosition(1, endPoint);
         }
@@ -35,10 +40,12 @@ namespace DomainF
                 TransformUpdated.Invoke(transform);
         }
 
-        public void UnityEvent_OnThumbstickPositionChanged()
+        public void UnityEvent_OnThumbstickPositionChanged(SteamVR_Action_Vector2 position)
         {
-            if (ThumbstickPositionChanged != null)
-                ThumbstickPositionChanged.Invoke(new Vector2(2f,3f));
+            if (ThumbstickPositionChanged == null)
+                return;
+            
+            ThumbstickPositionChanged.Invoke(position.GetAxis(SteamVR_Input_Sources.Any));
         }
 
         public void UnityEvent_OnTriggerPressed()
@@ -52,7 +59,11 @@ namespace DomainF
             if (TriggerReleased != null) 
                 TriggerReleased.Invoke();
         }
-       
+
+        public float LaserLength
+        {
+            set { laserLength_ = value; }
+        }
         public event Action TriggerPressed;
         public event Action TriggerReleased;
         public event Action<Transform> TransformUpdated;

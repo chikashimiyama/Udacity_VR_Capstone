@@ -38,5 +38,14 @@ namespace UnitTests
                 Assert.AreEqual(arg[0], 0.0f);
             }));
         }
+
+        [Test]
+        public void OnDistanceChanged()
+        {
+            modulatorState_.OnDistanceChanged(20f);
+
+            pureDataFacadeMock_.Received(1)
+                .SendMessage("mod_amp", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 0.5f);}));
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace UnitTests
     {
         private IPureDataFacade pureDataFacadeMock_;
         private CarrierState carrierState_;
-        
+
         [SetUp]
         public void SetUp()
         {
@@ -22,10 +22,8 @@ namespace UnitTests
         {
             carrierState_.OnStateSelected();
 
-            pureDataFacadeMock_.Received(1).SendMessage("car_active", Arg.Do<float[]>(arg =>
-            {
-                Assert.AreEqual(arg[0], 1.0f);
-            }));
+            pureDataFacadeMock_.Received(1)
+                .SendMessage("car_active", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 1.0f); }));
         }
 
         [Test]
@@ -33,10 +31,17 @@ namespace UnitTests
         {
             carrierState_.OnStateDeselected();
 
-            pureDataFacadeMock_.Received(1).SendMessage("car_active", Arg.Do<float[]>(arg =>
-            {
-                Assert.AreEqual(arg[0], 0.0f);
-            }));
+            pureDataFacadeMock_.Received(1)
+                .SendMessage("car_active", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 0.0f); }));
+        }
+
+        [Test]
+        public void OnDistanceChanged()
+        {
+            carrierState_.OnDistanceChanged(20f);
+
+            pureDataFacadeMock_.Received(1)
+                .SendMessage("car_amp", Arg.Do<float[]>(arg => { Assert.AreEqual(arg[0], 0.5f); }));
         }
     }
 }
