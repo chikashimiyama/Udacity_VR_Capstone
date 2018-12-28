@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace DomainF
 {
     public class IdleState : IControllerState
@@ -10,7 +12,11 @@ namespace DomainF
         {
         }
 
-        public void OnThumbStickUpdated()
+        public void OnDistanceChanged(float distance)
+        {
+        }
+
+        public void OnPoseUpdated(Transform transform)
         {
         }
     }

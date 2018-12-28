@@ -45,7 +45,7 @@ namespace UnitTests
             controllerBehaviourMock_.TriggerPressed += Raise.Event<Action>();
 
             stateAssignerMock_.Received(2).Assign(Arg.Any<object>());
-            carrierControllerStateMock_.Received(1).OnStateSelected();
+            carrierControllerStateMock_.Received(2).OnStateSelected();
         }
 
         [Test]
@@ -66,7 +66,7 @@ namespace UnitTests
         {
             controllerBehaviourMock_.TriggerReleased += Raise.Event<Action>();
 
-            stateAssignerMock_.Received(1).Unassign(Arg.Any<object>());
+            stateAssignerMock_.Received(2).Unassign(Arg.Any<object>());
         }
     }
 }

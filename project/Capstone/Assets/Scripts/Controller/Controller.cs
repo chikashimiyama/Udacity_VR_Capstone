@@ -22,7 +22,6 @@ namespace DomainF
         private void OnTriggerReleased()
         {
             ChangeStateTo(stateAssigner_.Unassign(this));
-            
         }
 
         private void ChangeStateTo(IControllerState nextState)
@@ -31,7 +30,5 @@ namespace DomainF
             currentState_ = nextState;
             currentState_.OnStateSelected();
         }
-
-
     }
 }

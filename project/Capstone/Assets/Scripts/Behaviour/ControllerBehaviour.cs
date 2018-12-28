@@ -7,6 +7,7 @@ namespace DomainF
     {
         event Action TriggerPressed;
         event Action TriggerReleased;
+        event Action<Transform> TransformUpdated;
     }
     
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
@@ -27,7 +28,19 @@ namespace DomainF
             targetSphere.transform.position = endPoint;
             laserPointer_.SetPosition(1, endPoint);
         }
-        
+
+        public void UnityEvent_OnTransformUpdate()
+        {
+            if (TransformUpdated != null)
+                TransformUpdated.Invoke(transform);
+        }
+
+        public void UnityEvent_OnThumbstickPositionChanged()
+        {
+            if (ThumbstickPositionChanged != null)
+                ThumbstickPositionChanged.Invoke(new Vector2(2f,3f));
+        }
+
         public void UnityEvent_OnTriggerPressed()
         {
             if (TriggerPressed != null) 
@@ -39,8 +52,10 @@ namespace DomainF
             if (TriggerReleased != null) 
                 TriggerReleased.Invoke();
         }
-
+       
         public event Action TriggerPressed;
         public event Action TriggerReleased;
+        public event Action<Transform> TransformUpdated;
+        public event Action<Vector2> ThumbstickPositionChanged;
     }
 }

@@ -44,6 +44,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/domainF/in/distance",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/domainF/out/Haptic",
       "type": "vibration"
     }
