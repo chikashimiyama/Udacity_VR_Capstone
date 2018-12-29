@@ -5,6 +5,12 @@ namespace DomainF
 {
     public class IdleState : IControllerState
     {
+        private const string IdentifierString = "Idle";
+        public string Identifier
+        {
+            get { return IdentifierString; }
+        }
+
         public void OnStateSelected()
         {
         }

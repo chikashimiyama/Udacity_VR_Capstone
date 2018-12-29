@@ -5,6 +5,7 @@ namespace DomainF
 {
     public interface IControllerState
     {
+        string Identifier { get; }
         void OnStateSelected();
         void OnStateDeselected();
         void OnDistanceChanged(float distance);

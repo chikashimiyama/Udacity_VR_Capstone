@@ -55,6 +55,7 @@ namespace DomainF
             currentState_.AmpChanged -= OnAmpChanged;
             
             currentState_ = nextState;
+            indicatorBehaviour_.FuncText = currentState_.Identifier;
 
             currentState_.OnStateSelected();
             currentState_.FreqChanged += OnFreqChanged;
@@ -70,5 +71,7 @@ namespace DomainF
         {
             indicatorBehaviour_.AmpText = " Amp: " + amp.ToString("F2");
         }
+
+
     }
 }

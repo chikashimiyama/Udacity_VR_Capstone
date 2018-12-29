@@ -6,10 +6,16 @@ namespace DomainF
     public class CarrierState : IControllerState
     {
         private readonly IPureDataFacade pureDataFacade_;
+        private const string IdentifierString = "Carrier";
         
         public CarrierState(IPureDataFacade pureDataFacade)
         {
             pureDataFacade_ = pureDataFacade;
+        }
+        
+        public string Identifier
+        {
+            get { return IdentifierString; }
         }
 
         public void OnStateSelected()

@@ -8,7 +8,6 @@ namespace DomainF
     public interface IControllerBehaviour
     {
         float LaserLength { set; }
-        string IndicatorText { set; }
         event Action TriggerPressed;
         event Action TriggerReleased;
         event Action<Transform> TransformChanged;
@@ -18,7 +17,6 @@ namespace DomainF
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
     {
         [SerializeField] private GameObject targetSphere;
-        [SerializeField] private Text indicatorText;
         
         private LineRenderer laserPointer_;
         private float laserLength_ = 20f;
@@ -67,11 +65,6 @@ namespace DomainF
         public float LaserLength
         {
             set { laserLength_ = value; }
-        }
-
-        public string IndicatorText
-        {
-            set { indicatorText.text = value;  }
         }
         
         public event Action TriggerPressed;
