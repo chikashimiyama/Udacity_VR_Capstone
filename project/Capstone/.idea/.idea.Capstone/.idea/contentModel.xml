@@ -196,17 +196,22 @@
       </e>
       <e p="Assets\Scripts" t="Include">
         <e p="Behaviour" t="Include">
+          <e p="ConsoleBehaviour.cs" t="Include" />
           <e p="ControllerBehaviour.cs" t="Include" />
-          <e p="IgnoreRotationBehaviour.cs" t="Include" />
           <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
           <e p="ScaleCircleBehaviour.cs" t="Include" />
           <e p="ScaleGridBehaviour.cs" t="Include" />
+          <e p="ToggleButtonBehaviour.cs" t="Include" />
           <e p="TutorialBehaviour.cs" t="Include" />
         </e>
         <e p="Controller" t="Include">
+          <e p="CompomentFactory.cs" t="Include" />
+          <e p="Console.cs" t="Include" />
           <e p="Controller.cs" t="Include" />
+          <e p="IVisibility.cs" t="Include" />
           <e p="StateAssigner.cs" t="Include" />
+          <e p="ToggleButton.cs" t="Include" />
           <e p="Tutorial.cs" t="Include" />
           <e p="Waterfall.cs" t="Include" />
         </e>
