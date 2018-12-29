@@ -17,23 +17,51 @@ namespace DomainF
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
     {
         [SerializeField] private GameObject targetSphere;
+        [SerializeField] private GameObject waveform;
         
         private LineRenderer laserPointer_;
+        private LineRenderer waveform_;
         private float laserLength_ = 20f;
+        private IPureDataArrayFacade pureDataArrayFacade_;
         
         private void Start()
         {
             laserPointer_ = GetComponentInChildren<LineRenderer>();
+            waveform_ = waveform.GetComponent<LineRenderer>();
+            pureDataArrayFacade_ = new PureDataArrayFacade("carrier", 512);
         }
         
         private void Update()
         {
-            laserPointer_.SetPosition(0, transform.position);
-            var endPoint =  transform.forward * laserLength_;
+            var handPos = transform.position;
+            DrawLaser(handPos);
+            DrawWaveform(handPos);
+        }
+
+        private void DrawLaser(Vector3 origin)
+        {
+            laserPointer_.SetPosition(0, origin);
+            var endPoint =  transform.forward * laserLength_ + origin;
             targetSphere.transform.position = endPoint;
             laserPointer_.SetPosition(1, endPoint);
         }
 
+        private void DrawWaveform(Vector3 origin)
+        {
+            pureDataArrayFacade_.Update();
+            var waveStep = laserLength_ / 512f;
+            var samples = pureDataArrayFacade_.Get();
+            var current = 0.0f;
+
+            for(var i = 0; i < 512; i++)
+            {
+                var vertex = transform.forward * current + origin;
+                vertex.x += samples[i] * 0.1f ;
+                waveform_.SetPosition(i, vertex);
+                current += waveStep;
+            }
+        }
+        
         public void UnityEvent_OnTransformChanged()
         {
             if (TransformChanged == null)
