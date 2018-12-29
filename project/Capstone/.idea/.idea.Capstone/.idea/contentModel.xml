@@ -198,6 +198,7 @@
         <e p="Behaviour" t="Include">
           <e p="ConsoleBehaviour.cs" t="Include" />
           <e p="ControllerBehaviour.cs" t="Include" />
+          <e p="DirectionGridBehaviour.cs" t="Include" />
           <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
           <e p="ScaleCircleBehaviour.cs" t="Include" />

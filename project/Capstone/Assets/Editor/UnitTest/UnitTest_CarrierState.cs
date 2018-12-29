@@ -49,6 +49,7 @@ namespace UnitTests
             transform.rotation = Quaternion.Euler(55f, 0f, 0f);
             
             carrierState_.OnTransformChanged(transform);
+            
             pureDataFacadeMock_.Received(1).SendMessage("car_freq", Arg.Any<float>());
         }
     }

@@ -180,6 +180,7 @@
     <Compile Include="Assets\Magicolo\GeneralTools\Logger\ScreenLoggerLine.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ConsoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ControllerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\DirectionGridBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\IndicatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\MainBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ScaleCircleBehaviour.cs" />

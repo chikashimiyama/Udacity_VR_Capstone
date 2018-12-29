@@ -1,6 +1,7 @@
 using DomainF;
 using NSubstitute;
 using NUnit.Framework;
+using UnityEngine;
 
 namespace UnitTests
 {
@@ -39,6 +40,16 @@ namespace UnitTests
             modulatorState_.OnDistanceChanged(20f);
 
             pureDataFacadeMock_.Received(1).SendMessage("mod_amp", 500f);
+        }
+
+        [Test]
+        public void OnTransformChanged()
+        {
+            var go = new GameObject();
+            go.transform.eulerAngles = new Vector3(20f, 0f, 0f);
+            modulatorState_.OnTransformChanged(go.transform);
+            
+            pureDataFacadeMock_.Received(1).SendMessage("mod_freq", 388.8889f);
         }
     }
 }
