@@ -198,7 +198,10 @@
         <e p="Behaviour" t="Include">
           <e p="ControllerBehaviour.cs" t="Include" />
           <e p="IgnoreRotationBehaviour.cs" t="Include" />
+          <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
+          <e p="ScaleCircleBehaviour.cs" t="Include" />
+          <e p="ScaleGridBehaviour.cs" t="Include" />
           <e p="TutorialBehaviour.cs" t="Include" />
         </e>
         <e p="Controller" t="Include">
@@ -220,6 +223,10 @@
           <e p="IdleState.cs" t="Include" />
           <e p="ModulatorState.cs" t="Include" />
         </e>
+      </e>
+      <e p="Assets\Shader" t="Include">
+        <e p="ScaleGrid.shader" t="Include" />
+        <e p="Waterfall.compute" t="Include" />
       </e>
       <e p="Assets\SteamVR" t="Include">
         <e p="Editor" t="Include">

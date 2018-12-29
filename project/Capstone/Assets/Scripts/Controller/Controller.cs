@@ -70,7 +70,5 @@ namespace DomainF
         {
             indicatorBehaviour_.AmpText = " Amp: " + amp.ToString("F2");
         }
-
-        
     }
 }

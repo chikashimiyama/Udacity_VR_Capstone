@@ -31,7 +31,6 @@ namespace DomainF
 
             carrierController_ = controller;
             return carrierState_;
-
         }
 
         public IControllerState Unassign(object controller)

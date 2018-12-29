@@ -180,7 +180,10 @@
     <Compile Include="Assets\Magicolo\GeneralTools\Logger\ScreenLoggerLine.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ControllerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\IgnoreRotationBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\IndicatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\MainBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\ScaleCircleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\ScaleGridBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\TutorialBehaviour.cs" />
     <Compile Include="Assets\Scripts\Controller\Controller.cs" />
     <Compile Include="Assets\Scripts\Controller\StateAssigner.cs" />
@@ -356,12 +359,14 @@
     <Compile Include="Assets\SteamVR_Input\ActionObjects\SteamVR_Input_ActionSet_domainF_Out.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Actions.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
+    <None Include="Assets\Shader\Waterfall.compute" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Samples\BuggyBuddy\Materials\LightCone.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Teleport\Shaders\Highlight.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Teleport\Shaders\HighlighGlobal.shader" />
+    <None Include="Assets\Shader\ScaleGrid.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />
     <None Include="Assets\SteamVR\readme.txt" />
