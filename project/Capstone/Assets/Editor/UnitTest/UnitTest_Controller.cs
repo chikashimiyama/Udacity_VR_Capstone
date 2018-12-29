@@ -13,7 +13,7 @@ namespace UnitTests
 
         private IStateAssigner stateAssignerMock_;
         private IControllerBehaviour controllerBehaviourMock_;
-        private IIndicatorBehaviour IndicatorBehaviourMock_;
+        private IIndicatorBehaviour indicatorBehaviourMock_;
         private Controller controller_;
 
         [SetUp]
@@ -23,23 +23,27 @@ namespace UnitTests
             modulatorControllerStateMock_ = Substitute.For<IControllerState>();
             stateAssignerMock_ = Substitute.For<IStateAssigner>();
             controllerBehaviourMock_ = Substitute.For<IControllerBehaviour>();
+            indicatorBehaviourMock_ = Substitute.For<IIndicatorBehaviour>();
             
-            controller_ = new Controller(stateAssignerMock_, controllerBehaviourMock_, IndicatorBehaviourMock_);
+            controller_ = new Controller(stateAssignerMock_, controllerBehaviourMock_, indicatorBehaviourMock_);
         }
 
         [Test]
         public void Construction_OnTriggerPressed_first_time()
         {
+            carrierControllerStateMock_.Identifier.Returns("Carrier");
             stateAssignerMock_.Assign(Arg.Any<object>()).Returns(carrierControllerStateMock_);
             controllerBehaviourMock_.TriggerPressed += Raise.Event<Action>();
 
             stateAssignerMock_.Received(1).Assign(Arg.Any<object>());
+            indicatorBehaviourMock_.Received(1).FuncText = "Carrier";
             carrierControllerStateMock_.Received(1).OnStateSelected();
         }
 
         [Test]
         public void Construction_OnTriggerPressed_second_time_same_state()
         {
+            carrierControllerStateMock_.Identifier.Returns("Carrier");
             stateAssignerMock_.Assign(Arg.Any<object>()).Returns(carrierControllerStateMock_);
 
             controllerBehaviourMock_.TriggerPressed += Raise.Event<Action>();
@@ -52,6 +56,8 @@ namespace UnitTests
         [Test]
         public void Construction_OnTriggerPressed_second_time_different_state()
         {
+            carrierControllerStateMock_.Identifier.Returns("Carrier", "Modulator");
+
             stateAssignerMock_.Assign(Arg.Any<object>())
                 .Returns(carrierControllerStateMock_, modulatorControllerStateMock_);
 

@@ -43,11 +43,13 @@ namespace UnitTests
         }
         
         [Test]
-        public void OnPoseUpdated()
+        public void OnTransformChanged()
         {
             var transform = new GameObject().transform;
-            transform.rotation = Quaternion.Euler(100f, 0f, 0f);
-            pureDataFacadeMock_.Received(1).SendMessage("car_freq",100f);
+            transform.rotation = Quaternion.Euler(55f, 0f, 0f);
+            
+            carrierState_.OnTransformChanged(transform);
+            pureDataFacadeMock_.Received(1).SendMessage("car_freq", Arg.Any<float>());
         }
     }
 }

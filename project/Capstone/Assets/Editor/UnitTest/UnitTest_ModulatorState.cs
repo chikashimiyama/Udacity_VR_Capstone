@@ -38,7 +38,7 @@ namespace UnitTests
         {
             modulatorState_.OnDistanceChanged(20f);
 
-            pureDataFacadeMock_.Received(1).SendMessage("mod_amp", 0.5f);
+            pureDataFacadeMock_.Received(1).SendMessage("mod_amp", 500f);
         }
     }
 }
