@@ -12,6 +12,7 @@ namespace DomainF
 
         [SerializeField] private ConsoleBehaviour consoleBehaviour;
         [SerializeField] private ScaleGridBehaviour scaleGridBehavior;
+        [SerializeField] private DirectionGridBehaviour directionGridBehaviour;
         
         private StateAssigner stateAssigner_;
         private Controller leftController_;
@@ -26,7 +27,7 @@ namespace DomainF
             leftController_ = new Controller(stateAssigner_, leftControllerBehaviour, leftIndicatorBehaviour);
             rightController_ = new Controller(stateAssigner_, rightControllerBehaviour, rightIndicatorBehaviour);
             
-            console_ = new Console(consoleBehaviour, scaleGridBehavior);
+            console_ = new Console(consoleBehaviour, scaleGridBehavior, directionGridBehaviour);
         }
         
         
