@@ -61,6 +61,7 @@ namespace DomainF
             currentState_.OnStateDeselected();
             currentState_.FreqChanged -= OnFreqChanged;
             currentState_.AmpChanged -= OnAmpChanged;
+            currentState_.WaveformUpdated -= OnWaveformUpdated;
             
             currentState_ = nextState;
             indicatorBehaviour_.FuncText = currentState_.Identifier;
@@ -68,6 +69,7 @@ namespace DomainF
             currentState_.OnStateSelected();
             currentState_.FreqChanged += OnFreqChanged;
             currentState_.AmpChanged += OnAmpChanged;
+            currentState_.WaveformUpdated += OnWaveformUpdated;
         }
 
         private void OnFreqChanged(float freq)
@@ -78,6 +80,12 @@ namespace DomainF
         private void OnAmpChanged(float amp)
         {
             indicatorBehaviour_.AmpText = " Amp: " + amp.ToString("F2");
+        }
+
+        private void OnWaveformUpdated(float[] samples)
+        {
+            controllerBehaviour_.DrawLaser();
+            controllerBehaviour_.DrawWaveform(samples);
         }
     }
 }

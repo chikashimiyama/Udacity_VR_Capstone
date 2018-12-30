@@ -25,15 +25,11 @@ namespace DomainF
         private LineRenderer laserPointer_;
         private LineRenderer waveform_;
         private float laserLength_ = 20f;
-        private IPureDataArrayFacade carrierArray_;
-        private IPureDataArrayFacade modulatorArray_;
         
         private void Start()
         {
             laserPointer_ = GetComponentInChildren<LineRenderer>();
             waveform_ = waveform.GetComponent<LineRenderer>();
-            carrierArray_ = new PureDataArrayFacade("carrier", 512);
-            modulatorArray_ = new PureDataArrayFacade("modulator", 512);
         }
         
         private void Update()

@@ -12,8 +12,8 @@ namespace DomainF
         void OnTransformChanged(Transform transform);
         void OnUpdated();
 
+        event Action<float[]> WaveformUpdated;
         event Action<float> FreqChanged;
         event Action<float> AmpChanged;
-        event Action<float[]> WaveformUpdated;
     }
 }
