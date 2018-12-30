@@ -41,7 +41,7 @@ namespace DomainF
         public void DrawLaser()
         {
             laserPointer_.SetPosition(0, transform.position);
-            var endPoint =  transform.forward * laserLength_ + transform.position;
+            var endPoint = transform.forward * laserLength_ + transform.position;
             targetSphere.transform.position = endPoint;
             laserPointer_.SetPosition(1, endPoint);
         }
@@ -50,7 +50,6 @@ namespace DomainF
         {
             var waveStep = laserLength_ / 512f;
             var current = 0.0f;
-
             for(var i = 0; i < 512; i++)
             {
                 var vertex = transform.forward * current + transform.position;

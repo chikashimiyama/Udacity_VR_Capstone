@@ -23,7 +23,6 @@ namespace DomainF
             controllerBehaviour_.ThumbstickPositionChanged += OnThumbStickPositionChanged;
             controllerBehaviour_.Updated += OnUpdated;
             
-            
             currentState_ = stateAssigner_.Unassign(this);
         }
 

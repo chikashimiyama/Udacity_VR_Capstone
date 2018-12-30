@@ -11,7 +11,5 @@ namespace DomainF
         {
             return new ToggleButton(toggleButtonBehaviour);
         }
-
-
     }
 }

@@ -50,9 +50,8 @@ namespace DomainF
 
         public void OnUpdated()
         {
-            var samples = pureDataArrayFacade_.Get();
             if(WaveformUpdated != null)
-                WaveformUpdated.Invoke(samples);
+                WaveformUpdated.Invoke(pureDataArrayFacade_.Get());
         }
 
         public event Action<float[]> WaveformUpdated;
