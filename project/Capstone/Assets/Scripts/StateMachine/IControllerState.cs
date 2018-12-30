@@ -10,8 +10,10 @@ namespace DomainF
         void OnStateDeselected();
         void OnDistanceChanged(float distance);
         void OnTransformChanged(Transform transform);
+        void OnUpdated();
 
         event Action<float> FreqChanged;
         event Action<float> AmpChanged;
+        event Action<float[]> WaveformUpdated;
     }
 }

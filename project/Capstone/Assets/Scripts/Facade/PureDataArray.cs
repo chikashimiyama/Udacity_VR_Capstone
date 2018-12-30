@@ -4,7 +4,6 @@ namespace DomainF
 {
     public interface IPureDataArrayFacade
     {
-        void Update();
         float[] Get();
     }
 
@@ -19,13 +18,9 @@ namespace DomainF
             data_ = new float[size];
         }
 
-        public void Update()
-        {
-            LibPD.ReadArray(data_, name_, 0, data_.Length);
-        }
-
         public float[] Get()
         {
+            LibPD.ReadArray(data_, name_, 0, data_.Length);
             return data_;
         }
     }

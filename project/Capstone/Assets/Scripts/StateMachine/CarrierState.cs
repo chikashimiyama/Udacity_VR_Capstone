@@ -6,13 +6,16 @@ namespace DomainF
     public class CarrierState : IControllerState
     {
         private readonly IPureDataFacade pureDataFacade_;
-        private const string IdentifierString = "Carrier";
-        
-        public CarrierState(IPureDataFacade pureDataFacade)
+        private readonly IPureDataArrayFacade pureDataArrayFacade_;
+        private const string IdentifierString = "carrier";
+
+        public CarrierState(IPureDataFacade pureDataFacade, IPureDataArrayFacade pureDataArrayFacade = null)
         {
             pureDataFacade_ = pureDataFacade;
+            if (pureDataArrayFacade == null)
+                pureDataArrayFacade_ = new PureDataArrayFacade(IdentifierString, 512);
         }
-        
+
         public string Identifier
         {
             get { return IdentifierString; }
@@ -41,11 +44,19 @@ namespace DomainF
             var linear = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
             var freq = MathUtility.MidiToFrequency(57f + linear * 24f); // 2 octaves
             pureDataFacade_.SendMessage("car_freq", freq);
-            if(FreqChanged!= null)
+            if (FreqChanged != null)
                 FreqChanged.Invoke(freq);
         }
 
-        public event Action<float> FreqChanged; 
+        public void OnUpdated()
+        {
+            var samples = pureDataArrayFacade_.Get();
+            if(WaveformUpdated != null)
+                WaveformUpdated.Invoke(samples);
+        }
+
+        public event Action<float[]> WaveformUpdated;
+        public event Action<float> FreqChanged;
         public event Action<float> AmpChanged;
     }
 }

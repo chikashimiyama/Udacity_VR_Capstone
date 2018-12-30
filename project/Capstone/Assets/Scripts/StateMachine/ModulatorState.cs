@@ -5,12 +5,15 @@ namespace DomainF
 {
     public class ModulatorState : IControllerState
     {
-        private IPureDataFacade pureDataFacade_;
-        private const string IdentifierString = "Modulator";
+        private readonly IPureDataFacade pureDataFacade_;
+        private readonly IPureDataArrayFacade pureDataArrayFacade_;
+        private const string IdentifierString = "modulator";
 
-        public ModulatorState(IPureDataFacade pureDataFacade)
+        public ModulatorState(IPureDataFacade pureDataFacade, IPureDataArrayFacade pureDataArrayFacade = null)
         {
             pureDataFacade_ = pureDataFacade;
+            if(pureDataArrayFacade == null)
+                pureDataArrayFacade_ = new PureDataArrayFacade(Identifier, 512);
         }
 
         public string Identifier
@@ -44,6 +47,13 @@ namespace DomainF
                 FreqChanged.Invoke(freq);
         }
 
+        public void OnUpdated()
+        {
+            if (WaveformUpdated != null) 
+                WaveformUpdated.Invoke(pureDataArrayFacade_.Get());
+        }
+        
+        public event Action<float[]> WaveformUpdated;
         public event Action<float> FreqChanged;
         public event Action<float> AmpChanged;
     }

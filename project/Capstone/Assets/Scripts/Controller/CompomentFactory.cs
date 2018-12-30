@@ -5,11 +5,13 @@ namespace DomainF
         IToggleButton CreateToggleButton(IToggleButtonBehaviour toggleButtonBehaviour);
     }
     
-    public class CompomentFactory : IComponentFactory
+    public class ComponentFactory : IComponentFactory
     {
         public IToggleButton CreateToggleButton(IToggleButtonBehaviour toggleButtonBehaviour)
         {
             return new ToggleButton(toggleButtonBehaviour);
         }
+
+
     }
 }

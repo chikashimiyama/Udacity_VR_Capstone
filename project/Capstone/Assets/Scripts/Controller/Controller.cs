@@ -21,6 +21,9 @@ namespace DomainF
             controllerBehaviour_.TriggerPressed += OnTriggerPressed;
             controllerBehaviour_.TriggerReleased += OnTriggerReleased;
             controllerBehaviour_.ThumbstickPositionChanged += OnThumbStickPositionChanged;
+            controllerBehaviour_.Updated += OnUpdated;
+            
+            
             currentState_ = stateAssigner_.Unassign(this);
         }
 
@@ -48,6 +51,11 @@ namespace DomainF
             currentState_.OnDistanceChanged(distance_);
         }
 
+        private void OnUpdated()
+        {
+            currentState_.OnUpdated();
+        }
+
         private void ChangeStateTo(IControllerState nextState)
         {
             currentState_.OnStateDeselected();
@@ -71,7 +79,5 @@ namespace DomainF
         {
             indicatorBehaviour_.AmpText = " Amp: " + amp.ToString("F2");
         }
-
-
     }
 }

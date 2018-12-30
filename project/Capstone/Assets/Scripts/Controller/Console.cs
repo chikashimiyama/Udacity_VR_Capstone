@@ -8,7 +8,7 @@ namespace DomainF
         public Console(IConsoleBehaviour consoleBehaviour, IShowable scaleGridShowable, IShowable directionGridShowable,
             IComponentFactory componentFactory = null)
         {
-            componentFactory = componentFactory ?? new CompomentFactory();
+            componentFactory = componentFactory ?? new ComponentFactory();
 
             directionGridShowable_ = directionGridShowable;
             scaleGridShowable_ = scaleGridShowable;

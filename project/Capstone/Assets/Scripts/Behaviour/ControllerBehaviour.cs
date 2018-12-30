@@ -6,11 +6,15 @@ namespace DomainF
 {
     public interface IControllerBehaviour
     {
+        void DrawLaser();
+        void DrawWaveform(float[] samples);
+        
         float LaserLength { set; }
         event Action TriggerPressed;
         event Action TriggerReleased;
         event Action<Transform> TransformChanged;
         event Action<Vector2> ThumbstickPositionChanged;
+        event Action Updated;
     }
     
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
@@ -21,40 +25,39 @@ namespace DomainF
         private LineRenderer laserPointer_;
         private LineRenderer waveform_;
         private float laserLength_ = 20f;
-        private IPureDataArrayFacade pureDataArrayFacade_;
+        private IPureDataArrayFacade carrierArray_;
+        private IPureDataArrayFacade modulatorArray_;
         
         private void Start()
         {
             laserPointer_ = GetComponentInChildren<LineRenderer>();
             waveform_ = waveform.GetComponent<LineRenderer>();
-            pureDataArrayFacade_ = new PureDataArrayFacade("carrier", 512);
+            carrierArray_ = new PureDataArrayFacade("carrier", 512);
+            modulatorArray_ = new PureDataArrayFacade("modulator", 512);
         }
         
         private void Update()
         {
-            var handPos = transform.position;
-            DrawLaser(handPos);
-            DrawWaveform(handPos);
+            if(Updated != null)
+                Updated.Invoke();
         }
 
-        private void DrawLaser(Vector3 origin)
+        public void DrawLaser()
         {
-            laserPointer_.SetPosition(0, origin);
-            var endPoint =  transform.forward * laserLength_ + origin;
+            laserPointer_.SetPosition(0, transform.position);
+            var endPoint =  transform.forward * laserLength_ + transform.position;
             targetSphere.transform.position = endPoint;
             laserPointer_.SetPosition(1, endPoint);
         }
 
-        private void DrawWaveform(Vector3 origin)
+        public void DrawWaveform(float[] samples)
         {
-            pureDataArrayFacade_.Update();
             var waveStep = laserLength_ / 512f;
-            var samples = pureDataArrayFacade_.Get();
             var current = 0.0f;
 
             for(var i = 0; i < 512; i++)
             {
-                var vertex = transform.forward * current + origin;
+                var vertex = transform.forward * current + transform.position;
                 vertex.x += samples[i] * 0.1f ;
                 waveform_.SetPosition(i, vertex);
                 current += waveStep;
@@ -98,5 +101,6 @@ namespace DomainF
         public event Action TriggerReleased;
         public event Action<Transform> TransformChanged;
         public event Action<Vector2> ThumbstickPositionChanged;
+        public event Action Updated;
     }
 }

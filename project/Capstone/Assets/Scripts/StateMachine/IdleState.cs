@@ -27,6 +27,11 @@ namespace DomainF
         {
         }
 
+        public void OnUpdated()
+        {
+        }
+
+        public event Action<float[]> WaveformUpdated;
         public event Action<float> FreqChanged;
         public event Action<float> AmpChanged;
     }

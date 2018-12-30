@@ -20,7 +20,7 @@ namespace DomainF
         }
 
         public IControllerState CreateModulatorState(IPureDataFacade pureDataFacade)
-        {    
+        {
             return new ModulatorState(pureDataFacade);
         }
     }
