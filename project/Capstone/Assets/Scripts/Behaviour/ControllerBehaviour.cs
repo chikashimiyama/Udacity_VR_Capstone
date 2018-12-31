@@ -6,9 +6,10 @@ namespace DomainF
 {
     public interface IControllerBehaviour
     {
+        bool LaserVisibility { set; }
         void DrawLaser();
         void DrawWaveform(float[] samples);
-        
+
         float LaserLength { set; }
         event Action TriggerPressed;
         event Action TriggerReleased;
@@ -16,28 +17,39 @@ namespace DomainF
         event Action<Vector2> ThumbstickPositionChanged;
         event Action Updated;
     }
-    
+
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
     {
         [SerializeField] private GameObject targetSphere;
         [SerializeField] private GameObject waveform;
-        
+        [SerializeField] private GameObject laser;
+
         private LineRenderer laserPointer_;
         private LineRenderer waveform_;
         private float laserLength_ = 20f;
-        
+
         private void Start()
         {
             laserPointer_ = GetComponentInChildren<LineRenderer>();
             waveform_ = waveform.GetComponent<LineRenderer>();
         }
-        
-        private void Update()
+
+        private void  Update()
         {
-            if(Updated != null)
+            if (Updated != null)
                 Updated.Invoke();
         }
 
+        public bool LaserVisibility
+        {
+            set { laser.SetActive(value); }
+        }
+
+        public float LaserLength
+        {
+            set { laserLength_ = value; }
+        }
+        
         public void DrawLaser()
         {
             laserPointer_.SetPosition(0, transform.position);
@@ -50,15 +62,15 @@ namespace DomainF
         {
             var waveStep = laserLength_ / 512f;
             var current = 0.0f;
-            for(var i = 0; i < 512; i++)
+            for (var i = 0; i < 512; i++)
             {
                 var vertex = transform.forward * current + transform.position;
-                vertex.x += samples[i] * 0.1f ;
+                vertex.x += samples[i] * 0.1f;
                 waveform_.SetPosition(i, vertex);
                 current += waveStep;
             }
         }
-        
+
         public void UnityEvent_OnTransformChanged()
         {
             if (TransformChanged == null)
@@ -71,27 +83,22 @@ namespace DomainF
         {
             if (ThumbstickPositionChanged == null)
                 return;
-            
+
             ThumbstickPositionChanged.Invoke(position.GetAxis(SteamVR_Input_Sources.Any));
         }
 
         public void UnityEvent_OnTriggerPressed()
         {
-            if (TriggerPressed != null) 
+            if (TriggerPressed != null)
                 TriggerPressed.Invoke();
         }
 
         public void UnityEvent_OnTriggerReleased()
         {
-            if (TriggerReleased != null) 
+            if (TriggerReleased != null)
                 TriggerReleased.Invoke();
         }
 
-        public float LaserLength
-        {
-            set { laserLength_ = value; }
-        }
-        
         public event Action TriggerPressed;
         public event Action TriggerReleased;
         public event Action<Transform> TransformChanged;

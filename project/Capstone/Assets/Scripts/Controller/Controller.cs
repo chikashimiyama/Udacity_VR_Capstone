@@ -24,6 +24,7 @@ namespace DomainF
             controllerBehaviour_.Updated += OnUpdated;
             
             currentState_ = stateAssigner_.Unassign(this);
+            currentState_.OnStateSelected();
         }
 
         private void OnTransformChanged(Transform transform)
@@ -65,6 +66,8 @@ namespace DomainF
             currentState_ = nextState;
             indicatorBehaviour_.FuncText = currentState_.Identifier;
 
+            controllerBehaviour_.LaserVisibility = currentState_.Identifier != "Idle";   
+            
             currentState_.OnStateSelected();
             currentState_.FreqChanged += OnFreqChanged;
             currentState_.AmpChanged += OnAmpChanged;
