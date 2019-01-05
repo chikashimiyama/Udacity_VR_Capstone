@@ -1,3 +1,4 @@
+using DomainFo;
 using UnityEngine;
 
 namespace DomainF
@@ -8,14 +9,16 @@ namespace DomainF
         private readonly IStateAssigner stateAssigner_;
         private readonly IControllerBehaviour controllerBehaviour_;
         private readonly IIndicatorBehaviour indicatorBehaviour_;
+        private readonly IWaveformInterpolationBehaviour waveformInterpolationBehaviour_;
         private float distance_;
 
         public Controller(IStateAssigner stateAssigner, IControllerBehaviour controllerBehaviour,
-            IIndicatorBehaviour indicatorBehaviour)
+            IIndicatorBehaviour indicatorBehaviour, IWaveformInterpolationBehaviour waveformInterpolationBehaviour)
         {
             stateAssigner_ = stateAssigner;
             controllerBehaviour_ = controllerBehaviour;
             indicatorBehaviour_ = indicatorBehaviour;
+            waveformInterpolationBehaviour_ = waveformInterpolationBehaviour;
             
             controllerBehaviour_.TransformChanged += OnTransformChanged;
             controllerBehaviour_.TriggerPressed += OnTriggerPressed;
@@ -30,6 +33,8 @@ namespace DomainF
         private void OnTransformChanged(Transform transform)
         {
             currentState_.OnTransformChanged(transform);
+
+            waveformInterpolationBehaviour_.Angle = transform.rotation.eulerAngles.z;
         }
 
         private void OnTriggerPressed()

@@ -1,5 +1,6 @@
 using System;
 using DomainF;
+using DomainFo;
 using NUnit.Framework;
 using NSubstitute;
 
@@ -14,6 +15,7 @@ namespace UnitTests
         private IStateAssigner stateAssignerMock_;
         private IControllerBehaviour controllerBehaviourMock_;
         private IIndicatorBehaviour indicatorBehaviourMock_;
+        private IWaveformInterpolationBehaviour waveformInterpolationBehaviourMock_;
         private Controller controller_;
 
         [SetUp]
@@ -24,8 +26,9 @@ namespace UnitTests
             stateAssignerMock_ = Substitute.For<IStateAssigner>();
             controllerBehaviourMock_ = Substitute.For<IControllerBehaviour>();
             indicatorBehaviourMock_ = Substitute.For<IIndicatorBehaviour>();
+            waveformInterpolationBehaviourMock_ = Substitute.For<IWaveformInterpolationBehaviour>();
             
-            controller_ = new Controller(stateAssignerMock_, controllerBehaviourMock_, indicatorBehaviourMock_);
+            controller_ = new Controller(stateAssignerMock_, controllerBehaviourMock_, indicatorBehaviourMock_, waveformInterpolationBehaviourMock_);
         }
 
         [Test]

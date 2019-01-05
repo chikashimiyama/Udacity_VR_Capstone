@@ -9,6 +9,7 @@ namespace DomainF
         bool LaserVisibility { set; }
         void DrawLaser();
         void DrawWaveform(float[] samples);
+        
 
         float LaserLength { set; }
         event Action TriggerPressed;
@@ -16,6 +17,7 @@ namespace DomainF
         event Action<Transform> TransformChanged;
         event Action<Vector2> ThumbstickPositionChanged;
         event Action Updated;
+        
     }
 
     public class ControllerBehaviour : MonoBehaviour, IControllerBehaviour
@@ -70,6 +72,7 @@ namespace DomainF
                 current += waveStep;
             }
         }
+        
 
         public void UnityEvent_OnTransformChanged()
         {

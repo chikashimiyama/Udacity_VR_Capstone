@@ -18,16 +18,15 @@ Introduction
 
 Every musical instrument offers an interface for controlling sound, such as
 keyboards, strings, sliders etc. What if we can use the VR 3D space as an
-control surface of a FM-synthesizer?
+control surface of an electronic instrument?
 
  
 
 Emotion
 -------
 
-Playing musical instrument is a JOYFUL experience for all of us. However, it
-requires sometime years of practice. However, this system allows users control
-sound directly with Oculus Touch.
+Playing musical instrument is a JOYFUL experience for all of us but it usually
+requires years of practice.
 
  
 

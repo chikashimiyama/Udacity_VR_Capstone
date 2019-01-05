@@ -36,10 +36,6 @@
       "type": "vibration"
     },
     {
-      "name": "/actions/domainF/in/filter",
-      "type": "boolean"
-    },
-    {
       "name": "/actions/domainF/in/note",
       "type": "boolean"
     },
