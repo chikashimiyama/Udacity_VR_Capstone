@@ -12,9 +12,6 @@ namespace DomainF
             gridBehaviour_ = gridBehaviour;
             componentFactory = componentFactory ?? new ComponentFactory();
 
-            consoleBehaviour.ConsoleEntered += OnConsoleEntered;
-            consoleBehaviour.ConsoleExited += OnConsoleExited;
-            
             var scaleGridToggleButton = componentFactory.CreateToggleButton(consoleBehaviour.ScaleGridToggleBehaviour);
             scaleGridToggleButton.ButtonStateChanged += OnScaleGridButtonTouched;
 
@@ -23,6 +20,9 @@ namespace DomainF
 
             var equatorToggleButton = componentFactory.CreateToggleButton(consoleBehaviour.EquatorToggleBehaviour);
             equatorToggleButton.ButtonStateChanged += OnEquatorButtonTouched;
+            
+            consoleBehaviour.ConsoleEntered += OnConsoleEntered;
+            consoleBehaviour.ConsoleExited += OnConsoleExited;
         }
 
         private void OnScaleGridButtonTouched(bool state)

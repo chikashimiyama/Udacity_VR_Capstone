@@ -8,9 +8,9 @@ namespace UnitTests
     [TestFixture]
     public class UnitTest_ComponentFactory
     {
+        private IToggleButtonBehaviour toggleButtonBehaviourMock_;
+
         private ComponentFactory componentFactory_;
-        
-        private IToggleButtonBehaviour toggleButtonBehaviour_;
 
         [SetUp]
         public void SetUp()
@@ -21,8 +21,8 @@ namespace UnitTests
         [Test]
         public void CreateToggleButton()
         {
-            toggleButtonBehaviour_ = Substitute.For<IToggleButtonBehaviour>();
-            var toggleButton = componentFactory_.CreateToggleButton(toggleButtonBehaviour_);
+            toggleButtonBehaviourMock_ = Substitute.For<IToggleButtonBehaviour>();
+            var toggleButton = componentFactory_.CreateToggleButton(toggleButtonBehaviourMock_);
             Assert.True(toggleButton != null);            
         }
     }

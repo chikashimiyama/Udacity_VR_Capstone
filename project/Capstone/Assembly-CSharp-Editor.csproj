@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\UnitTest\UnitTest_CarrierState.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ComponentFactory.cs" />
+    <Compile Include="Assets\Editor\UnitTest\UnitTest_Console.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_Controller.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ControllerStateFactory.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_MathUtility.cs" />
