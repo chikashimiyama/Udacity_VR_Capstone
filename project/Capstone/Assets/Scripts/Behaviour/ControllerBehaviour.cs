@@ -59,8 +59,6 @@ namespace DomainF
                 Updated.Invoke();
         }
 
-       
-
         public bool LaserVisibility
         {
             set

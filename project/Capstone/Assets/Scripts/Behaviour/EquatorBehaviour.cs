@@ -10,7 +10,12 @@ namespace DomainF
     public class EquatorBehaviour : MonoBehaviour, IVisible, IColor
     {
         [SerializeField] private GameObject equator;
+        private Material material_;
 
+        private void Start()
+        {
+            material_ = equator.GetComponent<Renderer>().material;
+        }
                
         public bool State
         {
@@ -21,7 +26,8 @@ namespace DomainF
         {
             set
             {
-                
+                var col = value;
+                material_.color = col;
             }
         }
     }

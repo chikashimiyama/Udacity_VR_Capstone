@@ -1,9 +1,13 @@
-﻿namespace DomainF
+﻿using System;
+
+namespace DomainF
 {
     public interface IPureDataFacade
     {
         void SendMessage(string message, float value);
         void SendMessage<T>(string message, T[] values);
+
+        event Action<float> LevelChanged ;
     }
 
     public class PureDataFacade : IPureDataFacade
@@ -13,6 +17,7 @@
         public PureDataFacade()
         {
             PureData.OpenPatch("main");
+            PureData.Receive("level", OnLevelReceived );
         }
 
         public void SendMessage(string message, float value)
@@ -25,5 +30,13 @@
         {
             PureData.SendMessage("toPd", message, values);
         }
+
+        private void OnLevelReceived(float level)
+        {
+            if (LevelChanged != null) LevelChanged.Invoke(level);
+        }
+        
+        public event Action<float> LevelChanged;
+
     }
 }

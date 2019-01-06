@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace DomainF
 {
     public class Console
@@ -5,7 +7,7 @@ namespace DomainF
         private readonly IConsoleBehaviour consoleBehaviour_;
         private readonly IGridBehaviour gridBehaviour_;
      
-        public Console(IConsoleBehaviour consoleBehaviour, IGridBehaviour gridBehaviour,
+        public Console(IConsoleBehaviour consoleBehaviour, IGridBehaviour gridBehaviour, IPureDataFacade pureDataFacade,
             IComponentFactory componentFactory = null)
         {
             consoleBehaviour_ = consoleBehaviour;
@@ -23,6 +25,8 @@ namespace DomainF
             
             consoleBehaviour.ConsoleEntered += OnConsoleEntered;
             consoleBehaviour.ConsoleExited += OnConsoleExited;
+
+            pureDataFacade.LevelChanged += OnLevelChanged;
         }
 
         private void OnScaleGridButtonTouched(bool state)
@@ -52,6 +56,21 @@ namespace DomainF
             consoleBehaviour_.ScaleGridToggleBehaviour.Annotate = false;
             consoleBehaviour_.DirectionGridToggleBehaviour.Annotate = false;
             consoleBehaviour_.EquatorToggleBehaviour.Annotate = false;
+        }
+
+        private void OnLevelChanged(float level)
+        {
+            var equator = (IColor)gridBehaviour_.EquatorCircleBehaviour;
+
+            if(level < 1f)
+                equator.color = Color.gray;
+            else
+            {
+                var red = level / 200f + 0.5f;
+                const float blue = 0.7f;
+                var green = (100 - level) / 200f + 0.5f;
+                equator.color = new Color(red, green, blue, 1f);
+            }
         }
     }
 }

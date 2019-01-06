@@ -26,6 +26,8 @@ namespace UnitTests
         private IConsoleBehaviour consoleBehaviourMock_;
         private IGridBehaviour gridBehaviourMock_;
         private IComponentFactory componentFactoryMock_;
+
+        private IPureDataFacade pureDataFacadeMock_;
         
         [SetUp]
         public void SetUp()
@@ -42,6 +44,7 @@ namespace UnitTests
             scaleCircleBehaviourMock_ = Substitute.For<IVisible>();
             directionCircleBehaviourMock_ = Substitute.For<IVisible>();
             equatorCircleBehaviourMock_ = Substitute.For<IVisible>();
+            pureDataFacadeMock_ = Substitute.For<IPureDataFacade>();
             
             consoleBehaviourMock_.ScaleGridToggleBehaviour.Returns(scaleGridToggleBehaviourMock_);
             consoleBehaviourMock_.DirectionGridToggleBehaviour.Returns(directionGridToggleBehaviourMock_);
@@ -55,7 +58,7 @@ namespace UnitTests
             gridBehaviourMock_.DirectionCircleBehaviour.Returns(directionCircleBehaviourMock_);
             gridBehaviourMock_.EquatorCircleBehaviour.Returns(equatorCircleBehaviourMock_);
             
-            console_ = new Console(consoleBehaviourMock_, gridBehaviourMock_, componentFactoryMock_);
+            console_ = new Console(consoleBehaviourMock_, gridBehaviourMock_, pureDataFacadeMock_, componentFactoryMock_);
         }
     
         [Test]

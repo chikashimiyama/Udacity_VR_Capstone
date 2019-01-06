@@ -19,10 +19,11 @@ namespace DomainF
 
         private void Start()
         {
-            stateAssigner_ = new StateAssigner(new PureDataFacade());
+            var puredataFacade = new PureDataFacade();
+            stateAssigner_ = new StateAssigner(puredataFacade);
             leftController_ = new Controller(stateAssigner_, leftControllerBehaviour);
             rightController_ = new Controller(stateAssigner_, rightControllerBehaviour);
-            console_ = new Console(consoleBehaviour, gridBehaviour);
+            console_ = new Console(consoleBehaviour, gridBehaviour, puredataFacade);
         }
     }
 }
