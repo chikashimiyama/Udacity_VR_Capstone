@@ -12,6 +12,7 @@
       <e p="Assets\Editor" t="Include">
         <e p="UnitTest" t="Include">
           <e p="UnitTest_CarrierState.cs" t="Include" />
+          <e p="UnitTest_ComponentFactory.cs" t="Include" />
           <e p="UnitTest_Controller.cs" t="Include" />
           <e p="UnitTest_ControllerStateFactory.cs" t="Include" />
           <e p="UnitTest_MathUtility.cs" t="Include" />
