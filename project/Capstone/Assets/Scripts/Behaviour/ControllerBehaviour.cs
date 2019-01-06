@@ -1,11 +1,16 @@
 using System;
+using DomainFo;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Valve.VR;
 
 namespace DomainF
 {
     public interface IControllerBehaviour
     {
+        IWaveformInterpolationBehaviour WaveformInterpolationBehaviour { get; }
+        IIndicatorBehaviour IndicatorBehaviour { get; }
+        
         bool LaserVisibility { set; }
         void DrawLaser();
         void DrawWaveform(float[] samples);
@@ -25,7 +30,9 @@ namespace DomainF
         [SerializeField] private GameObject targetSphere;
         [SerializeField] private GameObject waveform;
         [SerializeField] private GameObject laser;
-
+        [SerializeField] private WaveformInterpolationBehaviour waveformInterpolationBehaviour;
+        [SerializeField] private IndicatorBehaviour indicatorBehaviour;
+        
         private LineRenderer laserPointer_;
         private LineRenderer waveform_;
         private float laserLength_ = 20f;
@@ -35,12 +42,24 @@ namespace DomainF
             laserPointer_ = GetComponentInChildren<LineRenderer>();
             waveform_ = waveform.GetComponent<LineRenderer>();
         }
+        
+        public IWaveformInterpolationBehaviour WaveformInterpolationBehaviour
+        {
+            get { return waveformInterpolationBehaviour; }
+        }
+
+        public IIndicatorBehaviour IndicatorBehaviour
+        {
+            get { return indicatorBehaviour; }
+        }
 
         private void  Update()
         {
             if (Updated != null)
                 Updated.Invoke();
         }
+
+       
 
         public bool LaserVisibility
         {
@@ -75,7 +94,6 @@ namespace DomainF
                 current += waveStep;
             }
         }
-        
 
         public void UnityEvent_OnTransformChanged()
         {

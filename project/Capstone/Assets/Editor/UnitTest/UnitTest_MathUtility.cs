@@ -39,10 +39,11 @@ namespace UnitTests
             Assert.AreEqual(output, MathUtility.LimitDistance(input));
         }
 
-        [TestCase(10f, 30f)]
-        public void EulerAngleToFrequency(float angle, float freq)
+        [TestCase(0f, 0.5f)]
+        [TestCase(180f, 1.5f)]
+        public void EulerAngleToLinear(float input, float output)
         {
-            
+            Assert.AreEqual(output, MathUtility.EulerAngleToLinear(input));
         }
         
         [TestCase(57f, 220f)]
@@ -52,5 +53,15 @@ namespace UnitTests
         {
             Assert.AreEqual(frequency, MathUtility.MidiToFrequency(midiNote));
         }
+
+        [TestCase(60.001f, 60f)]
+        [TestCase(60, 60f)]
+        [TestCase(300f, 300f)]
+        [TestCase(299.999f, 300f)]
+        public void LimitKnobAngle(float input, float output)
+        {
+            Assert.AreEqual(output, MathUtility.LimitKnobAngle(input));
+        }
+
     }
 }

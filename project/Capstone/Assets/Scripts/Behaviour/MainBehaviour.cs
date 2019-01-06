@@ -5,14 +5,8 @@ namespace DomainF
 {
     public class MainBehaviour : MonoBehaviour
     {
-        [SerializeField] private IndicatorBehaviour leftIndicatorBehaviour;
         [SerializeField] private ControllerBehaviour leftControllerBehaviour;
-        [SerializeField] private WaveformInterpolationBehaviour leftWaveformInterpolationBehaviour;
-
-
-        [SerializeField] private IndicatorBehaviour rightIndicatorBehaviour;
         [SerializeField] private ControllerBehaviour rightControllerBehaviour;
-        [SerializeField] private WaveformInterpolationBehaviour rightWaveformInterpolationBehaviour;
 
 
         [SerializeField] private ConsoleBehaviour consoleBehaviour;
@@ -26,12 +20,8 @@ namespace DomainF
         private void Start()
         {
             stateAssigner_ = new StateAssigner(new PureDataFacade());
-
-            leftController_ = new Controller(stateAssigner_, leftControllerBehaviour, leftIndicatorBehaviour,
-                leftWaveformInterpolationBehaviour);
-            rightController_ = new Controller(stateAssigner_, rightControllerBehaviour, rightIndicatorBehaviour,
-                rightWaveformInterpolationBehaviour);
-
+            leftController_ = new Controller(stateAssigner_, leftControllerBehaviour);
+            rightController_ = new Controller(stateAssigner_, rightControllerBehaviour);
             console_ = new Console(consoleBehaviour, gridBehaviour);
         }
     }

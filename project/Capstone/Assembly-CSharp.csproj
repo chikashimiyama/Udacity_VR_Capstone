@@ -196,7 +196,6 @@
     <Compile Include="Assets\Scripts\Controller\StateAssigner.cs" />
     <Compile Include="Assets\Scripts\Controller\ToggleButton.cs" />
     <Compile Include="Assets\Scripts\Controller\Tutorial.cs" />
-    <Compile Include="Assets\Scripts\Controller\Waterfall.cs" />
     <Compile Include="Assets\Scripts\Facade\PureDataArray.cs" />
     <Compile Include="Assets\Scripts\Interface\IVisible.cs" />
     <Compile Include="Assets\Scripts\Math\MathUtility.cs" />

@@ -8,17 +8,12 @@ namespace DomainF
         private IControllerState currentState_;
         private readonly IStateAssigner stateAssigner_;
         private readonly IControllerBehaviour controllerBehaviour_;
-        private readonly IIndicatorBehaviour indicatorBehaviour_;
-        private readonly IWaveformInterpolationBehaviour waveformInterpolationBehaviour_;
         private float distance_;
 
-        public Controller(IStateAssigner stateAssigner, IControllerBehaviour controllerBehaviour,
-            IIndicatorBehaviour indicatorBehaviour, IWaveformInterpolationBehaviour waveformInterpolationBehaviour)
+        public Controller(IStateAssigner stateAssigner, IControllerBehaviour controllerBehaviour)
         {
             stateAssigner_ = stateAssigner;
             controllerBehaviour_ = controllerBehaviour;
-            indicatorBehaviour_ = indicatorBehaviour;
-            waveformInterpolationBehaviour_ = waveformInterpolationBehaviour;
             
             controllerBehaviour_.TransformChanged += OnTransformChanged;
             controllerBehaviour_.TriggerPressed += OnTriggerPressed;
@@ -34,7 +29,8 @@ namespace DomainF
         {
             currentState_.OnTransformChanged(transform);
 
-            waveformInterpolationBehaviour_.Angle = transform.rotation.eulerAngles.z;
+            var angle = transform.rotation.eulerAngles.z;
+            controllerBehaviour_.WaveformInterpolationBehaviour.Angle = MathUtility.LimitKnobAngle(angle);
         }
 
         private void OnTriggerPressed()
@@ -63,12 +59,12 @@ namespace DomainF
 
         private void OnFreqChanged(float freq)
         {
-            indicatorBehaviour_.FreqText = "Freq: " + freq.ToString("F2");
+            controllerBehaviour_.IndicatorBehaviour.FreqText = "Freq: " + freq.ToString("F2");
         }
         
         private void OnAmpChanged(float amp)
         {
-            indicatorBehaviour_.AmpText = " Amp: " + amp.ToString("F2");
+            controllerBehaviour_.IndicatorBehaviour.AmpText = " Amp: " + amp.ToString("F2");
         }
 
         private void OnWaveformUpdated(float[] samples)
@@ -85,10 +81,8 @@ namespace DomainF
             currentState_.WaveformUpdated -= OnWaveformUpdated;
             
             currentState_ = nextState;
-            indicatorBehaviour_.FuncText = currentState_.Identifier;
-
+            controllerBehaviour_.IndicatorBehaviour.FuncText = currentState_.Identifier;
             controllerBehaviour_.LaserVisibility = currentState_.Identifier != "Idle";   
-            
             
             currentState_.OnStateSelected();
             currentState_.FreqChanged += OnFreqChanged;

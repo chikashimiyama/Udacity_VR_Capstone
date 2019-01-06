@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace DomainF
 {
@@ -7,6 +8,7 @@ namespace DomainF
         private const float MinDist = 5f;
         private const float MaxDist = 30f;
         private const float Divider = 30f;
+        private const float Range = 60f;
         
         public static float DistanceToAmp(float distance)
         {
@@ -27,7 +29,7 @@ namespace DomainF
 
         public static float EulerAngleToLinear(float angle)
         {
-            if (angle > 180f)
+            if (angle >= 180f)
                 angle = -(360f - angle);
             angle = 180 - (angle + 90);
             return angle / 180.0f;
@@ -37,6 +39,27 @@ namespace DomainF
         {
             var exp = (midiNote - 69f) / 12f;
             return (float)Math.Pow(2.0, exp) * 440f;
+        }
+
+        public static float LimitKnobAngle(float input)
+        {
+            float output;
+            if (input > 180)
+            {
+                if (input < 260)
+                    output = 260 - input;
+                else
+                    output = 0;
+            }
+            else
+            {
+                if (input > 100)
+                    output = 100 - input;
+                else
+                    output = 0;
+            }
+
+            return output;
         }
     }
 }
