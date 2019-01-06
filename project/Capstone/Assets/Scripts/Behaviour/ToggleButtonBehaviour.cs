@@ -6,6 +6,7 @@ namespace DomainF
     public interface IToggleButtonBehaviour
     {
         bool State { set; }
+        bool Anotate { set; }
         event Action ButtonTouched;
     }
     
@@ -14,6 +15,7 @@ namespace DomainF
         
         [SerializeField] private GameObject activeObject;
         [SerializeField] private GameObject inactiveObject;
+        [SerializeField] private GameObject anotationObject;
 
         public bool State
         {
@@ -29,6 +31,15 @@ namespace DomainF
                     activeObject.SetActive(false);
                     inactiveObject.SetActive(true);
                 }
+            }
+        }
+
+        public bool Anotate
+        {
+            set
+            {
+                if(anotationObject != null)
+                    anotationObject.SetActive(value);
             }
         }
 

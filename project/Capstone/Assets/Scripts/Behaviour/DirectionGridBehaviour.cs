@@ -2,7 +2,7 @@
 
 namespace DomainF
 {
-	public class DirectionGridBehaviour : MonoBehaviour, IShowable {
+	public class DirectionGridBehaviour : MonoBehaviour, IVisible {
 
 		[SerializeField] private GameObject circlePrefab;
 		private const int NumCircles = 4;
@@ -20,7 +20,7 @@ namespace DomainF
 			}
 		}
 
-		public bool Visible
+		public bool State
 		{
 			set
 			{

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DomainF
 {
 
-	public class ScaleGridBehaviour : MonoBehaviour, IShowable {
+	public class ScaleGridBehaviour : MonoBehaviour, IVisible {
 
 		[SerializeField] private GameObject circlePrefab;
 		private const int NumPitches = 24;
@@ -29,7 +29,7 @@ namespace DomainF
 			}
 		}
 
-		public bool Visible
+		public bool State
 		{
 			set
 			{

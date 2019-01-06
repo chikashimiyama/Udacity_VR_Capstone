@@ -31,7 +31,7 @@ namespace DomainF
             leftController_ = new Controller(stateAssigner_, leftControllerBehaviour, leftIndicatorBehaviour, leftWaveformInterpolationBehaviour);
             rightController_ = new Controller(stateAssigner_, rightControllerBehaviour, rightIndicatorBehaviour, rightWaveformInterpolationBehaviour);
             
-            console_ = new Console(consoleBehaviour, scaleGridBehavior, directionGridBehaviour);
+            console_ = new Console(consoleBehaviour);
         }
         
         

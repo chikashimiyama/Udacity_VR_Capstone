@@ -7,7 +7,7 @@ namespace DomainF
         Color color { set; }
     }
     
-    public class EquatorBehaviour : MonoBehaviour, IShowable, IColor
+    public class EquatorBehaviour : MonoBehaviour, IVisible, IColor
     {
         [SerializeField] private GameObject equator;
 
@@ -16,7 +16,7 @@ namespace DomainF
         }
         
         
-        public bool Visible
+        public bool State
         {
             set { equator.SetActive(value); }
         }
