@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DomainF
 {
     public interface IToggleButtonBehaviour
     {
         bool State { set; }
-        bool Anotate { set; }
+        bool Annotate { set; }
         event Action ButtonTouched;
     }
     
@@ -15,7 +16,7 @@ namespace DomainF
         
         [SerializeField] private GameObject activeObject;
         [SerializeField] private GameObject inactiveObject;
-        [SerializeField] private GameObject anotationObject;
+        [SerializeField] private GameObject annotationObject;
 
         public bool State
         {
@@ -34,12 +35,12 @@ namespace DomainF
             }
         }
 
-        public bool Anotate
+        public bool Annotate
         {
             set
             {
-                if(anotationObject != null)
-                    anotationObject.SetActive(value);
+                if(annotationObject != null)
+                    annotationObject.SetActive(value);
             }
         }
 

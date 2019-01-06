@@ -200,11 +200,11 @@
           <e p="ControllerBehaviour.cs" t="Include" />
           <e p="DirectionGridBehaviour.cs" t="Include" />
           <e p="EquatorBehaviour.cs" t="Include" />
+          <e p="GridBehaviour.cs" t="Include" />
           <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
           <e p="ScaleCircleBehaviour.cs" t="Include" />
           <e p="ScaleGridBehaviour.cs" t="Include" />
-          <e p="TargetBallBehaviour.cs" t="Include" />
           <e p="ToggleButtonBehaviour.cs" t="Include" />
           <e p="TutorialBehaviour.cs" t="Include" />
           <e p="WaveformInterpolationBehaviour.cs" t="Include" />
@@ -213,7 +213,7 @@
           <e p="CompomentFactory.cs" t="Include" />
           <e p="Console.cs" t="Include" />
           <e p="Controller.cs" t="Include" />
-          <e p="IVisibility.cs" t="Include" />
+          <e p="IVisible.cs" t="Include" />
           <e p="StateAssigner.cs" t="Include" />
           <e p="ToggleButton.cs" t="Include" />
           <e p="Tutorial.cs" t="Include" />

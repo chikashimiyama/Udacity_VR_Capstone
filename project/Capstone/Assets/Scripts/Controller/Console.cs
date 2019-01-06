@@ -3,11 +3,13 @@ namespace DomainF
     public class Console
     {
         private readonly IConsoleBehaviour consoleBehaviour_;
+        private readonly IGridBehaviour gridBehaviour_;
      
-        public Console(IConsoleBehaviour consoleBehaviour,
+        public Console(IConsoleBehaviour consoleBehaviour, IGridBehaviour gridBehaviour,
             IComponentFactory componentFactory = null)
         {
             consoleBehaviour_ = consoleBehaviour;
+            gridBehaviour_ = gridBehaviour;
             componentFactory = componentFactory ?? new ComponentFactory();
 
             consoleBehaviour.ConsoleEntered += OnConsoleEntered;
@@ -25,31 +27,31 @@ namespace DomainF
 
         private void OnScaleGridButtonTouched(bool state)
         {
-            consoleBehaviour_.ScaleGridToggleBehaviour.State = state;
+            gridBehaviour_.ScaleCircleBehaviour.State = state;
         }
 
         private void OnDirectionGridButtonTouched(bool state)
         {
-            consoleBehaviour_.DirectionGridToggleBehaviour.State = state;
+            gridBehaviour_.DirectionCircleBehaviour.State = state;
         }
 
         private void OnEquatorButtonTouched(bool state)
         {
-            consoleBehaviour_.EquatorToggleBehaviour.State = state;
+            gridBehaviour_.EquatorCircleBehaviour.State = state;
         }
 
         private void OnConsoleEntered()
         {
-            consoleBehaviour_.ScaleGridToggleBehaviour.Anotate = true;
-            consoleBehaviour_.DirectionGridToggleBehaviour.Anotate = true;
-            consoleBehaviour_.EquatorToggleBehaviour.Anotate = true;
+            consoleBehaviour_.ScaleGridToggleBehaviour.Annotate = true;
+            consoleBehaviour_.DirectionGridToggleBehaviour.Annotate = true;
+            consoleBehaviour_.EquatorToggleBehaviour.Annotate = true;
         }
         
         private void OnConsoleExited()
         {
-            consoleBehaviour_.ScaleGridToggleBehaviour.Anotate = false;
-            consoleBehaviour_.DirectionGridToggleBehaviour.Anotate = false;
-            consoleBehaviour_.EquatorToggleBehaviour.Anotate = false;
+            consoleBehaviour_.ScaleGridToggleBehaviour.Annotate = false;
+            consoleBehaviour_.DirectionGridToggleBehaviour.Annotate = false;
+            consoleBehaviour_.EquatorToggleBehaviour.Annotate = false;
         }
     }
 }

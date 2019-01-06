@@ -16,8 +16,8 @@ namespace DomainF
 
 
         [SerializeField] private ConsoleBehaviour consoleBehaviour;
-        [SerializeField] private ScaleGridBehaviour scaleGridBehavior;
-        [SerializeField] private DirectionGridBehaviour directionGridBehaviour;
+        [SerializeField] private GridBehaviour gridBehaviour;
+
         private StateAssigner stateAssigner_;
         private Controller leftController_;
         private Controller rightController_;
@@ -25,15 +25,14 @@ namespace DomainF
 
         private void Start()
         {
-            
             stateAssigner_ = new StateAssigner(new PureDataFacade());
 
-            leftController_ = new Controller(stateAssigner_, leftControllerBehaviour, leftIndicatorBehaviour, leftWaveformInterpolationBehaviour);
-            rightController_ = new Controller(stateAssigner_, rightControllerBehaviour, rightIndicatorBehaviour, rightWaveformInterpolationBehaviour);
-            
-            console_ = new Console(consoleBehaviour);
+            leftController_ = new Controller(stateAssigner_, leftControllerBehaviour, leftIndicatorBehaviour,
+                leftWaveformInterpolationBehaviour);
+            rightController_ = new Controller(stateAssigner_, rightControllerBehaviour, rightIndicatorBehaviour,
+                rightWaveformInterpolationBehaviour);
+
+            console_ = new Console(consoleBehaviour, gridBehaviour);
         }
-        
-        
     }
 }

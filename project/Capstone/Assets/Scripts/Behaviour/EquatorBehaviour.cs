@@ -11,11 +11,7 @@ namespace DomainF
     {
         [SerializeField] private GameObject equator;
 
-        private void Start()
-        {
-        }
-        
-        
+               
         public bool State
         {
             set { equator.SetActive(value); }
