@@ -8,7 +8,7 @@ namespace DomainF
         private IControllerState currentState_;
         private readonly IStateAssigner stateAssigner_;
         private readonly IControllerBehaviour controllerBehaviour_;
-        private float distance_;
+        private float distance_ = 15f;
 
         public Controller(IStateAssigner stateAssigner, IControllerBehaviour controllerBehaviour)
         {
@@ -85,6 +85,7 @@ namespace DomainF
             controllerBehaviour_.LaserVisibility = currentState_.Identifier != "Idle";   
             
             currentState_.OnStateSelected();
+            currentState_.OnDistanceChanged(distance_);
             currentState_.FreqChanged += OnFreqChanged;
             currentState_.AmpChanged += OnAmpChanged;
             currentState_.WaveformUpdated += OnWaveformUpdated;

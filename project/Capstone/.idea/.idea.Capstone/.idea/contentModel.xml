@@ -10,6 +10,7 @@
         <e p="PureDataFacade.cs" t="Include" />
       </e>
       <e p="Assets\Editor" t="Include">
+        <e p="LevelScriptableObject.cs" t="Include" />
         <e p="UnitTest" t="Include">
           <e p="UnitTest_CarrierState.cs" t="Include" />
           <e p="UnitTest_ComponentFactory.cs" t="Include" />
