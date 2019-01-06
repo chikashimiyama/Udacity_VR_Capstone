@@ -199,12 +199,15 @@
           <e p="ConsoleBehaviour.cs" t="Include" />
           <e p="ControllerBehaviour.cs" t="Include" />
           <e p="DirectionGridBehaviour.cs" t="Include" />
+          <e p="EquatorBehaviour.cs" t="Include" />
           <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
           <e p="ScaleCircleBehaviour.cs" t="Include" />
           <e p="ScaleGridBehaviour.cs" t="Include" />
+          <e p="TargetBallBehaviour.cs" t="Include" />
           <e p="ToggleButtonBehaviour.cs" t="Include" />
           <e p="TutorialBehaviour.cs" t="Include" />
+          <e p="WaveformInterpolationBehaviour.cs" t="Include" />
         </e>
         <e p="Controller" t="Include">
           <e p="CompomentFactory.cs" t="Include" />
@@ -495,7 +498,6 @@
         <e p="SteamVR_Input_Actions.cs" t="Include" />
         <e p="SteamVR_Input_ActionSets.cs" t="Include" />
       </e>
-      <e p="Assets\WaveformInterpolationBehaviour.cs" t="Include" />
       <e p="Capstone.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />

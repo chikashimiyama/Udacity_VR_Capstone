@@ -14,7 +14,7 @@ namespace DomainF
 
         private object carrierController_;
 
-        public StateAssigner(IPureDataFacade pureDataFacade,  IControllerStateFactory controllerStateFactory = null)
+        public StateAssigner(IPureDataFacade pureDataFacade, IControllerStateFactory controllerStateFactory = null)
         {
             var stateFactory = controllerStateFactory ?? new ControllerStateFactory();
             idleState_ = stateFactory.CreateIdleState();

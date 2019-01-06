@@ -44,7 +44,10 @@ namespace DomainF
 
         public bool LaserVisibility
         {
-            set { laser.SetActive(value); }
+            set
+            {
+                laser.SetActive(value); 
+            }            
         }
 
         public float LaserLength

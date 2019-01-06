@@ -181,12 +181,15 @@
     <Compile Include="Assets\Scripts\Behaviour\ConsoleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ControllerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\DirectionGridBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\EquatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\IndicatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\MainBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ScaleCircleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ScaleGridBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\TargetBallBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ToggleButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\TutorialBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\WaveformInterpolationBehaviour.cs" />
     <Compile Include="Assets\Scripts\Controller\CompomentFactory.cs" />
     <Compile Include="Assets\Scripts\Controller\Console.cs" />
     <Compile Include="Assets\Scripts\Controller\Controller.cs" />
@@ -365,7 +368,6 @@
     <Compile Include="Assets\SteamVR_Input\ActionObjects\SteamVR_Input_ActionSet_domainF_Out.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_Actions.cs" />
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
-    <Compile Include="Assets\WaveformInterpolationBehaviour.cs" />
     <None Include="Assets\Shader\Waterfall.compute" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />

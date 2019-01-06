@@ -53,6 +53,8 @@ Video that explains all achievements
 
  
 
+http://youtube.cin
+
  
 
 List of Achievements
@@ -62,13 +64,24 @@ List of Achievements
 
 1.  Animation Achievement (100 pts)
 
+    -   Animate the color of the “equator” based on the loudness of the
+        generating sound
+
 2.  Lighting Achievement (100 pts)
 
-3.  Physics achievement (100 pts)
+    -   Used a baked point light for 3D buttons
 
-4.  Video Player achievement (100 pts)
+3.  Video Player achievement (100 pts)
 
-5.  Empathy Achievement (100 pts)
+4.  Empathy Achievement (100 pts)
+
+    -   The goal of this project is to provide people without any musical
+        background with an accessible instrument in VR
+
+5.  Scale Achievement (100 pts)
+
+    -   All components in the scene (sound sphere, waveform, buttons,
+        background) are designed properly in terms of their sizes.
 
  
 

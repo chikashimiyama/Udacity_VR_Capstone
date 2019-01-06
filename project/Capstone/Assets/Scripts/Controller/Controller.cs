@@ -73,6 +73,7 @@ namespace DomainF
 
             controllerBehaviour_.LaserVisibility = currentState_.Identifier != "Idle";   
             
+            
             currentState_.OnStateSelected();
             currentState_.FreqChanged += OnFreqChanged;
             currentState_.AmpChanged += OnAmpChanged;
