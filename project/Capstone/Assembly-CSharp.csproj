@@ -193,12 +193,12 @@
     <Compile Include="Assets\Scripts\Controller\CompomentFactory.cs" />
     <Compile Include="Assets\Scripts\Controller\Console.cs" />
     <Compile Include="Assets\Scripts\Controller\Controller.cs" />
-    <Compile Include="Assets\Scripts\Controller\IVisible.cs" />
     <Compile Include="Assets\Scripts\Controller\StateAssigner.cs" />
     <Compile Include="Assets\Scripts\Controller\ToggleButton.cs" />
     <Compile Include="Assets\Scripts\Controller\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Controller\Waterfall.cs" />
     <Compile Include="Assets\Scripts\Facade\PureDataArray.cs" />
+    <Compile Include="Assets\Scripts\Interface\IVisible.cs" />
     <Compile Include="Assets\Scripts\Math\MathUtility.cs" />
     <Compile Include="Assets\Scripts\StateMachine\CarrierState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ControllerStateFactory.cs" />
