@@ -10,7 +10,8 @@ namespace DomainF
         string AmpText { set; }
     }
 
-    public class IndicatorBehaviour : MonoBehaviour, IIndicatorBehaviour
+    public class 
+        IndicatorBehaviour : MonoBehaviour, IIndicatorBehaviour
     {
         [SerializeField] private Text freqText;
         [SerializeField] private Text ampText;

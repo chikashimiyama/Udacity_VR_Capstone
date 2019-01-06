@@ -1,4 +1,3 @@
-using DomainFo;
 using UnityEngine;
 
 namespace DomainF
@@ -45,6 +44,7 @@ namespace DomainF
 
         private void OnThumbStickPositionChanged(Vector2 position)
         {
+            
             var movement = position.y;
             distance_ += movement;
             distance_ = MathUtility.LimitDistance(distance_);
@@ -54,6 +54,7 @@ namespace DomainF
 
         private void OnUpdated()
         {
+            controllerBehaviour_.DrawLaser();
             currentState_.OnUpdated();
         }
 
@@ -69,7 +70,6 @@ namespace DomainF
 
         private void OnWaveformUpdated(float[] samples)
         {
-            controllerBehaviour_.DrawLaser();
             controllerBehaviour_.DrawWaveform(samples);
         }
         
@@ -82,7 +82,7 @@ namespace DomainF
             
             currentState_ = nextState;
             controllerBehaviour_.IndicatorBehaviour.FuncText = currentState_.Identifier;
-            controllerBehaviour_.LaserVisibility = currentState_.Identifier != "Idle";   
+            controllerBehaviour_.WaveVisibility = currentState_.Identifier != "Idle";   
             
             currentState_.OnStateSelected();
             currentState_.OnDistanceChanged(distance_);
