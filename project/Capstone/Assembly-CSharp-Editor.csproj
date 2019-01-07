@@ -55,7 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\LevelScriptableObject.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_CarrierState.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ComponentFactory.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_Console.cs" />
@@ -63,6 +62,7 @@
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ControllerStateFactory.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_MathUtility.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ModulatorState.cs" />
+    <Compile Include="Assets\Editor\UnitTest\UnitTest_OutputWaveform.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_StateAssigner.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ToggleButton.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_Tutorial.cs" />

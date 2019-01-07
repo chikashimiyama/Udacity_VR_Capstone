@@ -43,21 +43,11 @@ namespace DomainF
 
         public static float LimitKnobAngle(float input)
         {
-            float output;
-            if (input > 180)
-            {
-                if (input < 260)
-                    output = 260 - input;
-                else
-                    output = 0;
-            }
-            else
-            {
-                if (input > 100)
-                    output = 100 - input;
-                else
-                    output = 0;
-            }
+            var output = 0f;
+            if (input > 180f && input < 260f)
+                output = 260f - input;
+            else if (input <= 180f && input > 100f)
+                output = 100f - input;
 
             return output;
         }

@@ -15,7 +15,6 @@ namespace DomainF
         void DrawLaser();
         void DrawWaveform(float[] samples);
 
-
         float LaserLength { set; }
         event Action TriggerPressed;
         event Action TriggerReleased;

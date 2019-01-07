@@ -54,10 +54,10 @@ namespace UnitTests
             Assert.AreEqual(frequency, MathUtility.MidiToFrequency(midiNote));
         }
 
-        [TestCase(60.001f, 60f)]
-        [TestCase(60, 60f)]
-        [TestCase(300f, 300f)]
-        [TestCase(299.999f, 300f)]
+        [TestCase(261f, 0f)]
+        [TestCase(259f, 1f)]
+        [TestCase(99f, 0f)]
+        [TestCase(101f, -1f)]
         public void LimitKnobAngle(float input, float output)
         {
             Assert.AreEqual(output, MathUtility.LimitKnobAngle(input));

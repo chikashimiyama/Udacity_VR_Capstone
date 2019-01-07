@@ -185,6 +185,7 @@
     <Compile Include="Assets\Scripts\Behaviour\GridBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\IndicatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\MainBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\OutputWaveformBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ScaleCircleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ScaleGridBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\ToggleButtonBehaviour.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="Assets\Scripts\Controller\CompomentFactory.cs" />
     <Compile Include="Assets\Scripts\Controller\Console.cs" />
     <Compile Include="Assets\Scripts\Controller\Controller.cs" />
+    <Compile Include="Assets\Scripts\Controller\OutputWaveform.cs" />
     <Compile Include="Assets\Scripts\Controller\StateAssigner.cs" />
     <Compile Include="Assets\Scripts\Controller\ToggleButton.cs" />
     <Compile Include="Assets\Scripts\Controller\Tutorial.cs" />

@@ -10,7 +10,6 @@
         <e p="PureDataFacade.cs" t="Include" />
       </e>
       <e p="Assets\Editor" t="Include">
-        <e p="LevelScriptableObject.cs" t="Include" />
         <e p="UnitTest" t="Include">
           <e p="UnitTest_CarrierState.cs" t="Include" />
           <e p="UnitTest_ComponentFactory.cs" t="Include" />
@@ -19,6 +18,7 @@
           <e p="UnitTest_ControllerStateFactory.cs" t="Include" />
           <e p="UnitTest_MathUtility.cs" t="Include" />
           <e p="UnitTest_ModulatorState.cs" t="Include" />
+          <e p="UnitTest_OutputWaveform.cs" t="Include" />
           <e p="UnitTest_StateAssigner.cs" t="Include" />
           <e p="UnitTest_ToggleButton.cs" t="Include" />
           <e p="UnitTest_Tutorial.cs" t="Include" />
@@ -207,6 +207,7 @@
           <e p="GridBehaviour.cs" t="Include" />
           <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
+          <e p="OutputWaveformBehaviour.cs" t="Include" />
           <e p="ScaleCircleBehaviour.cs" t="Include" />
           <e p="ScaleGridBehaviour.cs" t="Include" />
           <e p="ToggleButtonBehaviour.cs" t="Include" />
@@ -217,6 +218,7 @@
           <e p="CompomentFactory.cs" t="Include" />
           <e p="Console.cs" t="Include" />
           <e p="Controller.cs" t="Include" />
+          <e p="OutputWaveform.cs" t="Include" />
           <e p="StateAssigner.cs" t="Include" />
           <e p="ToggleButton.cs" t="Include" />
           <e p="Tutorial.cs" t="Include" />
