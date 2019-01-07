@@ -1,5 +1,4 @@
 using System;
-using Magicolo;
 using UnityEngine;
 
 namespace DomainF
@@ -7,7 +6,7 @@ namespace DomainF
     public interface IOutputWaveformBehaviour
     {
         void DrawWaveform(float[] samples);
-
+        float Distance { get; }
         event Action Updated;
     }
     
@@ -31,7 +30,6 @@ namespace DomainF
         {
             var vector = targetB.transform.position - targetA.transform.position;
             var ampVector = Vector3.Normalize(Quaternion.Euler(0, 0, 90) * vector);
-
             
             var waveStep = vector / 512f;
             var currentPosition = targetA.transform.position;
@@ -42,6 +40,11 @@ namespace DomainF
                 waveformRenderer_.SetPosition(i, vertex);
                 currentPosition += waveStep;
             }
+        }
+
+        public float Distance
+        {
+            get { return Vector3.Distance(targetA.transform.position, targetB.transform.position); }
         }
 
         public event Action Updated;

@@ -24,7 +24,7 @@ namespace DomainF
             leftController_ = new Controller(stateAssigner_, leftControllerBehaviour);
             rightController_ = new Controller(stateAssigner_, rightControllerBehaviour);
             console_ = new Console(consoleBehaviour, gridBehaviour, puredataFacade);
-            outputWaveform_ = new OutputWaveform(outputWaveformBehaviour);
+            outputWaveform_ = new OutputWaveform(outputWaveformBehaviour, puredataFacade);
         }
     }
 }
