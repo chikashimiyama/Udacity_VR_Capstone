@@ -29,7 +29,8 @@ namespace DomainF
             currentState_.OnTransformChanged(transform);
 
             var angle = transform.rotation.eulerAngles.z;
-            controllerBehaviour_.WaveformInterpolationBehaviour.Angle = MathUtility.LimitKnobAngle(angle);
+            var limited = MathUtility.LimitKnobAngle(angle);
+            controllerBehaviour_.WaveformInterpolationBehaviour.Angle = limited;
         }
 
         private void OnTriggerPressed()
@@ -44,7 +45,6 @@ namespace DomainF
 
         private void OnThumbStickPositionChanged(Vector2 position)
         {
-            
             var movement = position.y;
             distance_ += movement;
             distance_ = MathUtility.LimitDistance(distance_);

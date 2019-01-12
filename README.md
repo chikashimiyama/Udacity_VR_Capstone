@@ -89,10 +89,18 @@ List of Achievements
 
 1.  Diegetic UI achievement (250 pts)
 
+    -   buttons
+
 2.  3D Modeling achievement (250 pts)
+
+    1.  buttons
 
  
 
 ### Challenges
 
 1.  Compute Shader achievement (500 pts)
+
+    1.  FFT waterfall plot the ripple effect is achived in compute shader
+
+     

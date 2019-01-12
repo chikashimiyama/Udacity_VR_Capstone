@@ -33,8 +33,15 @@ namespace DomainF
             var currentPosition = targetA.transform.position;
             for (var i = 0; i < 512; i++)
             {
+                var factor = 1.0f;
+                if (i < 20)
+                    factor = i / 20f;
+                else if (i >= 491)
+                    factor = (511 - i) / 20f;
+                
+                
                 var vertex = currentPosition;
-                vertex += samples[i] * ampVector;
+                vertex += samples[i] * ampVector * factor;
                 waveformRenderer_.SetPosition(i, vertex);
                 currentPosition += waveStep;
             }

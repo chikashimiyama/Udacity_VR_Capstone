@@ -71,7 +71,7 @@ namespace DomainF
         public void DrawLaser()
         {
             laserRenderer_.SetPosition(0, transform.position);
-            var endPoint = transform.forward * laserLength_ + transform.position;
+            var endPoint = transform.forward* laserLength_ + transform.position;
             targetSphere.transform.position = endPoint;
             laserRenderer_.SetPosition(1, endPoint);
         }
@@ -116,7 +116,7 @@ namespace DomainF
             if (TriggerReleased != null)
                 TriggerReleased.Invoke();
         }
-
+        
         public event Action TriggerPressed;
         public event Action TriggerReleased;
         public event Action<Transform> TransformChanged;

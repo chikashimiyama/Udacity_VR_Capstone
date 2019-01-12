@@ -42,7 +42,14 @@ namespace DomainF
         public void OnTransformChanged(Transform transform)
         {
             var freq = MathUtility.EulerAngleToLinear(transform.eulerAngles.x) * 1000f;
+            var angle = 360 - transform.rotation.eulerAngles.z;
+            if (angle > 180)
+                angle -= 360;
+
+            var param = Mathf.Clamp(angle, -120, 120) / -120f;
+           
             pureDataFacade_.SendMessage("mod_freq", freq);
+            pureDataFacade_.SendMessage("mod_waveform", param);
             if(FreqChanged != null)
                 FreqChanged.Invoke(freq);
         }

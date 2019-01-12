@@ -43,7 +43,15 @@ namespace DomainF
         {
             var linear = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
             var freq = MathUtility.MidiToFrequency(57f + linear * 24f); // 2 octaves
+            
+            var angle = 360 - transform.rotation.eulerAngles.z;
+            if (angle > 180)
+                angle -= 360;
+
+            var param = Mathf.Clamp(angle, -120, 120) / -120f;
             pureDataFacade_.SendMessage("car_freq", freq);
+            pureDataFacade_.SendMessage("car_waveform", param);
+
             if (FreqChanged != null)
                 FreqChanged.Invoke(freq);
         }
