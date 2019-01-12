@@ -3,11 +3,9 @@ using UnityEngine;
 
 namespace DomainF
 {
-    public interface IOutputWaveformBehaviour
+    public interface IOutputWaveformBehaviour: IVisualizerBehaviour
     {
-        void DrawWaveform(float[] samples);
         float Distance { get; }
-        event Action Updated;
     }
     
     public class OutputWaveformBehaviour : MonoBehaviour, IOutputWaveformBehaviour
@@ -26,7 +24,7 @@ namespace DomainF
             if (Updated != null) Updated.Invoke();
         }
         
-        public void DrawWaveform(float[] samples)
+        public void Visualize(float[] samples)
         {
             var vector = targetB.transform.position - targetA.transform.position;
             var ampVector = Vector3.Normalize(Quaternion.Euler(0, 0, 90) * vector);

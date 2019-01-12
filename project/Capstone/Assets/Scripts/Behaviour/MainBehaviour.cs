@@ -10,12 +10,13 @@ namespace DomainF
         [SerializeField] private ConsoleBehaviour consoleBehaviour;
         [SerializeField] private GridBehaviour gridBehaviour;
         [SerializeField] private OutputWaveformBehaviour outputWaveformBehaviour;
+        [SerializeField] private FFTCircleBehaviour fftCircleBehaviour;
 
         private StateAssigner stateAssigner_;
         private Controller leftController_;
         private Controller rightController_;
         private Console console_;
-        private OutputWaveform outputWaveform_;
+        private Visualizer visualizer_;
 
         private void Start()
         {
@@ -24,7 +25,7 @@ namespace DomainF
             leftController_ = new Controller(stateAssigner_, leftControllerBehaviour);
             rightController_ = new Controller(stateAssigner_, rightControllerBehaviour);
             console_ = new Console(consoleBehaviour, gridBehaviour, puredataFacade);
-            outputWaveform_ = new OutputWaveform(outputWaveformBehaviour, puredataFacade);
+            visualizer_ = new Visualizer(outputWaveformBehaviour, fftCircleBehaviour, puredataFacade);
         }
     }
 }

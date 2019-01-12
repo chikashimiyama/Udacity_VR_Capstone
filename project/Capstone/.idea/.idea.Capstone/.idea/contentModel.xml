@@ -18,10 +18,10 @@
           <e p="UnitTest_ControllerStateFactory.cs" t="Include" />
           <e p="UnitTest_MathUtility.cs" t="Include" />
           <e p="UnitTest_ModulatorState.cs" t="Include" />
-          <e p="UnitTest_OutputWaveform.cs" t="Include" />
           <e p="UnitTest_StateAssigner.cs" t="Include" />
           <e p="UnitTest_ToggleButton.cs" t="Include" />
           <e p="UnitTest_Tutorial.cs" t="Include" />
+          <e p="UnitTest_Visualizer.cs" t="Include" />
         </e>
       </e>
       <e p="Assets\Magicolo" t="Include">
@@ -204,6 +204,7 @@
           <e p="ControllerBehaviour.cs" t="Include" />
           <e p="DirectionGridBehaviour.cs" t="Include" />
           <e p="EquatorBehaviour.cs" t="Include" />
+          <e p="FFTCircleBehaviour.cs" t="Include" />
           <e p="GridBehaviour.cs" t="Include" />
           <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
@@ -218,10 +219,11 @@
           <e p="CompomentFactory.cs" t="Include" />
           <e p="Console.cs" t="Include" />
           <e p="Controller.cs" t="Include" />
-          <e p="OutputWaveform.cs" t="Include" />
+          <e p="IVisualizer.cs" t="Include" />
           <e p="StateAssigner.cs" t="Include" />
           <e p="ToggleButton.cs" t="Include" />
           <e p="Tutorial.cs" t="Include" />
+          <e p="Visualizer.cs" t="Include" />
         </e>
         <e p="Facade" t="Include">
           <e p="PureDataArray.cs" t="Include" />
