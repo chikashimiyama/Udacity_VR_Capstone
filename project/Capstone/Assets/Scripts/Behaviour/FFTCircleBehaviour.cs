@@ -2,13 +2,16 @@
 using UnityEngine;
 
 namespace DomainF
-{   
-    public class FFTCircleBehaviour : MonoBehaviour, IVisualizerBehaviour
+{
+    public class FFTCircleBehaviour : MonoBehaviour, IVisualizerBehaviour, IVisible
     {
+        [SerializeField] private  float Scale = 150f;
+
         private MeshFilter meshFilter_;
+        private MeshRenderer meshRenderer_;
         private Vector3[] vertices_;
 
-        private const float Radius = 3f;
+        private  const float Radius = 45f;
         private const int FftFrameSize = 512;
         private const int NumLineVertices = FftFrameSize * 2;
         private const int NumTotalLineVertices = NumLineVertices * 2;
@@ -16,39 +19,44 @@ namespace DomainF
         private const int Offset = FftFrameSize * 2;
         private const float Step = Mathf.PI * 2f / FftFrameSize;
         private const float Gap = 0.003f;
-        
+
         public void Visualize(float[] data)
         {
             var vertices = meshFilter_.mesh.vertices;
-            var index = 0;
             for (var i = 0; i < FftFrameSize; ++i)
             {
-                vertices[index++].y = data[i];
-                vertices[index++].y = data[i];
+                var index = i * 2;
+                var height = data[i] * Scale;
+                vertices[index].y = height;
+                vertices[index + 1].y = height;
+                vertices[index + NumLineVertices].y = -height;
+                vertices[index + 1 + NumLineVertices].y = -height;
             }
+
             meshFilter_.mesh.vertices = vertices;
-            
         }
-        
+
         private void Start()
         {
             meshFilter_ = GetComponent<MeshFilter>();
+            meshRenderer_ = GetComponent<MeshRenderer>();
             meshFilter_.mesh = new Mesh {vertices = FillVertices(), triangles = FillTriangles()};
         }
-        
+
         private void Update()
         {
             if (Updated != null) Updated.Invoke();
         }
-        
+
         private static Vector3[] FillVertices()
         {
             var vertices = new Vector3[NumTotalLineVertices];
             for (var i = 0; i < FftFrameSize; ++i)
             {
-                SetArc(vertices, i, 1f);
+                SetArc(vertices, i, 0f);
                 SetArc(vertices, i, 0f, NumLineVertices);
             }
+
             return vertices;
         }
 
@@ -57,12 +65,13 @@ namespace DomainF
             var radian = Step * index - Mathf.PI * 0.5f;
             var left = new Vector3 {x = Mathf.Sin(radian) * Radius, y = height, z = Mathf.Cos(radian) * Radius};
             radian += Step;
-            var right = new Vector3{x = Mathf.Sin(radian - Gap) * Radius, y = height, z = Mathf.Cos(radian - Gap) * Radius};
+            var right = new Vector3
+                {x = Mathf.Sin(radian - Gap) * Radius, y = height, z = Mathf.Cos(radian - Gap) * Radius};
 
             vertices[index * 2 + offset] = left;
             vertices[index * 2 + 1 + offset] = right;
         }
-        
+
         private static int[] FillTriangles()
         {
             var triangles = new int[NumIndices];
@@ -85,5 +94,10 @@ namespace DomainF
         }
 
         public event Action Updated;
+
+        public bool State
+        {
+            set { meshRenderer_.enabled = value; }
+        }
     }
 }

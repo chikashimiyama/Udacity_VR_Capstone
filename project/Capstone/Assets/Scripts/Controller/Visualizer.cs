@@ -10,7 +10,6 @@ namespace DomainF
         
         private readonly IPureDataArrayFacade outputArrayFacade_;
         private readonly IPureDataArrayFacade fftArrayFacade_;
-        
         private readonly float[] revLevel_;
         
         public Visualizer(IOutputWaveformBehaviour outputWaveformBehaviour,

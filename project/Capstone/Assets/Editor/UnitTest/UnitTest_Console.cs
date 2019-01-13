@@ -56,7 +56,7 @@ namespace UnitTests
 
             gridBehaviourMock_.ScaleCircleBehaviour.Returns(scaleCircleBehaviourMock_);
             gridBehaviourMock_.DirectionCircleBehaviour.Returns(directionCircleBehaviourMock_);
-            gridBehaviourMock_.EquatorCircleBehaviour.Returns(equatorCircleBehaviourMock_);
+            gridBehaviourMock_.FFTCircleBehaviour.Returns(equatorCircleBehaviourMock_);
             
             console_ = new Console(consoleBehaviourMock_, gridBehaviourMock_, pureDataFacadeMock_, componentFactoryMock_);
         }

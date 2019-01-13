@@ -1,5 +1,6 @@
 using DomainFo;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DomainF
 {
@@ -10,7 +11,7 @@ namespace DomainF
         [SerializeField] private ConsoleBehaviour consoleBehaviour;
         [SerializeField] private GridBehaviour gridBehaviour;
         [SerializeField] private OutputWaveformBehaviour outputWaveformBehaviour;
-        [SerializeField] private FFTCircleBehaviour fftCircleBehaviour;
+        [SerializeField] private FFTRippleBehaviour fftRippleBehaviour_;
 
         private StateAssigner stateAssigner_;
         private Controller leftController_;
@@ -25,7 +26,7 @@ namespace DomainF
             leftController_ = new Controller(stateAssigner_, leftControllerBehaviour);
             rightController_ = new Controller(stateAssigner_, rightControllerBehaviour);
             console_ = new Console(consoleBehaviour, gridBehaviour, puredataFacade);
-            visualizer_ = new Visualizer(outputWaveformBehaviour, fftCircleBehaviour, puredataFacade);
+            visualizer_ = new Visualizer(outputWaveformBehaviour, fftRippleBehaviour_, puredataFacade);
         }
     }
 }

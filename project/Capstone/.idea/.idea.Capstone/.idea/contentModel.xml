@@ -205,6 +205,7 @@
           <e p="DirectionGridBehaviour.cs" t="Include" />
           <e p="EquatorBehaviour.cs" t="Include" />
           <e p="FFTCircleBehaviour.cs" t="Include" />
+          <e p="FFTRippleBehaviour.cs" t="Include" />
           <e p="GridBehaviour.cs" t="Include" />
           <e p="IndicatorBehaviour.cs" t="Include" />
           <e p="MainBehaviour.cs" t="Include" />
@@ -233,6 +234,10 @@
         </e>
         <e p="Math" t="Include">
           <e p="MathUtility.cs" t="Include" />
+        </e>
+        <e p="Shader" t="Include">
+          <e p="FFT.shader" t="Include" />
+          <e p="FFTRipple.compute" t="Include" />
         </e>
         <e p="StateMachine" t="Include">
           <e p="CarrierState.cs" t="Include" />

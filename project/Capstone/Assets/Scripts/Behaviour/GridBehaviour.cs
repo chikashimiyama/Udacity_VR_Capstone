@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DomainF
 {
@@ -6,14 +7,14 @@ namespace DomainF
     {
         IVisible ScaleCircleBehaviour { get; }      
         IVisible DirectionCircleBehaviour { get; }      
-        IVisible EquatorCircleBehaviour { get; }      
+        IVisible FFTCircleBehaviour { get; }      
     }
     
     public class GridBehaviour : MonoBehaviour, IGridBehaviour
     {
         [SerializeField] private ScaleGridBehaviour ScaleGridBehaviour;
         [SerializeField] private DirectionGridBehaviour DirectionGridBehaviour;
-        [SerializeField] private EquatorBehaviour equatorBehaviour;
+        [SerializeField] private FFTRippleBehaviour fftRippleBehaviour_;
 
 
         public IVisible ScaleCircleBehaviour
@@ -26,9 +27,9 @@ namespace DomainF
             get { return DirectionGridBehaviour; }
         }
         
-        public IVisible EquatorCircleBehaviour
+        public IVisible FFTCircleBehaviour
         {
-            get { return equatorBehaviour; }
+            get { return fftRippleBehaviour_; }
         }
     }
 }

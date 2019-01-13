@@ -41,7 +41,7 @@ namespace DomainF
 
         private void OnEquatorButtonTouched(bool state)
         {
-            gridBehaviour_.EquatorCircleBehaviour.State = state;
+            gridBehaviour_.FFTCircleBehaviour.State = state;
         }
 
         private void OnConsoleEntered()
@@ -60,7 +60,7 @@ namespace DomainF
 
         private void OnLevelChanged(float level)
         {
-            var equator = (IColor)gridBehaviour_.EquatorCircleBehaviour;
+            var equator = (IColor)gridBehaviour_.FFTCircleBehaviour;
 
             if(level < 1f)
                 equator.color = Color.gray;

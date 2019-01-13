@@ -183,6 +183,7 @@
     <Compile Include="Assets\Scripts\Behaviour\DirectionGridBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\EquatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\FFTCircleBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviour\FFTRippleBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\GridBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\IndicatorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviour\MainBehaviour.cs" />
@@ -373,10 +374,12 @@
     <Compile Include="Assets\SteamVR_Input\SteamVR_Input_ActionSets.cs" />
     <None Include="Assets\Shader\Waterfall.compute" />
     <None Include="Assets\SteamVR\Resources\SteamVR_Fade.shader" />
+    <None Include="Assets\Scripts\Shader\FFT.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_ClearAll.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Hints\Shaders\ControllerButtonHints.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Samples\BuggyBuddy\Materials\LightCone.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Teleport\Shaders\Highlight.shader" />
+    <None Include="Assets\Scripts\Shader\FFTRipple.compute" />
     <None Include="Assets\SteamVR\InteractionSystem\Teleport\Shaders\HighlighGlobal.shader" />
     <None Include="Assets\Shader\ScaleGrid.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
