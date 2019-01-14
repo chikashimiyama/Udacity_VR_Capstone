@@ -2,14 +2,15 @@
  
     Properties{
         _FFTSize("FFTSize", Int) = 512
-        _Offset("Offset", Range(0.0, 100.0)) = 15.0
-        _Distance("Distance", Range(0.0, 100.0)) = 10.0
+        _NumberOfRipples("Number of ripples", Int) = 10
+        _Height("Height", Range(1.0, 50.0)) = 10.0
     }
     
 	SubShader {
+	
 	    Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
-        ZWrite Off
 
+        ZWrite Off
 	    Blend SrcAlpha OneMinusSrcAlpha
 
         Pass {
@@ -21,21 +22,30 @@
 	        #pragma fragment frag
 	        #include "UnityCG.cginc"
 	        
+
 	        int _FFTSize;
             float _Offset;
             float _Distance;
-        
+        	int _NumberOfRipples;
+        	float _Height;
+        	
+        	float _Segments[512];
+            int _Target;
+            
 	        struct VSOut {
 	            float4 pos : SV_POSITION;
 	        };
 
 	       	VSOut vert (float4 vertex : POSITION, uint vid : SV_VertexID)
 	       	{
+	       	    // copy segment to current target
+	       	    int copyBeginIndex = _Target * _FFTSize;
+	       	    int copyEndIndex = copyBeginIndex + _FFTSize;
+	       	    if( copyBeginIndex <= vid && vid < copyEndIndex)
+	       	        vertex.y = _Segments[vid - copyBeginIndex];
+
 	            VSOut output;
-	            int circle = (int)vid / _FFTSize;
-	            float xPos = vertex.x * (_Offset + circle * _Distance);
-	            float zPos = vertex.z * (_Offset + circle * _Distance);
-	            output.pos = float4(xPos, vertex.y, zPos, vertex.w);
+	            output.pos = vertex;
 	            return output;
 	       	}
 	       	
@@ -47,22 +57,22 @@
                 float4 left = float4(-pos.z * 0.005, pos.y, pos.x * 0.005, 0);	      	
 		      	
 				output.pos = pos + left;
-				output.pos.y = 5;
+				output.pos.y = pos.y * _Height;
 			    output.pos = mul (UNITY_MATRIX_VP, output.pos);
 				outStream.Append (output);
 			
 				output.pos = pos - left;
-				output.pos.y = 5;
+				output.pos.y = pos.y  * _Height;
 			    output.pos = mul (UNITY_MATRIX_VP, output.pos);
 				outStream.Append (output);
 				
 				output.pos = pos + left;
-				output.pos.y = -5;
+				output.pos.y = -pos.y  * _Height;
 			    output.pos = mul (UNITY_MATRIX_VP, output.pos);
 				outStream.Append (output);
 				
 				output.pos = pos - left;
-				output.pos.y = -5;
+				output.pos.y = -pos.y * _Height;
 			    output.pos = mul (UNITY_MATRIX_VP, output.pos);
 				outStream.Append (output);
 				

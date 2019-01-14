@@ -6,7 +6,9 @@ namespace DomainF
 {
     public class FFTRippleBehaviour : MonoBehaviour, IVisualizerBehaviour, IVisible
     {
-        private const float Radius = 3f;
+        private const float Offset = 15f;
+        private const float Distance = 3f;
+
         private const int FftFrameSize = 512;
         private const float Step = Mathf.PI * 2f / FftFrameSize;
 
@@ -17,8 +19,15 @@ namespace DomainF
         private const int numberOfRipples = 10;
         private const int totalDataSize = FftSize * numberOfRipples;
 
+        private int count_ = 0;
+        
         public void Visualize(float[] data)
         {
+            material_.SetFloatArray("_Segments", data); // copy to GPU
+            material_.SetInt("_Target", count_++);
+            
+            if (count_ == numberOfRipples)
+                count_ = 0;
         }
 
         private void Start()
@@ -61,7 +70,9 @@ namespace DomainF
                 for (var j = 0; j < FftFrameSize; j++)
                 {
                     var radian = Step * j;
-                    var point = new Vector3 {x = Mathf.Sin(radian) * Radius, y = 0f, z = Mathf.Cos(radian) * Radius};
+                    var x = Mathf.Sin(radian) * (Offset + Distance * i);
+                    var z = Mathf.Cos(radian) * (Offset + Distance * i);
+                    var point = new Vector3 {x = x , y = 0f, z = z};
                     vertices[i * FftFrameSize + j] = point;
                 }
             }
