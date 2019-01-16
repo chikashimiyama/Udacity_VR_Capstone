@@ -22,29 +22,22 @@
 	        #pragma fragment frag
 	        #include "UnityCG.cginc"
 	        
-
 	        int _FFTSize;
             float _Offset;
-            float _Distance;
         	int _NumberOfRipples;
         	float _Height;
-        	
-        	float _Segments[512];
-            int _Target;
             
+            StructuredBuffer<float> fftData;
+
+
 	        struct VSOut {
 	            float4 pos : SV_POSITION;
 	        };
 
 	       	VSOut vert (float4 vertex : POSITION, uint vid : SV_VertexID)
 	       	{
-	       	    // copy segment to current target
-	       	    int copyBeginIndex = _Target * _FFTSize;
-	       	    int copyEndIndex = copyBeginIndex + _FFTSize;
-	       	    if( copyBeginIndex <= vid && vid < copyEndIndex)
-	       	        vertex.y = _Segments[vid - copyBeginIndex];
-
 	            VSOut output;
+	            vertex.y = fftData[vid];
 	            output.pos = vertex;
 	            return output;
 	       	}

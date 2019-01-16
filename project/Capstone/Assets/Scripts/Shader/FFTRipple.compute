@@ -1,11 +1,14 @@
 ﻿#pragma kernel FFTRipple
 
-RWTexture2D<float4> Result;
+RWStructuredBuffer<float> Data;
+RWStructuredBuffer<float> UpdatedData;
 
-[numthreads(8,8,1)]
-void FFTRipple (uint3 id : SV_DispatchThreadID)
+[numthreads(512,1,1)]
+void FFTRipple (uint threadId : SV_GroupThreadID, uint groupId : SV_GroupID)
 {
-	// TODO: insert actual code here!
-
-	Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+    if(groupId != 32) // push one circle
+        Data[(groupId+1) * 512 + threadId] = Data[groupId * 512 + threadId];
+        
+    if(groupId == 0 ) // copy from cpu
+        Data[threadId] = UpdatedData[threadId];
 }

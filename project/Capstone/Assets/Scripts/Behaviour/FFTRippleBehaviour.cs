@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 
-
 namespace DomainF
 {
     public class FFTRippleBehaviour : MonoBehaviour, IVisualizerBehaviour, IVisible
@@ -12,19 +11,27 @@ namespace DomainF
         private const int FftFrameSize = 512;
         private const float Step = Mathf.PI * 2f / FftFrameSize;
 
-        [SerializeField] private Shader fftShader_;
+        [SerializeField] private ComputeShader rippleComputeShader;
+        [SerializeField] private Shader fftShader;
+        
         private Mesh mesh_;
         private Material material_;
         private const int FftSize = 512;
-        private const int numberOfRipples = 10;
+        private const int numberOfRipples = 32;
         private const int totalDataSize = FftSize * numberOfRipples;
 
         private int count_ = 0;
-        
+        private int kernelIndex_;
+        private ComputeBuffer rippleComputeBuffer_;
+        private ComputeBuffer updatedBuffer_;
+
         public void Visualize(float[] data)
-        {
-            material_.SetFloatArray("_Segments", data); // copy to GPU
-            material_.SetInt("_Target", count_++);
+        {   
+            updatedBuffer_.SetData(data);
+            rippleComputeShader.SetBuffer(kernelIndex_, "UpdatedData", updatedBuffer_);
+
+            rippleComputeShader.Dispatch(kernelIndex_, numberOfRipples, 1, 1);
+            material_.SetBuffer("fftData", rippleComputeBuffer_);
             
             if (count_ == numberOfRipples)
                 count_ = 0;
@@ -32,14 +39,20 @@ namespace DomainF
 
         private void Start()
         {
+            rippleComputeBuffer_ = new ComputeBuffer(totalDataSize , sizeof(float));
+            updatedBuffer_ = new ComputeBuffer(FftSize , sizeof(float));
+
+            kernelIndex_ = rippleComputeShader.FindKernel("FFTRipple");
+            rippleComputeShader.SetBuffer(kernelIndex_, "Data", rippleComputeBuffer_);
+            rippleComputeShader.SetBuffer(kernelIndex_, "UpdatedData", updatedBuffer_);
+
             var meshFilter = GetComponent<MeshFilter>();
 
             mesh_ = new Mesh {vertices = FillVertices()};
             mesh_.SetIndices(FillIndices(), MeshTopology.Points, 0);
             mesh_.RecalculateBounds();
             meshFilter.mesh = mesh_;
-
-            material_ = new Material(fftShader_);
+            material_ = new Material(fftShader);
             
             var meshRenderer = GetComponent<MeshRenderer>();
             meshRenderer.material = material_;
@@ -47,7 +60,8 @@ namespace DomainF
 
         private void Update()
         {
-            if (Updated != null) Updated.Invoke();
+            if (Updated != null) 
+                Updated.Invoke();
         }
 
         private void OnRenderObject()
@@ -55,7 +69,6 @@ namespace DomainF
             material_.SetPass(0);
             Graphics.DrawProcedural(MeshTopology.Points, totalDataSize);
         }
-
 
         public bool State
         {
