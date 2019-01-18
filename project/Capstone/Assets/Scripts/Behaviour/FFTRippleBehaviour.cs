@@ -5,8 +5,8 @@ namespace DomainF
 {
     public class FFTRippleBehaviour : MonoBehaviour, IVisualizerBehaviour, IVisible
     {
-        private const float Offset = 15f;
-        private const float Distance = 3f;
+        private const float Offset = 30f;
+        private const float Distance = 1f;
 
         private const int FftFrameSize = 512;
         private const float Step = Mathf.PI * 2f / FftFrameSize;
@@ -17,29 +17,24 @@ namespace DomainF
         private Mesh mesh_;
         private Material material_;
         private const int FftSize = 512;
-        private const int numberOfRipples = 32;
-        private const int totalDataSize = FftSize * numberOfRipples;
+        private const int NumberOfRipples = 32;
+        private const int TotalDataSize = FftSize * NumberOfRipples;
 
-        private int count_ = 0;
         private int kernelIndex_;
         private ComputeBuffer rippleComputeBuffer_;
         private ComputeBuffer updatedBuffer_;
+        private MeshRenderer meshRenderer_;
 
         public void Visualize(float[] data)
         {   
             updatedBuffer_.SetData(data);
-            rippleComputeShader.SetBuffer(kernelIndex_, "UpdatedData", updatedBuffer_);
-
-            rippleComputeShader.Dispatch(kernelIndex_, numberOfRipples, 1, 1);
-            material_.SetBuffer("fftData", rippleComputeBuffer_);
-            
-            if (count_ == numberOfRipples)
-                count_ = 0;
+            rippleComputeShader.Dispatch(kernelIndex_, NumberOfRipples, 1, 1);
         }
 
         private void Start()
         {
-            rippleComputeBuffer_ = new ComputeBuffer(totalDataSize , sizeof(float));
+            meshRenderer_ = GetComponent<MeshRenderer>();
+            rippleComputeBuffer_ = new ComputeBuffer(TotalDataSize , sizeof(float));
             updatedBuffer_ = new ComputeBuffer(FftSize , sizeof(float));
 
             kernelIndex_ = rippleComputeShader.FindKernel("FFTRipple");
@@ -53,7 +48,8 @@ namespace DomainF
             mesh_.RecalculateBounds();
             meshFilter.mesh = mesh_;
             material_ = new Material(fftShader);
-            
+            material_.SetBuffer("fftData", rippleComputeBuffer_);
+
             var meshRenderer = GetComponent<MeshRenderer>();
             meshRenderer.material = material_;
         }
@@ -67,18 +63,18 @@ namespace DomainF
         private void OnRenderObject()
         {
             material_.SetPass(0);
-            Graphics.DrawProcedural(MeshTopology.Points, totalDataSize);
+            Graphics.DrawProcedural(MeshTopology.Points, TotalDataSize);
         }
 
         public bool State
         {
-            set { }
+            set { meshRenderer_.enabled = value; }
         }
 
         private static Vector3[] FillVertices()
         {
-            var vertices = new Vector3[totalDataSize];
-            for (var i = 0; i < numberOfRipples; i++)
+            var vertices = new Vector3[TotalDataSize];
+            for (var i = 0; i < NumberOfRipples; i++)
             {
                 for (var j = 0; j < FftFrameSize; j++)
                 {
@@ -94,8 +90,8 @@ namespace DomainF
 
         private static int[] FillIndices()
         {
-            var indices = new int[totalDataSize];
-            for (var i = 0; i < totalDataSize; ++i)
+            var indices = new int[TotalDataSize];
+            for (var i = 0; i < TotalDataSize; ++i)
                 indices[i] = i;
             return indices;
         }

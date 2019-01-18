@@ -211,7 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c57740c1de1cca46a4740c261444ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fftShader_: {fileID: 4800000, guid: db888112490347840b68fd30ec746156, type: 3}
+  rippleComputeShader: {fileID: 7200000, guid: 312a9c075ca9cd14faa268ed6ab897f4, type: 3}
+  fftShader: {fileID: 4800000, guid: db888112490347840b68fd30ec746156, type: 3}
 --- !u!114 &114880400035722908
 MonoBehaviour:
   m_ObjectHideFlags: 1

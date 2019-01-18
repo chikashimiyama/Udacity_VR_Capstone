@@ -10,6 +10,7 @@
 	
 	    Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
 
+        Cull Back
         ZWrite Off
 	    Blend SrcAlpha OneMinusSrcAlpha
 
@@ -29,7 +30,6 @@
             
             StructuredBuffer<float> fftData;
 
-
 	        struct VSOut {
 	            float4 pos : SV_POSITION;
 	        };
@@ -37,7 +37,7 @@
 	       	VSOut vert (float4 vertex : POSITION, uint vid : SV_VertexID)
 	       	{
 	            VSOut output;
-	            vertex.y = fftData[vid];
+	            vertex.y = fftData[vid];	            
 	            output.pos = vertex;
 	            return output;
 	       	}
@@ -50,7 +50,7 @@
                 float4 left = float4(-pos.z * 0.005, pos.y, pos.x * 0.005, 0);	      	
 		      	
 				output.pos = pos + left;
-				output.pos.y = pos.y * _Height;
+				output.pos.y = pos.y * _Height ;
 			    output.pos = mul (UNITY_MATRIX_VP, output.pos);
 				outStream.Append (output);
 			
@@ -74,7 +74,7 @@
 			
 	        fixed4 frag (VSOut i) : COLOR
 	        {
-	            return float4(0, 0, 1, 0.3);
+	            return float4(0.2, 0.8, 1, 0.06);
 	        }
 	         
 	        ENDCG
