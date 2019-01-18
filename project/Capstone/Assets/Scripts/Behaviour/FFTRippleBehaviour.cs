@@ -78,7 +78,7 @@ namespace DomainF
             {
                 for (var j = 0; j < FftFrameSize; j++)
                 {
-                    var radian = Step * j;
+                    var radian = Step * j - Mathf.PI/2f;
                     var x = Mathf.Sin(radian) * (Offset + Distance * i);
                     var z = Mathf.Cos(radian) * (Offset + Distance * i);
                     var point = new Vector3 {x = x , y = 0f, z = z};
