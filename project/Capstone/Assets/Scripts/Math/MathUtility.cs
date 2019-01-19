@@ -9,6 +9,8 @@ namespace DomainF
         private const float MaxDist = 30f;
         private const float Divider = 30f;
         private const float Range = 60f;
+        private const float ResonMax = 3100f;
+        private const float ResonMin = 100f;
         
         public static float DistanceToAmp(float distance)
         {
@@ -50,6 +52,21 @@ namespace DomainF
                 output = 100f - input;
 
             return output;
+        }
+
+        public static float EulerToUnipolar(float angle)
+        {
+            var roll = 360 - angle;
+            if (roll > 180) roll -= 360;
+            return Mathf.Clamp(roll, -120, 120) / -120f;
+        }
+               
+        public static float EulerAngleToReson(float angle)
+        {
+            var clipped = (angle + 270) % 360;
+            var tmp = clipped > 180 ? 360 - clipped : clipped; 
+            var normalized = (1.0f - (tmp / 180f ));
+            return normalized * ResonMax + ResonMin;
         }
     }
 }

@@ -11555,7 +11555,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1720467661072388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: -0.2}
+  m_LocalPosition: {x: 0, y: 1.533, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4123890986645278}
@@ -22700,7 +22700,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 5
+  m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -22752,7 +22752,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 1799148980312374}
   inactiveObject: {fileID: 1773533142850038}
-  annotationObject: {fileID: 0}
 --- !u!114 &114331663450279762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22766,7 +22765,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 1835058313428454}
   inactiveObject: {fileID: 1737129438515568}
-  annotationObject: {fileID: 0}
 --- !u!114 &114831363966406860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22780,7 +22778,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObject: {fileID: 1904480872317780}
   inactiveObject: {fileID: 1062378686584678}
-  annotationObject: {fileID: 0}
 --- !u!135 &135054845007641596
 SphereCollider:
   m_ObjectHideFlags: 1

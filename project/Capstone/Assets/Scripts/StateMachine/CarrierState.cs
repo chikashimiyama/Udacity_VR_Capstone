@@ -41,17 +41,15 @@ namespace DomainF
 
         public void OnTransformChanged(Transform transform)
         {
-            var linear = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
-            var freq = MathUtility.MidiToFrequency(57f + linear * 24f); // 2 octaves
+            var pitch = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
+            var freq = MathUtility.MidiToFrequency(57f + pitch * 24f); // 2 octaves
+            var waveform = MathUtility.EulerToUnipolar(transform.rotation.eulerAngles.z);
+            var resonance = MathUtility.EulerAngleToReson(transform.rotation.eulerAngles.y);
             
-            var angle = 360 - transform.rotation.eulerAngles.z;
-            if (angle > 180)
-                angle -= 360;
-
-            var param = Mathf.Clamp(angle, -120, 120) / -120f;
             pureDataFacade_.SendMessage("car_freq", freq);
-            pureDataFacade_.SendMessage("car_waveform", param);
-
+            pureDataFacade_.SendMessage("car_waveform", waveform);
+            pureDataFacade_.SendMessage("car_reson", resonance);
+            
             if (FreqChanged != null)
                 FreqChanged.Invoke(freq);
         }
