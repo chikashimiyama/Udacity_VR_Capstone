@@ -49,8 +49,8 @@ namespace DomainF
                 IScaleCircleBehaviour scaleCircleBehaviour = scaleCircle.GetComponent<ScaleCircleBehaviour>();
 
                 var color = KeyColors[i % 12] == KeyColor.White
-                        ? new Color(1f, 1f, 1f, 0.5f)
-                        : new Color(0.5f, 0.5f, 0.5f, 0.5f);
+                        ? new Color(1f, 1f, 1f, 0.3f)
+                        : new Color(0.5f, 0.5f, 0.5f, 0.3f);
 
                 scaleCircleBehaviour.SetColor(color);
 

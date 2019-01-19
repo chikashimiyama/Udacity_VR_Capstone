@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Behaviour;
+using UnityEngine;
 
 namespace DomainF
 {
@@ -6,17 +7,22 @@ namespace DomainF
 
 		[SerializeField] private GameObject circlePrefab;
 		private const int NumCircles = 4;
-		private const float MaxDist = 35f;
 		private const float AStep = 180f / NumCircles;
-
+		private const float MinFreq = 100f;
+		private const float MaxFreq = 3100f;
+		private const float Range = MaxFreq - MinFreq;
+		private const float Partial = Range / NumCircles;
 		private void Start ()
 		{
 			for (var i = 0; i < NumCircles; i++)
 			{
 				var circle = Instantiate(circlePrefab);
 				circle.transform.parent = gameObject.transform;
-				circle.transform.localScale = new Vector3(MaxDist, 1f, MaxDist);
-				circle.transform.Rotate(new Vector3(90f, i * AStep, 0f));
+				var directionCircleBehaviour = circle.GetComponent<IDirectionCircleBehaviour>();
+				directionCircleBehaviour.SetRotate(i * AStep);
+				var minFreqStr = (MinFreq + i * Partial).ToString() + "Hz.";
+				var maxFreqStr = (MaxFreq - i * Partial).ToString() + "Hz.";
+				directionCircleBehaviour.SetLabels(minFreqStr, maxFreqStr);
 			}
 		}
 

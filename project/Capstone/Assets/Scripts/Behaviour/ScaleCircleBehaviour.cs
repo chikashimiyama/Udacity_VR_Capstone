@@ -55,7 +55,6 @@ namespace DomainF
             var labelPos = labelObject.transform.position;
             labelPos.y = height;
             labelObject.transform.position = labelPos;
-
         }
 
         public void SetScale(float scale)
