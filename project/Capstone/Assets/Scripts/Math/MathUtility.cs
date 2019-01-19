@@ -68,5 +68,10 @@ namespace DomainF
             var normalized = (1.0f - (tmp / 180f ));
             return normalized * ResonMax + ResonMin;
         }
+
+        public static T[] ZeroArray<T>(uint size)
+        {
+            return new T[size];
+        }
     }
 }

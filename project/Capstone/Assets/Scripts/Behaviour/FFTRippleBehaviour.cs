@@ -25,17 +25,20 @@ namespace DomainF
         private ComputeBuffer updatedBuffer_;
         private ComputeBuffer centroidBuffer_;
         private ComputeBuffer sumBuffer_;
-
+        private uint[] zeroArray_;
         private MeshRenderer meshRenderer_;
-
+        
         public void Visualize(float[] data)
         {   
             updatedBuffer_.SetData(data);
+            centroidBuffer_.SetData(zeroArray_);
+            sumBuffer_.SetData(zeroArray_);
             rippleComputeShader.Dispatch(kernelIndex_, NumberOfRipples, 1, 1);
         }
 
         private void Start()
         {
+            zeroArray_ = MathUtility.ZeroArray<uint>(NumberOfRipples);
             meshRenderer_ = GetComponent<MeshRenderer>();
             
             rippleComputeBuffer_ = new ComputeBuffer(TotalDataSize , sizeof(float));
@@ -46,18 +49,19 @@ namespace DomainF
             kernelIndex_ = rippleComputeShader.FindKernel("FFTRipple");
             rippleComputeShader.SetBuffer(kernelIndex_, "Data", rippleComputeBuffer_);
             rippleComputeShader.SetBuffer(kernelIndex_, "UpdatedData", updatedBuffer_);
-            //rippleComputeShader.SetBuffer(kernelIndex_, "CentroidData", centroidBuffer_);
-            //rippleComputeShader.SetBuffer(kernelIndex_, "SumData", sumBuffer_);
+            rippleComputeShader.SetBuffer(kernelIndex_, "CentroidData", centroidBuffer_);
+            rippleComputeShader.SetBuffer(kernelIndex_, "SumData", sumBuffer_);
 
-            var meshFilter = GetComponent<MeshFilter>();
 
             mesh_ = new Mesh {vertices = FillVertices()};
             mesh_.SetIndices(FillIndices(), MeshTopology.Points, 0);
             mesh_.RecalculateBounds();
+            
+            var meshFilter = GetComponent<MeshFilter>();
             meshFilter.mesh = mesh_;
             material_ = new Material(fftShader);
             material_.SetBuffer("fftData", rippleComputeBuffer_);
-            //material_.SetBuffer("centroidData", centroidBuffer_);
+            material_.SetBuffer("centroidData", centroidBuffer_);
 
             var meshRenderer = GetComponent<MeshRenderer>();
             meshRenderer.material = material_;
@@ -110,7 +114,10 @@ namespace DomainF
             rippleComputeBuffer_.Release();
             updatedBuffer_.Release();
             centroidBuffer_.Release();
+            sumBuffer_.Release();
         }
+        
+        
 
         public event Action Updated;
     }

@@ -40,11 +40,12 @@
 	            vertex.y = fftData[vid];	            
 	            uint rippleId = vid / _FFTSize;
 	            uint bin = vid % _FFTSize;
+	            uint crd = centroidData[rippleId];
 	            output.pos = vertex;
-	            if(rippleId == bin)
-	                output.color = float4(1, 0, 0, 1); 
-                else
-                    output.color = float4(0.2, 0.8, 1, 0.06);
+	            
+	            uint distance = clamp(abs((int)(bin-crd)), 0, 16);
+	            float boost = (16.0 - (float)distance) / 20.0;
+                output.color = float4(0.2 + boost, 0.8, 1 - boost, 0.04);
 
 	            return output;
 	       	}
