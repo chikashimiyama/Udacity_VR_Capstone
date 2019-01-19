@@ -15,5 +15,6 @@ namespace DomainF
         event Action<float[]> WaveformUpdated;
         event Action<float> FreqChanged;
         event Action<float> AmpChanged;
+        event Action<float> ResonanceChanged;
     }
 }

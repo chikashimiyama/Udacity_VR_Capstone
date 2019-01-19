@@ -18,6 +18,7 @@ namespace DomainF
             controllerBehaviour_.TriggerPressed += OnTriggerPressed;
             controllerBehaviour_.TriggerReleased += OnTriggerReleased;
             controllerBehaviour_.ThumbstickPositionChanged += OnThumbStickPositionChanged;
+            
             controllerBehaviour_.Updated += OnUpdated;
             
             currentState_ = stateAssigner_.Unassign(this);
@@ -72,6 +73,11 @@ namespace DomainF
         {
             controllerBehaviour_.DrawWaveform(samples);
         }
+
+        private void OnResonanceChanged(float freq)
+        {
+            controllerBehaviour_.IndicatorBehaviour.ResText = freq.ToString("F2");
+        }
         
         private void ChangeStateTo(IControllerState nextState)
         {
@@ -79,6 +85,8 @@ namespace DomainF
             currentState_.FreqChanged -= OnFreqChanged;
             currentState_.AmpChanged -= OnAmpChanged;
             currentState_.WaveformUpdated -= OnWaveformUpdated;
+            currentState_.ResonanceChanged -= OnResonanceChanged;
+
             
             currentState_ = nextState;
             controllerBehaviour_.IndicatorBehaviour.FuncText = currentState_.Identifier;
@@ -89,6 +97,7 @@ namespace DomainF
             currentState_.FreqChanged += OnFreqChanged;
             currentState_.AmpChanged += OnAmpChanged;
             currentState_.WaveformUpdated += OnWaveformUpdated;
+            currentState_.ResonanceChanged += OnResonanceChanged;
         }
     }
 }

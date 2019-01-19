@@ -8,6 +8,7 @@ namespace DomainF
         string FuncText { set; }
         string FreqText { set; }
         string AmpText { set; }
+        string ResText { set; }
     }
 
     public class 
@@ -16,6 +17,7 @@ namespace DomainF
         [SerializeField] private Text freqText;
         [SerializeField] private Text ampText;
         [SerializeField] private Text funcText;
+        [SerializeField] private Text resText;
 
         public string FuncText
         {
@@ -31,5 +33,11 @@ namespace DomainF
         {
             set { ampText.text = value; }
         }
+
+        public string ResText
+        {
+            set { resText.text = value; }
+        }
+        
     }
 }

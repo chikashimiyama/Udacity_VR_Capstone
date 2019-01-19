@@ -50,8 +50,9 @@ namespace DomainF
             pureDataFacade_.SendMessage("car_waveform", waveform);
             pureDataFacade_.SendMessage("car_reson", resonance);
             
-            if (FreqChanged != null)
-                FreqChanged.Invoke(freq);
+            if (FreqChanged != null) FreqChanged.Invoke(freq);
+            if (ResonanceChanged != null) ResonanceChanged.Invoke(resonance);
+
         }
 
         public void OnUpdated()
@@ -63,5 +64,6 @@ namespace DomainF
         public event Action<float[]> WaveformUpdated;
         public event Action<float> FreqChanged;
         public event Action<float> AmpChanged;
+        public event Action<float> ResonanceChanged;
     }
 }
