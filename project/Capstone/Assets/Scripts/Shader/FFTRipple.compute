@@ -2,13 +2,36 @@
 
 RWStructuredBuffer<float> Data;
 RWStructuredBuffer<float> UpdatedData;
+RWStructuredBuffer<uint> CentroidData;
+RWStructuredBuffer<uint> SumData;
 
-[numthreads(512,1,1)]
+#define FFTSize 512
+#define NumberOfRipples 32
+
+const uint LastBin = 511;
+const float Scaler = 10000.0f;
+
+[numthreads(FFTSize,1,1)]
 void FFTRipple (uint threadId : SV_GroupThreadID, uint groupId : SV_GroupID)
 {
-    if(groupId != 32) // push one circle
-        Data[(groupId+1) * 512 + threadId] = Data[groupId * 512 + threadId];
+    if(groupId != NumberOfRipples) // push one circle
+        Data[(groupId+1) * FFTSize + threadId] = Data[groupId * FFTSize + threadId];
         
     if(groupId == 0 ) // copy from cpu
         Data[threadId] = UpdatedData[threadId];
+       
+    /*
+    int index = groupId * FFTSize + threadId;
+    float magnitude = Data[index];
+    InterlockedAdd(CentroidData[groupId], (uint)(magnitude * threadId * Scaler));
+    InterlockedAdd(SumData[groupId], (uint)(magnitude * Scaler));
+    
+    AllMemoryBarrierWithGroupSync();
+
+    if(threadId == LastBin)
+    {
+        uint fftCentroid = CentroidData[groupId] / SumData[groupId];
+        CentroidData[groupId] = (uint)(fftCentroid / Scaler);
+    }
+    */
 }

@@ -23,6 +23,9 @@ namespace DomainF
         private int kernelIndex_;
         private ComputeBuffer rippleComputeBuffer_;
         private ComputeBuffer updatedBuffer_;
+        private ComputeBuffer centroidBuffer_;
+        private ComputeBuffer sumBuffer_;
+
         private MeshRenderer meshRenderer_;
 
         public void Visualize(float[] data)
@@ -34,12 +37,17 @@ namespace DomainF
         private void Start()
         {
             meshRenderer_ = GetComponent<MeshRenderer>();
+            
             rippleComputeBuffer_ = new ComputeBuffer(TotalDataSize , sizeof(float));
             updatedBuffer_ = new ComputeBuffer(FftSize , sizeof(float));
+            centroidBuffer_ = new ComputeBuffer(NumberOfRipples, sizeof(uint));
+            sumBuffer_ = new ComputeBuffer(NumberOfRipples, sizeof(uint));
 
             kernelIndex_ = rippleComputeShader.FindKernel("FFTRipple");
             rippleComputeShader.SetBuffer(kernelIndex_, "Data", rippleComputeBuffer_);
             rippleComputeShader.SetBuffer(kernelIndex_, "UpdatedData", updatedBuffer_);
+            //rippleComputeShader.SetBuffer(kernelIndex_, "CentroidData", centroidBuffer_);
+            //rippleComputeShader.SetBuffer(kernelIndex_, "SumData", sumBuffer_);
 
             var meshFilter = GetComponent<MeshFilter>();
 
@@ -49,6 +57,7 @@ namespace DomainF
             meshFilter.mesh = mesh_;
             material_ = new Material(fftShader);
             material_.SetBuffer("fftData", rippleComputeBuffer_);
+            //material_.SetBuffer("centroidData", centroidBuffer_);
 
             var meshRenderer = GetComponent<MeshRenderer>();
             meshRenderer.material = material_;
@@ -94,6 +103,13 @@ namespace DomainF
             for (var i = 0; i < TotalDataSize; ++i)
                 indices[i] = i;
             return indices;
+        }
+
+        private void OnApplicationQuit()
+        {
+            rippleComputeBuffer_.Release();
+            updatedBuffer_.Release();
+            centroidBuffer_.Release();
         }
 
         public event Action Updated;

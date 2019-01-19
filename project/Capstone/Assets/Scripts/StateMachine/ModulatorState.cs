@@ -41,7 +41,8 @@ namespace DomainF
 
         public void OnTransformChanged(Transform transform)
         {
-            var freq = MathUtility.EulerAngleToLinear(transform.eulerAngles.x) * 1000f;
+            var linear = MathUtility.EulerAngleToLinear(transform.eulerAngles.x);
+            var freq = Mathf.Pow(linear, 2.6f)  * 1760f;
             var waveform = MathUtility.EulerToUnipolar(transform.rotation.eulerAngles.z);
             var resonance = MathUtility.EulerAngleToReson(transform.rotation.eulerAngles.y);
 
