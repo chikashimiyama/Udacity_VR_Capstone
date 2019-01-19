@@ -7,16 +7,13 @@ namespace DomainF
     public interface IToggleButtonBehaviour
     {
         bool State { set; }
-        bool Annotate { set; }
         event Action ButtonTouched;
     }
     
     public class ToggleButtonBehaviour : MonoBehaviour, IToggleButtonBehaviour
     {
-        
         [SerializeField] private GameObject activeObject;
         [SerializeField] private GameObject inactiveObject;
-        [SerializeField] private GameObject annotationObject;
 
         public bool State
         {
@@ -32,15 +29,6 @@ namespace DomainF
                     activeObject.SetActive(false);
                     inactiveObject.SetActive(true);
                 }
-            }
-        }
-
-        public bool Annotate
-        {
-            set
-            {
-                if(annotationObject != null)
-                    annotationObject.SetActive(value);
             }
         }
 

@@ -22,9 +22,6 @@ namespace DomainF
 
             var equatorToggleButton = componentFactory.CreateToggleButton(consoleBehaviour.EquatorToggleBehaviour);
             equatorToggleButton.ButtonStateChanged += OnEquatorButtonTouched;
-            
-            consoleBehaviour.ConsoleEntered += OnConsoleEntered;
-            consoleBehaviour.ConsoleExited += OnConsoleExited;
 
             pureDataFacade.LevelChanged += OnLevelChanged;
         }
@@ -42,20 +39,6 @@ namespace DomainF
         private void OnEquatorButtonTouched(bool state)
         {
             gridBehaviour_.FFTCircleBehaviour.State = state;
-        }
-
-        private void OnConsoleEntered()
-        {
-            consoleBehaviour_.ScaleGridToggleBehaviour.Annotate = true;
-            consoleBehaviour_.DirectionGridToggleBehaviour.Annotate = true;
-            consoleBehaviour_.EquatorToggleBehaviour.Annotate = true;
-        }
-        
-        private void OnConsoleExited()
-        {
-            consoleBehaviour_.ScaleGridToggleBehaviour.Annotate = false;
-            consoleBehaviour_.DirectionGridToggleBehaviour.Annotate = false;
-            consoleBehaviour_.EquatorToggleBehaviour.Annotate = false;
         }
 
         private void OnLevelChanged(float level)

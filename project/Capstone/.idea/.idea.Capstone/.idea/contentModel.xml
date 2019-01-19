@@ -201,6 +201,7 @@
         <e p="Behaviour" t="Include">
           <e p="ConsoleBehaviour.cs" t="Include" />
           <e p="ControllerBehaviour.cs" t="Include" />
+          <e p="DirectionCircleBehaviour.cs" t="Include" />
           <e p="DirectionGridBehaviour.cs" t="Include" />
           <e p="EquatorBehaviour.cs" t="Include" />
           <e p="FFTCircleBehaviour.cs" t="Include" />

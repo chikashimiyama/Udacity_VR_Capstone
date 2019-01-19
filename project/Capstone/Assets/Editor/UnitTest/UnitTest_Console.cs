@@ -103,25 +103,5 @@ namespace UnitTests
             equatorCircleBehaviourMock_.Received(1).State = true;
             equatorCircleBehaviourMock_.Received(1).State = false;
         }
-
-        [Test]
-        public void Construction_OnConsoleEntered()
-        {
-            consoleBehaviourMock_.ConsoleEntered += Raise.Event<Action>();
-
-            scaleGridToggleBehaviourMock_.Annotate = true;
-            directionGridToggleBehaviourMock_.Annotate = true;
-            equatorToggleBehaviourMock_.Annotate = true;
-        }
-
-        [Test]
-        public void Construction_OnConsoleExited()
-        {
-            consoleBehaviourMock_.ConsoleExited += Raise.Event<Action>();
-
-            scaleGridToggleBehaviourMock_.Annotate = false;
-            directionGridToggleBehaviourMock_.Annotate = false;
-            equatorToggleBehaviourMock_.Annotate = false;;
-        }
     }
 }
