@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f18e90b9908654f801b2fde7c2934d, type: 3}
+  m_Name: __actions_domainF
+  m_EditorClassIdentifier: 
+  allActions:
+  - {fileID: 11400000, guid: a8419e0d68307da4396fc8a4435cfa02, type: 2}
+  - {fileID: 11400000, guid: bf51b5d1f0885b340b82913e3af6a68f, type: 2}
+  - {fileID: 11400000, guid: a78f357464d29f842876b875b4594f8b, type: 2}
+  nonVisualInActions:
+  - {fileID: 11400000, guid: a8419e0d68307da4396fc8a4435cfa02, type: 2}
+  - {fileID: 11400000, guid: bf51b5d1f0885b340b82913e3af6a68f, type: 2}
+  visualActions: []
+  poseActions: []
+  skeletonActions: []
+  outActionArray:
+  - {fileID: 11400000, guid: a78f357464d29f842876b875b4594f8b, type: 2}
+  fullPath: /actions/domainF
+  usage: single
+  inActions: {fileID: 11400000, guid: c7a0dc1bc261e1e448622df3a04a9fd6, type: 2}
+  outActions: {fileID: 11400000, guid: 45b6ca64e7b17184c9e3fa117145d20b, type: 2}
