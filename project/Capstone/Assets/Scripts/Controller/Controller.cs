@@ -60,12 +60,12 @@ namespace DomainF
 
         private void OnFreqChanged(float freq)
         {
-            controllerBehaviour_.IndicatorBehaviour.FreqText = "Freq: " + freq.ToString("F2");
+            controllerBehaviour_.IndicatorBehaviour.FreqText = freq.ToString("F2");
         }
         
         private void OnAmpChanged(float amp)
         {
-            controllerBehaviour_.IndicatorBehaviour.AmpText = " Amp: " + amp.ToString("F2");
+            controllerBehaviour_.IndicatorBehaviour.AmpText = amp.ToString("F2");
         }
 
         private void OnWaveformUpdated(float[] samples)
@@ -82,7 +82,7 @@ namespace DomainF
             
             currentState_ = nextState;
             controllerBehaviour_.IndicatorBehaviour.FuncText = currentState_.Identifier;
-            controllerBehaviour_.WaveVisibility = currentState_.Identifier != "Idle";   
+            controllerBehaviour_.WaveVisibility = currentState_.Identifier != "idle";   
             
             currentState_.OnStateSelected();
             currentState_.OnDistanceChanged(distance_);

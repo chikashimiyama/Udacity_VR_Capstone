@@ -76,7 +76,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4086550609704480
 Transform:
   m_ObjectHideFlags: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f26e6ebe2d0c7b4b921f4fe636d7852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circlePrefab: {fileID: 1706324771857320, guid: 93df9294be103c84dab9e0d3a96dca99,
+  circlePrefab: {fileID: 1244462838875716, guid: 93df9294be103c84dab9e0d3a96dca99,
     type: 2}
 --- !u!114 &114469268525792022
 MonoBehaviour:

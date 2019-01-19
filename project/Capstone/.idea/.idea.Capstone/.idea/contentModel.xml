@@ -20,7 +20,6 @@
           <e p="UnitTest_ModulatorState.cs" t="Include" />
           <e p="UnitTest_StateAssigner.cs" t="Include" />
           <e p="UnitTest_ToggleButton.cs" t="Include" />
-          <e p="UnitTest_Tutorial.cs" t="Include" />
           <e p="UnitTest_Visualizer.cs" t="Include" />
         </e>
       </e>
@@ -213,7 +212,6 @@
           <e p="ScaleCircleBehaviour.cs" t="Include" />
           <e p="ScaleGridBehaviour.cs" t="Include" />
           <e p="ToggleButtonBehaviour.cs" t="Include" />
-          <e p="TutorialBehaviour.cs" t="Include" />
           <e p="WaveformInterpolationBehaviour.cs" t="Include" />
         </e>
         <e p="Controller" t="Include">
@@ -223,7 +221,6 @@
           <e p="IVisualizer.cs" t="Include" />
           <e p="StateAssigner.cs" t="Include" />
           <e p="ToggleButton.cs" t="Include" />
-          <e p="Tutorial.cs" t="Include" />
           <e p="Visualizer.cs" t="Include" />
         </e>
         <e p="Facade" t="Include">

@@ -17,7 +17,6 @@ namespace DomainF
         [SerializeField] private Text ampText;
         [SerializeField] private Text funcText;
 
-
         public string FuncText
         {
             set { funcText.text = value; }

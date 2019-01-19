@@ -64,7 +64,6 @@
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ModulatorState.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_StateAssigner.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_ToggleButton.cs" />
-    <Compile Include="Assets\Editor\UnitTest\UnitTest_Tutorial.cs" />
     <Compile Include="Assets\Editor\UnitTest\UnitTest_Visualizer.cs" />
     <Compile Include="Assets\Magicolo\AudioTools\PureData\Editor\PureDataCustomMenu.cs" />
     <Compile Include="Assets\Magicolo\AudioTools\PureData\Editor\PureDataEditor.cs" />
