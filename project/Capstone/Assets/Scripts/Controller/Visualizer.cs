@@ -41,7 +41,9 @@ namespace DomainF
 
         private void OnSpectrumUpdated()
         {
-            var samples = fftArrayFacade_.Get();
+            var samples = fftArrayFacade_.Get(); // the value is not square rooted due to bug
+            for (var i = 0; i < samples.Length; i++)
+                samples[i] = Mathf.Sqrt(samples[i]) / 50f; // scale down
             fftCircleBehaviour_.Visualize(samples);
         }
     }

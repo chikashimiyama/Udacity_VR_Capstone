@@ -117,8 +117,6 @@ namespace DomainF
             sumBuffer_.Release();
         }
         
-        
-
         public event Action Updated;
     }
 }

@@ -557,6 +557,9 @@
     <Reference Include="NSubstitute">
       <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/Plugins/NSubstitute.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security">
+      <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/Plugins/System.Security.dll</HintPath>
+    </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
       <HintPath>C:/Users/chikashi/Development/UdacityVR/Udacity_VR_Capstone/project/Capstone/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
