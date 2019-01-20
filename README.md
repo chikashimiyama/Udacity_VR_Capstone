@@ -48,40 +48,36 @@ Oculus Rift.
 
  
 
-Video that explains all achievements
-------------------------------------
-
- 
-
-http://youtube.cin
-
- 
-
 List of Achievements
 --------------------
 
 ### Fundamentals
 
-1.  Animation Achievement (100 pts)
+ 
 
-    -   Animate the color of the “equator” based on the loudness of the
-        generating sound
+1.  Empathy Achievement (100 pts)
 
-2.  Lighting Achievement (100 pts)
+    -   An instrument for non-musician
 
-    -   Used a baked point light for 3D buttons
+2.  Physics Achievement  (100 pts)
 
-3.  Video Player achievement (100 pts)
+    -   Sound synthesis (physical simulation of waves)
 
-4.  Empathy Achievement (100 pts)
+3.  Animation Achievement (100 pts)
 
-    -   The goal of this project is to provide people without any musical
-        background with an accessible instrument in VR
+    -   Realtime sound visualization
 
-5.  Scale Achievement (100 pts)
+4.  Scale Achievement (100 pts)
 
-    -   All components in the scene (sound sphere, waveform, buttons,
-        background) are designed properly in terms of their sizes.
+    -   Big sphere for sound control
+
+    -   Visualization outside of the sphere
+
+    -   Small 3D buttons in front of the player
+
+5.  Lighting Achievement (100 pts)
+
+    -   3D buttons are lighted properly
 
  
 
@@ -89,11 +85,11 @@ List of Achievements
 
 1.  Diegetic UI achievement (250 pts)
 
-    -   buttons
+    -   The function of buttons can be understood without words
 
 2.  3D Modeling achievement (250 pts)
 
-    1.  buttons
+    -   The buttons are modeled with Blender
 
  
 
@@ -101,6 +97,18 @@ List of Achievements
 
 1.  Compute Shader achievement (500 pts)
 
-    1.  FFT waterfall plot the ripple effect is achived in compute shader
+    -   The FFT Centroid is calculated with the compute shader
 
-     
+    -    
+
+Video that shows all achievements (5min)
+----------------------------------------
+
+[Achivements](https://youtu.be/IuWkKJ2mwBc)
+
+ 
+
+More detailed description of the project (10min)
+------------------------------------------------
+
+[Descriptions](https://youtu.be/Pi0Aft6FyMk)
